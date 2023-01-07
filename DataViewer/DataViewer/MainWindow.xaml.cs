@@ -24,5 +24,22 @@ namespace DataViewer
         {
             InitializeComponent();
         }
+
+        private void btnLogin_Click(object sender, RoutedEventArgs e)
+        {
+            if((tbUsername.Text == "dat") && (pbPassword.Password == "123"))
+            {
+                MessageBox.Show("Đăng nhập thành công");
+            }
+            else
+            {
+                MessageBox.Show("Sai tên đăng nhập hoặc mật khẩu");
+            }
+        }
+
+        private void btnSignup_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

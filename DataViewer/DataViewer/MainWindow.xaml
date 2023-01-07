@@ -6,7 +6,20 @@
         xmlns:local="clr-namespace:DataViewer"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
+    <WrapPanel Orientation="Vertical">
+        <TextBlock>Quản lý máy bơm</TextBlock>
+        <WrapPanel>
+            <TextBlock>Tên đăng nhập: </TextBlock>
+            <TextBox x:Name="tbUsername" Width="100"></TextBox>
+        </WrapPanel>
+        <WrapPanel>
+            <TextBlock>Mật khẩu: </TextBlock>
+            <PasswordBox x:Name="pbPassword" Width="100"></PasswordBox>
+        </WrapPanel>
+        <WrapPanel Orientation="Horizontal">
+            <Button x:Name="btnLogin" Margin="5" Click="btnLogin_Click">Đăng nhập</Button>
+            <Button x:Name="btnSignup" Margin="5" Click="btnSignup_Click">Đăng ký</Button>
+        </WrapPanel>
         
-    </Grid>
+    </WrapPanel>
 </Window>

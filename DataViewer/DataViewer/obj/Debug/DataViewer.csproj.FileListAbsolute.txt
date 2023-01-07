@@ -1,0 +1,15 @@
+D:\Personal\DATN2022\DATN2022.DesktopApp\DataViewer\DataViewer\bin\Debug\DataViewer.exe.config
+D:\Personal\DATN2022\DATN2022.DesktopApp\DataViewer\DataViewer\bin\Debug\DataViewer.exe
+D:\Personal\DATN2022\DATN2022.DesktopApp\DataViewer\DataViewer\bin\Debug\DataViewer.pdb
+D:\Personal\DATN2022\DATN2022.DesktopApp\DataViewer\DataViewer\obj\Debug\DataViewer.csproj.AssemblyReference.cache
+D:\Personal\DATN2022\DATN2022.DesktopApp\DataViewer\DataViewer\obj\Debug\MainWindow.g.cs
+D:\Personal\DATN2022\DATN2022.DesktopApp\DataViewer\DataViewer\obj\Debug\App.g.cs
+D:\Personal\DATN2022\DATN2022.DesktopApp\DataViewer\DataViewer\obj\Debug\DataViewer_MarkupCompile.cache
+D:\Personal\DATN2022\DATN2022.DesktopApp\DataViewer\DataViewer\obj\Debug\DataViewer_MarkupCompile.lref
+D:\Personal\DATN2022\DATN2022.DesktopApp\DataViewer\DataViewer\obj\Debug\MainWindow.baml
+D:\Personal\DATN2022\DATN2022.DesktopApp\DataViewer\DataViewer\obj\Debug\DataViewer.g.resources
+D:\Personal\DATN2022\DATN2022.DesktopApp\DataViewer\DataViewer\obj\Debug\DataViewer.Properties.Resources.resources
+D:\Personal\DATN2022\DATN2022.DesktopApp\DataViewer\DataViewer\obj\Debug\DataViewer.csproj.GenerateResource.cache
+D:\Personal\DATN2022\DATN2022.DesktopApp\DataViewer\DataViewer\obj\Debug\DataViewer.csproj.CoreCompileInputs.cache
+D:\Personal\DATN2022\DATN2022.DesktopApp\DataViewer\DataViewer\obj\Debug\DataViewer.exe
+D:\Personal\DATN2022\DATN2022.DesktopApp\DataViewer\DataViewer\obj\Debug\DataViewer.pdb

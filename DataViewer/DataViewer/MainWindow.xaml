@@ -6,20 +6,56 @@
         xmlns:local="clr-namespace:DataViewer"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <WrapPanel Orientation="Vertical">
-        <TextBlock>Quản lý máy bơm</TextBlock>
-        <WrapPanel>
-            <TextBlock>Tên đăng nhập: </TextBlock>
-            <TextBox x:Name="tbUsername" Width="100"></TextBox>
-        </WrapPanel>
-        <WrapPanel>
-            <TextBlock>Mật khẩu: </TextBlock>
-            <PasswordBox x:Name="pbPassword" Width="100"></PasswordBox>
-        </WrapPanel>
-        <WrapPanel Orientation="Horizontal">
-            <Button x:Name="btnLogin" Margin="5" Click="btnLogin_Click">Đăng nhập</Button>
-            <Button x:Name="btnSignup" Margin="5" Click="btnSignup_Click">Đăng ký</Button>
-        </WrapPanel>
-        
-    </WrapPanel>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200*" />
+            <ColumnDefinition Width="600*" />
+        </Grid.ColumnDefinitions>
+
+        <Grid.Resources>
+            <Style TargetType="Button">
+                <Setter Property="Height" Value="50"></Setter>
+                <Setter Property="FontSize" Value="20"></Setter>
+            </Style>
+        </Grid.Resources>
+        <Border Grid.Column="0" BorderThickness="0 0 3 0" BorderBrush="Black">
+            <StackPanel Background="Aqua" Width="200">
+                <TextBlock Height="100"></TextBlock>
+                <Button>Chọn khu vực</Button>
+                <Button>Về chúng tôi</Button>
+                <Button>Thoát</Button>
+                <TextBlock Height="300"></TextBlock>
+            </StackPanel>
+        </Border>
+
+        <Border Grid.Column="1" BorderThickness="3 0 0 0" BorderBrush="Black">
+            <StackPanel>
+                <TextBlock Height="100" FontSize="40" TextAlignment="Center">Pump logger</TextBlock>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="100*"/>
+                        <RowDefinition Height="100*"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100*" />
+                        <ColumnDefinition Width="100*" />
+                        <ColumnDefinition Width="100*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Grid Grid.Row="0" Grid.Column="0" Background="Red" Height="80" Width="40">
+                        <TextBlock FontSize="30">1</TextBlock>
+                    </Grid>
+                    <Rectangle Grid.Row="0" Grid.Column="1" Fill="Green" Height="80" Width="40"></Rectangle>
+                    <Rectangle Grid.Row="0" Grid.Column="2" Fill="Blue" Height="80" Width="40"></Rectangle>
+
+                    <Rectangle Grid.Row="1" Grid.Column="0" Fill="Red" Height="80" Width="40"></Rectangle>
+                    <Rectangle Grid.Row="1" Grid.Column="1" Fill="Green" Height="80" Width="40"></Rectangle>
+                    <Rectangle Grid.Row="1" Grid.Column="2" Fill="Blue" Height="80" Width="40"></Rectangle>
+
+                </Grid>
+            </StackPanel>
+        </Border>
+    </Grid>
 </Window>

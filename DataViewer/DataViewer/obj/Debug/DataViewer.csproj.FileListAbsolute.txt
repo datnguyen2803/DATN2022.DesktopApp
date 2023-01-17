@@ -13,7 +13,6 @@ D:\Personal\DATN2022\DATN2022.DesktopApp\DataViewer\DataViewer\obj\Debug\DataVie
 D:\Personal\DATN2022\DATN2022.DesktopApp\DataViewer\DataViewer\obj\Debug\DataViewer.csproj.CoreCompileInputs.cache
 D:\Personal\DATN2022\DATN2022.DesktopApp\DataViewer\DataViewer\obj\Debug\DataViewer.exe
 D:\Personal\DATN2022\DATN2022.DesktopApp\DataViewer\DataViewer\obj\Debug\DataViewer.pdb
-D:\1BK\1.Subjects\2.DA_TT\DATN2\DataViewer\DATN2022.DesktopApp\DataViewer\DataViewer\obj\Debug\DataViewer.csprojAssemblyReference.cache
 D:\1BK\1.Subjects\2.DA_TT\DATN2\DataViewer\DATN2022.DesktopApp\DataViewer\DataViewer\obj\Debug\Login_window.g.cs
 D:\1BK\1.Subjects\2.DA_TT\DATN2\DataViewer\DATN2022.DesktopApp\DataViewer\DataViewer\obj\Debug\MainWindow.g.cs
 D:\1BK\1.Subjects\2.DA_TT\DATN2\DataViewer\DATN2022.DesktopApp\DataViewer\DataViewer\obj\Debug\App.g.cs
@@ -30,3 +29,12 @@ D:\1BK\1.Subjects\2.DA_TT\DATN2\DataViewer\DATN2022.DesktopApp\DataViewer\DataVi
 D:\1BK\1.Subjects\2.DA_TT\DATN2\DataViewer\DATN2022.DesktopApp\DataViewer\DataViewer\obj\Debug\DataViewer.Properties.Resources.resources
 D:\1BK\1.Subjects\2.DA_TT\DATN2\DataViewer\DATN2022.DesktopApp\DataViewer\DataViewer\obj\Debug\DataViewer.csproj.GenerateResource.cache
 D:\1BK\1.Subjects\2.DA_TT\DATN2\DataViewer\DATN2022.DesktopApp\DataViewer\DataViewer\obj\Debug\DataViewer.csproj.CoreCompileInputs.cache
+D:\1BK\1.Subjects\2.DA_TT\DATN2\DataViewer\DATN2022.DesktopApp\DataViewer\DataViewer\obj\Debug\DataViewer.csproj.AssemblyReference.cache
+D:\1BK\1.Subjects\2.DA_TT\DATN2\DataViewer\DATN2022.DesktopApp\DataViewer\DataViewer\obj\Debug\DataViewer.csproj.SuggestedBindingRedirects.cache
+D:\1BK\1.Subjects\2.DA_TT\DATN2\DataViewer\DATN2022.DesktopApp\DataViewer\DataViewer\bin\Debug\MaterialDesignColors.dll
+D:\1BK\1.Subjects\2.DA_TT\DATN2\DataViewer\DATN2022.DesktopApp\DataViewer\DataViewer\bin\Debug\MaterialDesignColors.pdb
+D:\1BK\1.Subjects\2.DA_TT\DATN2\DataViewer\DATN2022.DesktopApp\DataViewer\DataViewer\obj\Debug\App.baml
+D:\1BK\1.Subjects\2.DA_TT\DATN2\DataViewer\DATN2022.DesktopApp\DataViewer\DataViewer\obj\Debug\DataViewer.csproj.CopyComplete
+D:\1BK\1.Subjects\2.DA_TT\DATN2\DataViewer\DATN2022.DesktopApp\DataViewer\DataViewer\bin\Debug\MaterialDesignThemes.Wpf.dll
+D:\1BK\1.Subjects\2.DA_TT\DATN2\DataViewer\DATN2022.DesktopApp\DataViewer\DataViewer\bin\Debug\MaterialDesignThemes.Wpf.pdb
+D:\1BK\1.Subjects\2.DA_TT\DATN2\DataViewer\DATN2022.DesktopApp\DataViewer\DataViewer\bin\Debug\MaterialDesignThemes.Wpf.xml

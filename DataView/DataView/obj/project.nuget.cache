@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "QTMTwdZNIGGTxrVEZ3n/jPSfe9AsfLw/8zTK18Qhx90GrsJFGNWZ9TsS2gtJ4d2NhvGQ0dGn5+o8jQg/3kfs+g==",
+  "success": true,
+  "projectFilePath": "D:\\1BK\\1.Subjects\\2.DA_TT\\DATN2\\DataViewer\\DATN2022.DesktopApp\\DataView\\DataView\\DataView.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\DatChaos\\.nuget\\packages\\materialdesigncolors\\2.1.0\\materialdesigncolors.2.1.0.nupkg.sha512",
+    "C:\\Users\\DatChaos\\.nuget\\packages\\materialdesignthemes\\4.7.0\\materialdesignthemes.4.7.0.nupkg.sha512",
+    "C:\\Users\\DatChaos\\.nuget\\packages\\microsoft.xaml.behaviors.wpf\\1.1.39\\microsoft.xaml.behaviors.wpf.1.1.39.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:DataViewer"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
@@ -44,16 +45,24 @@
                         <ColumnDefinition Width="100*" />
                     </Grid.ColumnDefinitions>
 
-                    <Grid Grid.Row="0" Grid.Column="0" Background="Red" Height="80" Width="40">
-                        <TextBlock FontSize="30">1</TextBlock>
+                    <Grid Grid.Row="0" Grid.Column="0" Background="Red" Height="80">
+                        <TextBlock FontSize="30" Margin="20">Motor 1</TextBlock>
                     </Grid>
-                    <Rectangle Grid.Row="0" Grid.Column="1" Fill="Green" Height="80" Width="40"></Rectangle>
-                    <Rectangle Grid.Row="0" Grid.Column="2" Fill="Blue" Height="80" Width="40"></Rectangle>
-
-                    <Rectangle Grid.Row="1" Grid.Column="0" Fill="Red" Height="80" Width="40"></Rectangle>
-                    <Rectangle Grid.Row="1" Grid.Column="1" Fill="Green" Height="80" Width="40"></Rectangle>
-                    <Rectangle Grid.Row="1" Grid.Column="2" Fill="Blue" Height="80" Width="40"></Rectangle>
-
+                    <Grid Grid.Row="0" Grid.Column="1" Background="Red" Height="80">
+                        <TextBlock FontSize="30">Motor 2</TextBlock>
+                    </Grid>
+                    <Grid Grid.Row="0" Grid.Column="2" Background="Red" Height="80">
+                        <TextBlock FontSize="30">Motor 3</TextBlock>
+                    </Grid>
+                    <Grid Grid.Row="1" Grid.Column="0" Background="Red" Height="80">
+                        <TextBlock FontSize="30">Motor 4</TextBlock>
+                    </Grid>
+                    <Grid Grid.Row="1" Grid.Column="1" Background="Red" Height="80">
+                        <TextBlock FontSize="30">Motor 5</TextBlock>
+                    </Grid>
+                    <Grid Grid.Row="1" Grid.Column="2" Background="Red" Height="80">
+                        <TextBlock FontSize="30">Motor 6</TextBlock>
+                    </Grid>
                 </Grid>
             </StackPanel>
         </Border>

@@ -4,10 +4,19 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:DataView.UserControlDAT"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             Name="ucControlBar"
              >
+    
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName = "MouseDown">
+            <i:InvokeCommandAction Command="{Binding MouseMoveWindowCommand}" 
+                                   CommandParameter="{Binding ElementName=ucControlBar}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
     <Grid>
         <materialDesign:ColorZone Mode="PrimaryLight">
             <DockPanel>
@@ -18,22 +27,34 @@
                     <TextBlock
                     Margin="16,0,0,0"
                     VerticalAlignment="Center"
-                    Text="Theo dõi máy bơm"
+                    Text="{Binding Tag,ElementName=ucControlBar}"
                                 FontSize="30"/>
                 </StackPanel>
-                
+
                 <StackPanel DockPanel.Dock="Right"
                             Background="Transparent"
                         Orientation="Horizontal" HorizontalAlignment="Right">
-                    <Button ToolTip="Minimize" Background="MediumPurple">
-                        <materialDesign:PackIcon Kind="WindowMinimize" />
+                    
+                    <Button Command="{Binding MinimizeWindowCommand}"
+                            CommandParameter="{Binding ElementName=ucControlBar}"
+                            ToolTip="Minimize" 
+                            Background="MediumPurple">
+                            <materialDesign:PackIcon Kind="WindowMinimize" />
                     </Button>
-                    <Button ToolTip="Maximize">
-                        <materialDesign:PackIcon Kind="WindowMaximize" />
+                    
+                    <Button Command="{Binding MaximizeWindowCommand}"
+                            CommandParameter="{Binding ElementName=ucControlBar}"
+                            ToolTip="Maximize">
+                            <materialDesign:PackIcon Kind="WindowMaximize" />
                     </Button>
-                    <Button ToolTip="Close" Background="OrangeRed">
-                        <materialDesign:PackIcon  Kind="WindowClose" />
+                    
+                    <Button Command="{Binding CloseWindowCommand}"
+                            CommandParameter="{Binding ElementName=ucControlBar}"
+                            ToolTip="Close" 
+                            Background="OrangeRed">
+                            <materialDesign:PackIcon  Kind="WindowClose" />
                     </Button>
+                    
                 </StackPanel>
             </DockPanel>
         </materialDesign:ColorZone>

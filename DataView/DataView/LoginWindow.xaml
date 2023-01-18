@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:DataView"
         mc:Ignorable="d"
         Title="Đăng nhập" Height="450" Width="800"
+        Name="loginWindow"
         
         xmlns:uc="clr-namespace:DataView.UserControlDAT"
         ResizeMode="NoResize"
@@ -18,7 +19,9 @@
         TextOptions.TextFormattingMode="Ideal"
         TextOptions.TextRenderingMode="Auto"
         Background="{DynamicResource MaterialDesignPaper}"
-        FontFamily="{DynamicResource MaterialDesignFont}">
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        
+        WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
@@ -26,7 +29,7 @@
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0">
-            <uc:ControlBarUC></uc:ControlBarUC>
+            <uc:ControlBarUC Tag="{Binding Title, ElementName=loginWindow}"></uc:ControlBarUC>
         </Grid>
         <Grid Grid.Row="1">
             <materialDesign:Card Width="400" Height="200" HorizontalAlignment="Center" VerticalAlignment="Center">

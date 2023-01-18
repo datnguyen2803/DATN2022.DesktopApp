@@ -50,6 +50,25 @@
         "frameworkReferences": [
           "Microsoft.WindowsDesktop.App.WPF"
         ]
+      },
+      "System.Windows.Interactivity.WPF/2.0.20525": {
+        "type": "package",
+        "compile": {
+          "lib/net40/Microsoft.Expression.Interactions.dll": {
+            "related": ".xml"
+          },
+          "lib/net40/System.Windows.Interactivity.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net40/Microsoft.Expression.Interactions.dll": {
+            "related": ".xml"
+          },
+          "lib/net40/System.Windows.Interactivity.dll": {
+            "related": ".xml"
+          }
+        }
       }
     }
   },
@@ -143,32 +162,44 @@
         "microsoft.xaml.behaviors.wpf.nuspec",
         "tools/Install.ps1"
       ]
+    },
+    "System.Windows.Interactivity.WPF/2.0.20525": {
+      "sha512": "0r+Le4E7hCm4zToUvBzjSUyTcuU3rFeoPa7JyTdWIzR/F7wH6+O/pWkjHIG40hIA0z1wvRdZayvoizA4wcK1dg==",
+      "type": "package",
+      "path": "system.windows.interactivity.wpf/2.0.20525",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net40/Microsoft.Expression.Interactions.dll",
+        "lib/net40/Microsoft.Expression.Interactions.xml",
+        "lib/net40/System.Windows.Interactivity.dll",
+        "lib/net40/System.Windows.Interactivity.xml",
+        "system.windows.interactivity.wpf.2.0.20525.nupkg.sha512",
+        "system.windows.interactivity.wpf.nuspec"
+      ]
     }
   },
   "projectFileDependencyGroups": {
     "net6.0-windows7.0": [
       "MaterialDesignColors >= 2.1.0",
-      "MaterialDesignThemes >= 4.7.0"
+      "MaterialDesignThemes >= 4.7.0",
+      "System.Windows.Interactivity.WPF >= 2.0.20525"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\DatChaos\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\ntdat\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\1BK\\1.Subjects\\2.DA_TT\\DATN2\\DataViewer\\DATN2022.DesktopApp\\DataView\\DataView\\DataView.csproj",
+      "projectUniqueName": "D:\\Personal\\DATN2022\\DATN2022.DesktopApp\\DataView\\DataView\\DataView.csproj",
       "projectName": "DataView",
-      "projectPath": "D:\\1BK\\1.Subjects\\2.DA_TT\\DATN2\\DataViewer\\DATN2022.DesktopApp\\DataView\\DataView\\DataView.csproj",
-      "packagesPath": "C:\\Users\\DatChaos\\.nuget\\packages\\",
-      "outputPath": "D:\\1BK\\1.Subjects\\2.DA_TT\\DATN2\\DataViewer\\DATN2022.DesktopApp\\DataView\\DataView\\obj\\",
+      "projectPath": "D:\\Personal\\DATN2022\\DATN2022.DesktopApp\\DataView\\DataView\\DataView.csproj",
+      "packagesPath": "C:\\Users\\ntdat\\.nuget\\packages\\",
+      "outputPath": "D:\\Personal\\DATN2022\\DATN2022.DesktopApp\\DataView\\DataView\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\DatChaos\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\ntdat\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -201,6 +232,10 @@
           "MaterialDesignThemes": {
             "target": "Package",
             "version": "[4.7.0, )"
+          },
+          "System.Windows.Interactivity.WPF": {
+            "target": "Package",
+            "version": "[2.0.20525, )"
           }
         },
         "imports": [
@@ -225,5 +260,17 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'System.Windows.Interactivity.WPF 2.0.20525' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net6.0-windows7.0'. This package may not be fully compatible with your project.",
+      "libraryId": "System.Windows.Interactivity.WPF",
+      "targetGraphs": [
+        "net6.0-windows7.0"
+      ]
+    }
+  ]
 }

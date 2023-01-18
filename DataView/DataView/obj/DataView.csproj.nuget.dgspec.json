@@ -1,23 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\1BK\\1.Subjects\\2.DA_TT\\DATN2\\DataViewer\\DATN2022.DesktopApp\\DataView\\DataView\\DataView.csproj": {}
+    "D:\\Personal\\DATN2022\\DATN2022.DesktopApp\\DataView\\DataView\\DataView.csproj": {}
   },
   "projects": {
-    "D:\\1BK\\1.Subjects\\2.DA_TT\\DATN2\\DataViewer\\DATN2022.DesktopApp\\DataView\\DataView\\DataView.csproj": {
+    "D:\\Personal\\DATN2022\\DATN2022.DesktopApp\\DataView\\DataView\\DataView.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\1BK\\1.Subjects\\2.DA_TT\\DATN2\\DataViewer\\DATN2022.DesktopApp\\DataView\\DataView\\DataView.csproj",
+        "projectUniqueName": "D:\\Personal\\DATN2022\\DATN2022.DesktopApp\\DataView\\DataView\\DataView.csproj",
         "projectName": "DataView",
-        "projectPath": "D:\\1BK\\1.Subjects\\2.DA_TT\\DATN2\\DataViewer\\DATN2022.DesktopApp\\DataView\\DataView\\DataView.csproj",
-        "packagesPath": "C:\\Users\\DatChaos\\.nuget\\packages\\",
-        "outputPath": "D:\\1BK\\1.Subjects\\2.DA_TT\\DATN2\\DataViewer\\DATN2022.DesktopApp\\DataView\\DataView\\obj\\",
+        "projectPath": "D:\\Personal\\DATN2022\\DATN2022.DesktopApp\\DataView\\DataView\\DataView.csproj",
+        "packagesPath": "C:\\Users\\ntdat\\.nuget\\packages\\",
+        "outputPath": "D:\\Personal\\DATN2022\\DATN2022.DesktopApp\\DataView\\DataView\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\DatChaos\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ntdat\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -50,6 +47,10 @@
             "MaterialDesignThemes": {
               "target": "Package",
               "version": "[4.7.0, )"
+            },
+            "System.Windows.Interactivity.WPF": {
+              "target": "Package",
+              "version": "[2.0.20525, )"
             }
           },
           "imports": [

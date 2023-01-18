@@ -5,20 +5,27 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace DataView.ViewModel
 {
-    public class MainViewModel
+    public class MainViewModel : BaseViewModel
     {
-        public bool IsLoad = false;
+        #region commands
+        public ICommand LoadedWindowCommand { get; set; }
+        #endregion
+
+        public bool IsLoaded = false;
         public MainViewModel()
         {
-            if (!IsLoad)
+            LoadedWindowCommand = new RelayCommand<object>((p) => { return true; }, (p) =>
             {
-                IsLoad = true;
+                IsLoaded = true;
                 LoginWindow loginWindow = new LoginWindow();
                 loginWindow.ShowDialog();
             }
+            );
         }
     }
 }

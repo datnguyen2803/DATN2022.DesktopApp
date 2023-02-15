@@ -25,6 +25,16 @@ namespace DataView
         {
             InitializeComponent();
         }
+
+        private void Card0_PreviewMouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            this.Card0_Status.Text = "Status: nice";
+        }
+
+        private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 
 }

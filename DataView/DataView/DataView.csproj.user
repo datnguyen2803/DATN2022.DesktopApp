@@ -10,7 +10,19 @@
     <Compile Update="AddPumpWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="GraphWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="LoginWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="PumpMenuWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="StationListWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="StationMenuWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="UserControlDAT\ControlBarUC.xaml.cs">
@@ -21,13 +33,25 @@
     <Page Update="AddPumpWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="GraphWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="LoginWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="PumpMenuWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="ResourceXAML\MainResource.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="StationListWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="StationMenuWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UserControlDAT\ControlBarUC.xaml">

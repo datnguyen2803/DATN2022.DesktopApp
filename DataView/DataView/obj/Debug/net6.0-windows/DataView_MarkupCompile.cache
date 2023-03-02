@@ -1,20 +1,20 @@
 ﻿DataView
-1.0.0.0
+
 
 winexe
 C#
 .cs
-d:\1BK\DATN20221\DATN2022.DesktopApp\DataView\DataView\obj\Debug\net6.0-windows\
+D:\1BK\DATN20221\DATN2022.DesktopApp\DataView\DataView\obj\Debug\net6.0-windows\
 DataView
 none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
-d:\1BK\DATN20221\DATN2022.DesktopApp\DataView\DataView\App.xaml
-5-1176721826
+D:\1BK\DATN20221\DATN2022.DesktopApp\DataView\DataView\App.xaml
+91921179799
 
-12-1188392642
-199-1350405661
-AddPumpWindow.xaml;LoginWindow.xaml;MainWindow.xaml;ResourceXAML\MainResource.xaml;UserControlDAT\ControlBarUC.xaml;
+191243734030
+200953821217
+AddPumpWindow.xaml;GraphWindow.xaml;LoginWindow.xaml;MainWindow.xaml;PumpMenuWindow.xaml;ResourceXAML\MainResource.xaml;StationListWindow.xaml;StationMenuWindow.xaml;UserControlDAT\ControlBarUC.xaml;
 
-True
+False
 

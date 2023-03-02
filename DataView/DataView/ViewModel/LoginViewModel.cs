@@ -1,9 +1,13 @@
-﻿using System;
+﻿using DataView.DataModel;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
+using System.Net.Http;
 using System.Runtime.CompilerServices;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -46,14 +50,23 @@ namespace DataView.ViewModel
             {
                 // do nothing
             }
-            if ((Username == "admin") && (Password == "admin"))
+            //if ((Username == "admin") && (Password == "admin"))
+            //{
+            //    IsLogin = true;
+            //}
+            //else
+            //{
+            //    IsLogin = false;
+            //}
+
+            UserModel newRequest = new UserModel()
             {
-                IsLogin = true;
-            }
-            else
-            {
-                IsLogin = false;
-            }
+                Id = 0,
+                Name = Username,
+                Password = Password
+            };
+
+            GetLogin(newRequest);
 
             if (IsLogin == true)
             {
@@ -64,6 +77,44 @@ namespace DataView.ViewModel
                 MessageBox.Show("Sai tài khoản hoặc mật khẩu");
             }
         }
+
+        private async void GetLogin(UserModel _user)
+        {
+            var handler = new WinHttpHandler();
+            HttpClient client = new HttpClient(handler);
+            //client.BaseAddress = new Uri("https://localhost:44393/");
+            //client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+
+
+            //HttpResponseMessage response = client.GetAsync("api/user").Result;
+            //Trace.WriteLine(response);
+
+            var JsonData = JsonSerializer.Serialize(_user);
+            Trace.WriteLine("datchaos check" + JsonData);
+
+            var request = new HttpRequestMessage
+            {
+                Method = HttpMethod.Get,
+                RequestUri = new Uri("https://localhost:44393/api/user/login"),
+                Content = new StringContent(JsonData)
+            };
+            
+
+            var response = await client.SendAsync(request);
+
+            if (response.IsSuccessStatusCode)
+            {
+                string myres = response.Content.ReadAsStringAsync().Result;
+                IsLogin = true;
+            }
+            else
+            {
+                MessageBox.Show("Error Code: " + response.StatusCode);
+                IsLogin = false;
+            }
+        }
+
+
         private void Exit(Window p)
         {
             if(p == null)

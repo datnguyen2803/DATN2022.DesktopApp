@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -24,6 +25,25 @@ namespace DataView
         public MainWindow()
         {
             InitializeComponent();
+            //GetData();
+        }
+
+        private void GetData()
+        {
+            HttpClient client = new HttpClient();
+            client.BaseAddress = new Uri("https://localhost:44393/");
+            client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+            HttpResponseMessage response = client.GetAsync("api/hello?id=1").Result;
+
+            if(response.IsSuccessStatusCode)
+            {
+                string myres = response.Content.ReadAsStringAsync().Result;
+                this.Card0_Status.Text = myres;
+            }
+            else
+            {
+                MessageBox.Show("Error Code" + response.StatusCode);
+            }
         }
 
         private void Card0_PreviewMouseDoubleClick(object sender, MouseButtonEventArgs e)
@@ -31,10 +51,6 @@ namespace DataView
             this.Card0_Status.Text = "Status: nice";
         }
 
-        private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
     }
 
 }

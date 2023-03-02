@@ -1,0 +1,236 @@
+﻿<Window x:Class="DataView.StationMenuWindow"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+	xmlns:local="clr-namespace:DataView"
+		mc:Ignorable="d"
+		Title="Danh sách máy bơm" Height="450" Width="800"
+		Name="stationMenuWindow"
+		DataContext="{StaticResource StationVM}"
+        
+	xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+		TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+		TextElement.FontWeight="Regular"
+		TextElement.FontSize="13"
+		TextOptions.TextFormattingMode="Ideal"
+		TextOptions.TextRenderingMode="Auto"
+		Background="{DynamicResource MaterialDesignPaper}"
+		FontFamily="{DynamicResource MaterialDesignFont}"
+		WindowStartupLocation="CenterScreen"
+        
+        >
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName = "Loaded">
+            <i:InvokeCommandAction Command="{Binding LoadedWindowCommand}" CommandParameter="{Binding ElementName=stationMenuWindow}" />
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+
+    <Window.Resources>
+
+        <Style x:Key="PumpCard" TargetType="materialDesign:Card">
+            <Setter Property="Margin" Value="10" />
+            <Setter Property="Padding" Value="8 8 8 8" />
+            <Setter Property="Background" Value="{DynamicResource PrimaryHueLightBrush}" />
+            <Setter Property="Foreground" Value="{DynamicResource PrimaryHueLightForegroundBrush}" />
+        </Style>
+
+        <Style x:Key="CardTitleText" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="30" />
+        </Style>
+
+        <Style x:Key="CardBodyText" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="16" />
+        </Style>
+
+    </Window.Resources>
+
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0" HorizontalAlignment="Left" >
+            <materialDesign:Card>
+                <TabControl
+				materialDesign:ColorZoneAssist.Mode="Standard"
+				materialDesign:ElevationAssist.Elevation="Dp0"
+				Style="{StaticResource MaterialDesignNavigationRailTabControl}">
+                    <TabItem>
+                        <TabItem.Header>
+                            <StackPanel Width="auto" Height="auto">
+                                <materialDesign:PackIcon
+									Width="24"
+									Height="24"
+									HorizontalAlignment="Center"
+									Kind="ClockOutline" />
+                                <TextBlock HorizontalAlignment="Center" Text="Hiện tại" />
+                            </StackPanel>
+                        </TabItem.Header>
+                    </TabItem>
+                    <TabItem>
+                        <TabItem.Header>
+                            <StackPanel Width="auto" Height="auto">
+                                <materialDesign:PackIcon
+									Width="24"
+									Height="24"
+									HorizontalAlignment="Center"
+									Kind="HomeSearchOutline" />
+                                <TextBlock HorizontalAlignment="Center" Text="Khu vực" />
+                            </StackPanel>
+                        </TabItem.Header>
+                    </TabItem>
+                    <TabItem>
+                        <TabItem.Header>
+                            <StackPanel
+			Width="auto"
+			Height="auto">
+                                <materialDesign:PackIcon
+			Width="24"
+			Height="24"
+			HorizontalAlignment="Center"
+			Kind="InformationOutline" />
+                                <TextBlock
+			HorizontalAlignment="Center"
+			Text="About" />
+                            </StackPanel>
+                        </TabItem.Header>
+                    </TabItem>
+                    <TabItem>
+                        <TabItem.Header>
+                            <StackPanel
+			Width="auto"
+			Height="auto">
+                                <materialDesign:PackIcon
+			Width="24"
+			Height="24"
+			HorizontalAlignment="Center"
+			Kind="ExitToApp" />
+                                <TextBlock
+			HorizontalAlignment="Center"
+			Text="Thoát" />
+                            </StackPanel>
+                        </TabItem.Header>
+                    </TabItem>
+                </TabControl>
+            </materialDesign:Card>
+        </Grid>
+
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1.5*"></RowDefinition>
+                <RowDefinition Height="1.5*"></RowDefinition>
+                <RowDefinition Height="1.5*"></RowDefinition>
+                <RowDefinition Height="7*"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" Height="40" VerticalAlignment="Top">
+                <TextBlock
+				  Style="{StaticResource MaterialDesignHeadline4TextBlock}"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+				  Text="Theo dõi trạng thái" />
+            </Grid>
+            <Grid Grid.Row="1" Margin="5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="8*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <TextBox Grid.Column="0" Margin="10 0 0 0" materialDesign:HintAssist.Hint="Tìm theo tên" />
+                <Button Grid.Column="1" Width="auto" HorizontalAlignment="Right" Margin="0 0 10 0">
+                    <materialDesign:PackIcon Kind="Magnify"/>
+                </Button>
+                <Button Grid.Column="2" Width="auto" HorizontalAlignment="Right" Margin="0 0 10 0">
+                    <materialDesign:PackIcon Kind="FilterMenuOutline" />
+                </Button>
+
+            </Grid>
+            <Grid Grid.Row="2" Height="40" VerticalAlignment="Top">
+                <TextBlock
+				    Style="{StaticResource MaterialDesignHeadline5TextBlock}"
+                    HorizontalAlignment="Left"
+                    Margin="10 0 0 0"
+                    VerticalAlignment="Center"
+                    
+				    Text="Trạm A" />
+            </Grid>
+            <Grid Grid.Row="3">
+                <Grid>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid Grid.Row="0" Grid.Column="0">
+                            <materialDesign:Card x:Name="Card0"
+                            Style="{StaticResource PumpCard}">
+                                <StackPanel>
+                                    <TextBlock Style="{StaticResource CardTitleText}" x:Name="Card0_Title">Máy 01</TextBlock>
+                                    <TextBlock Style="{StaticResource CardBodyText}" x:Name="Card0_Status">Trạng thái: Bật</TextBlock>
+                                </StackPanel>
+                            </materialDesign:Card>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="1">
+                            <materialDesign:Card Style="{StaticResource PumpCard}">
+                                <StackPanel>
+                                    <TextBlock Style="{StaticResource CardTitleText}" x:Name="Card1_Title">Máy 02</TextBlock>
+                                    <TextBlock Style="{StaticResource CardBodyText}" x:Name="Card1_Status">Trạng thái: Bật</TextBlock>
+                                </StackPanel>
+                            </materialDesign:Card>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="2">
+                            <materialDesign:Card Style="{StaticResource PumpCard}">
+                                <StackPanel>
+                                    <TextBlock Style="{StaticResource CardTitleText}" x:Name="Card2_Title">Máy 03</TextBlock>
+                                    <TextBlock Style="{StaticResource CardBodyText}" x:Name="Card2_Status">Trạng thái: Tắt</TextBlock>
+                                </StackPanel>
+                            </materialDesign:Card>
+                        </Grid>
+                        <Grid Grid.Row="1" Grid.Column="0">
+                            <materialDesign:Card Style="{StaticResource PumpCard}">
+                                <StackPanel>
+                                    <TextBlock Style="{StaticResource CardTitleText}" x:Name="Card3_Title">Máy 04</TextBlock>
+                                    <TextBlock Style="{StaticResource CardBodyText}" x:Name="Card3_Status">Trạng thái: Bật</TextBlock>
+                                </StackPanel>
+                            </materialDesign:Card>
+                        </Grid>
+                        <Grid Grid.Row="1" Grid.Column="1">
+                            <materialDesign:Card Style="{StaticResource PumpCard}">
+                                <StackPanel>
+                                    <TextBlock Style="{StaticResource CardTitleText}" x:Name="Card4_Title">Máy 05</TextBlock>
+                                    <TextBlock Style="{StaticResource CardBodyText}" x:Name="Card4_Status">Trạng thái: Tắt</TextBlock>
+                                </StackPanel>
+                            </materialDesign:Card>
+                        </Grid>
+                        <Grid Grid.Row="1" Grid.Column="2">
+                            <materialDesign:Card Style="{StaticResource PumpCard}">
+                                <StackPanel>
+                                    <TextBlock Style="{StaticResource CardTitleText}" x:Name="Card5_Title">Máy 06</TextBlock>
+                                    <TextBlock Style="{StaticResource CardBodyText}" x:Name="Card5_Status">Trạng thái: Tắt</TextBlock>
+                                </StackPanel>
+                            </materialDesign:Card>
+                        </Grid>
+                    </Grid>
+                </Grid>
+            </Grid>
+            <Grid Grid.Row="4">
+                <Button Width="50" Height="50"
+                  Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}"
+                  ToolTip="MaterialDesignFloatingActionMiniLightButton" HorizontalAlignment="Right" Margin="0,10, 10,10">
+                    <materialDesign:PackIcon Kind="Plus" Height="25" Width="25" />
+                </Button>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>
+

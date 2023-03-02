@@ -10,6 +10,7 @@
   <ItemGroup>
     <PackageReference Include="MaterialDesignColors" Version="2.1.0" />
     <PackageReference Include="MaterialDesignThemes" Version="4.7.0" />
+    <PackageReference Include="System.Net.Http.WinHttpHandler" Version="7.0.0" />
     <PackageReference Include="System.Windows.Interactivity.WPF" Version="2.0.20525" />
   </ItemGroup>
 

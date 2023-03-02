@@ -1,8 +1,12 @@
-﻿d:\1BK\DATN20221\DATN2022.DesktopApp\DataView\DataView\obj\Debug\net6.0-windows\GeneratedInternalTypeHelper.g.cs
-Fd:\1BK\DATN20221\DATN2022.DesktopApp\DataView\DataView\App.xaml;;
-Fd:\1BK\DATN20221\DATN2022.DesktopApp\DataView\DataView\AddPumpWindow.xaml;;
-Fd:\1BK\DATN20221\DATN2022.DesktopApp\DataView\DataView\LoginWindow.xaml;;
-Fd:\1BK\DATN20221\DATN2022.DesktopApp\DataView\DataView\MainWindow.xaml;;
-Fd:\1BK\DATN20221\DATN2022.DesktopApp\DataView\DataView\ResourceXAML\MainResource.xaml;;
-Fd:\1BK\DATN20221\DATN2022.DesktopApp\DataView\DataView\UserControlDAT\ControlBarUC.xaml;;
+﻿
+FD:\1BK\DATN20221\DATN2022.DesktopApp\DataView\DataView\App.xaml;;
+FD:\1BK\DATN20221\DATN2022.DesktopApp\DataView\DataView\AddPumpWindow.xaml;;
+FD:\1BK\DATN20221\DATN2022.DesktopApp\DataView\DataView\GraphWindow.xaml;;
+FD:\1BK\DATN20221\DATN2022.DesktopApp\DataView\DataView\LoginWindow.xaml;;
+FD:\1BK\DATN20221\DATN2022.DesktopApp\DataView\DataView\MainWindow.xaml;;
+FD:\1BK\DATN20221\DATN2022.DesktopApp\DataView\DataView\PumpMenuWindow.xaml;;
+FD:\1BK\DATN20221\DATN2022.DesktopApp\DataView\DataView\ResourceXAML\MainResource.xaml;;
+FD:\1BK\DATN20221\DATN2022.DesktopApp\DataView\DataView\StationListWindow.xaml;;
+FD:\1BK\DATN20221\DATN2022.DesktopApp\DataView\DataView\StationMenuWindow.xaml;;
+FD:\1BK\DATN20221\DATN2022.DesktopApp\DataView\DataView\UserControlDAT\ControlBarUC.xaml;;
 

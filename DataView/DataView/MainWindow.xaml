@@ -6,7 +6,7 @@
 	xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
 	xmlns:local="clr-namespace:DataView"
 		mc:Ignorable="d"
-		Title="Theo dõi" Height="450" Width="800"
+		Title="Màn hình chính" Height="450" Width="800"
 		Name="mainWindow"
 		DataContext="{StaticResource MainVM}"
         
@@ -18,7 +18,9 @@
 		TextOptions.TextRenderingMode="Auto"
 		Background="{DynamicResource MaterialDesignPaper}"
 		FontFamily="{DynamicResource MaterialDesignFont}"
-		WindowStartupLocation="CenterScreen">
+		WindowStartupLocation="CenterScreen"
+        
+        >
     <i:Interaction.Triggers>
         <i:EventTrigger EventName = "Loaded">
             <i:InvokeCommandAction Command="{Binding LoadedWindowCommand}" CommandParameter="{Binding ElementName=mainWindow}" />
@@ -55,7 +57,7 @@
                 <TabControl
 				materialDesign:ColorZoneAssist.Mode="Standard"
 				materialDesign:ElevationAssist.Elevation="Dp0"
-				Style="{StaticResource MaterialDesignNavigationRailTabControl}" SelectionChanged="TabControl_SelectionChanged">
+				Style="{StaticResource MaterialDesignNavigationRailTabControl}">
                     <TabItem>
                         <TabItem.Header>
                             <StackPanel Width="auto" Height="auto">
@@ -120,7 +122,7 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="1.5*"></RowDefinition>
                 <RowDefinition Height="1.5*"></RowDefinition>
-                <RowDefinition Height="0.5*"></RowDefinition>
+                <RowDefinition Height="1.5*"></RowDefinition>
                 <RowDefinition Height="7*"></RowDefinition>
                 <RowDefinition Height="auto"></RowDefinition>
             </Grid.RowDefinitions>
@@ -137,14 +139,20 @@
                     <ColumnDefinition Width="*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
 
-                <TextBox Grid.Column="0"  materialDesign:HintAssist.Hint="Tìm theo tên" />
+                <TextBox Grid.Column="0" Margin="10 0 0 0" materialDesign:HintAssist.Hint="Tìm theo tên" />
                 <Button Grid.Column="1" Width="auto" HorizontalAlignment="Right" Margin="0 0 10 0">
                     <materialDesign:PackIcon Kind="Magnify" />
                 </Button>
 
             </Grid>
-            <Grid Grid.Row="2">
-                <Separator Margin="5"></Separator>
+            <Grid Grid.Row="2" Height="40" VerticalAlignment="Top">
+                <TextBlock
+				    Style="{StaticResource MaterialDesignHeadline5TextBlock}"
+                    HorizontalAlignment="Left"
+                    Margin="10 0 0 0"
+                    VerticalAlignment="Center"
+                    
+				    Text="Trạm A" />
             </Grid>
             <Grid Grid.Row="3">
                 <Grid>

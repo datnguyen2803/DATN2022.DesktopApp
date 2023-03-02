@@ -51,6 +51,28 @@
           "Microsoft.WindowsDesktop.App.WPF"
         ]
       },
+      "System.Net.Http.WinHttpHandler/7.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/System.Net.Http.WinHttpHandler.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/System.Net.Http.WinHttpHandler.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net6.0/_._": {}
+        },
+        "runtimeTargets": {
+          "runtimes/win/lib/net6.0/System.Net.Http.WinHttpHandler.dll": {
+            "assetType": "runtime",
+            "rid": "win"
+          }
+        }
+      },
       "System.Windows.Interactivity.WPF/2.0.20525": {
         "type": "package",
         "compile": {
@@ -163,6 +185,37 @@
         "tools/Install.ps1"
       ]
     },
+    "System.Net.Http.WinHttpHandler/7.0.0": {
+      "sha512": "DJjlxpGJMHd7WxTo/WRb9q1tahjZvjer7Xo4rsOKAocrwewpA9L0YLxcKEx0nHQnruiWGgbngSzYt3YUwxc+2A==",
+      "type": "package",
+      "path": "system.net.http.winhttphandler/7.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "buildTransitive/net461/System.Net.Http.WinHttpHandler.targets",
+        "buildTransitive/net462/_._",
+        "buildTransitive/net6.0/_._",
+        "buildTransitive/netcoreapp2.0/System.Net.Http.WinHttpHandler.targets",
+        "lib/net462/System.Net.Http.WinHttpHandler.dll",
+        "lib/net462/System.Net.Http.WinHttpHandler.xml",
+        "lib/net6.0/System.Net.Http.WinHttpHandler.dll",
+        "lib/net6.0/System.Net.Http.WinHttpHandler.xml",
+        "lib/net7.0/System.Net.Http.WinHttpHandler.dll",
+        "lib/net7.0/System.Net.Http.WinHttpHandler.xml",
+        "lib/netstandard2.0/System.Net.Http.WinHttpHandler.dll",
+        "lib/netstandard2.0/System.Net.Http.WinHttpHandler.xml",
+        "runtimes/win/lib/net6.0/System.Net.Http.WinHttpHandler.dll",
+        "runtimes/win/lib/net6.0/System.Net.Http.WinHttpHandler.xml",
+        "runtimes/win/lib/net7.0/System.Net.Http.WinHttpHandler.dll",
+        "runtimes/win/lib/net7.0/System.Net.Http.WinHttpHandler.xml",
+        "system.net.http.winhttphandler.7.0.0.nupkg.sha512",
+        "system.net.http.winhttphandler.nuspec",
+        "useSharedDesignerContext.txt"
+      ]
+    },
     "System.Windows.Interactivity.WPF/2.0.20525": {
       "sha512": "0r+Le4E7hCm4zToUvBzjSUyTcuU3rFeoPa7JyTdWIzR/F7wH6+O/pWkjHIG40hIA0z1wvRdZayvoizA4wcK1dg==",
       "type": "package",
@@ -183,11 +236,12 @@
     "net6.0-windows7.0": [
       "MaterialDesignColors >= 2.1.0",
       "MaterialDesignThemes >= 4.7.0",
+      "System.Net.Http.WinHttpHandler >= 7.0.0",
       "System.Windows.Interactivity.WPF >= 2.0.20525"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Admin\\.nuget\\packages\\": {}
+    "C:\\Users\\Datchaos\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
@@ -195,11 +249,11 @@
       "projectUniqueName": "D:\\1BK\\DATN20221\\DATN2022.DesktopApp\\DataView\\DataView\\DataView.csproj",
       "projectName": "DataView",
       "projectPath": "D:\\1BK\\DATN20221\\DATN2022.DesktopApp\\DataView\\DataView\\DataView.csproj",
-      "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+      "packagesPath": "C:\\Users\\Datchaos\\.nuget\\packages\\",
       "outputPath": "D:\\1BK\\DATN20221\\DATN2022.DesktopApp\\DataView\\DataView\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Datchaos\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -233,6 +287,10 @@
             "target": "Package",
             "version": "[4.7.0, )"
           },
+          "System.Net.Http.WinHttpHandler": {
+            "target": "Package",
+            "version": "[7.0.0, )"
+          },
           "System.Windows.Interactivity.WPF": {
             "target": "Package",
             "version": "[2.0.20525, )"
@@ -257,7 +315,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.200\\RuntimeIdentifierGraph.json"
       }
     }
   },

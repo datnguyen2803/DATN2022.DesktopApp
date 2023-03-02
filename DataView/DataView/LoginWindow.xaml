@@ -22,7 +22,7 @@
         
         WindowStartupLocation="CenterScreen">
     <Grid>
-        <materialDesign:Card Width="400" Height="200" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <materialDesign:Card Width="400" Height="300" HorizontalAlignment="Center" VerticalAlignment="Center">
             <Grid>
                 <Grid.Resources>
                     <Style TargetType="Grid">
@@ -34,18 +34,26 @@
                     <RowDefinition></RowDefinition>
                     <RowDefinition></RowDefinition>
                     <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
                 </Grid.RowDefinitions>
 
                 <Grid Grid.Row="0">
+                    <TextBlock
+                      Style="{StaticResource MaterialDesignHeadline4TextBlock}"
+                      Text="Quản lý máy bơm" 
+                      TextAlignment="Center" />
+                </Grid>
+                <Grid Grid.Row="1">
                     <TextBox
                           VerticalAlignment="Center"
                           materialDesign:HintAssist.Hint="Tên đăng nhập"
                           Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                         Text="{Binding Username}"/>
                 </Grid>
-                <Grid Grid.Row="1">
+                <Grid Grid.Row="2">
                     <PasswordBox
                           x:Name="FloatingPasswordBox"
+                          VerticalAlignment="Center"
                           materialDesign:HintAssist.Foreground="Green"
                           materialDesign:HintAssist.Hint="Mật khẩu"
                           materialDesign:TextFieldAssist.UnderlineBrush="Green"
@@ -57,7 +65,7 @@
                         </i:Interaction.Triggers>
                     </PasswordBox>
                 </Grid>
-                <Grid Grid.Row="2">
+                <Grid Grid.Row="3">
                     <Grid.Resources>
                         <Style TargetType="Button">
                             <Setter Property="Margin" Value="5"></Setter>

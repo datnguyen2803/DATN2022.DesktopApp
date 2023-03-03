@@ -30,19 +30,15 @@
 
     <Window.Resources>
 
-        <Style x:Key="PumpCard" TargetType="materialDesign:Card">
-            <Setter Property="Margin" Value="10" />
-            <Setter Property="Padding" Value="8 8 8 8" />
-            <Setter Property="Background" Value="{DynamicResource PrimaryHueLightBrush}" />
-            <Setter Property="Foreground" Value="{DynamicResource PrimaryHueLightForegroundBrush}" />
+        <Style x:Key="TableHeaderTextBlock" TargetType="TextBlock">
+            <Setter Property="FontSize" Value ="20"/>
+            <Setter Property="TextAlignment" Value ="Left"/>
+            <Setter Property="FontWeight" Value ="Bold"/>
         </Style>
 
-        <Style x:Key="CardTitleText" TargetType="TextBlock">
-            <Setter Property="FontSize" Value="30" />
-        </Style>
-
-        <Style x:Key="CardBodyText" TargetType="TextBlock">
-            <Setter Property="FontSize" Value="16" />
+        <Style x:Key="TableCellTextBlock" TargetType="TextBlock">
+            <Setter Property="FontSize" Value ="15"/>
+            <Setter Property="TextAlignment" Value ="Center"/>
         </Style>
 
     </Window.Resources>
@@ -86,32 +82,32 @@
                     <TabItem>
                         <TabItem.Header>
                             <StackPanel
-			Width="auto"
-			Height="auto">
+			                    Width="auto"
+			                    Height="auto">
                                 <materialDesign:PackIcon
-			Width="24"
-			Height="24"
-			HorizontalAlignment="Center"
-			Kind="InformationOutline" />
+			                        Width="24"
+			                        Height="24"
+			                        HorizontalAlignment="Center"
+			                        Kind="InformationOutline" />
                                 <TextBlock
-			HorizontalAlignment="Center"
-			Text="About" />
+			                        HorizontalAlignment="Center"
+			                        Text="About" />
                             </StackPanel>
                         </TabItem.Header>
                     </TabItem>
                     <TabItem>
                         <TabItem.Header>
                             <StackPanel
-			Width="auto"
-			Height="auto">
+			                    Width="auto"
+			                    Height="auto">
                                 <materialDesign:PackIcon
-			Width="24"
-			Height="24"
-			HorizontalAlignment="Center"
-			Kind="ExitToApp" />
+			                        Width="24"
+			                        Height="24"
+			                        HorizontalAlignment="Center"
+			                        Kind="ExitToApp" />
                                 <TextBlock
-			HorizontalAlignment="Center"
-			Text="Thoát" />
+			                        HorizontalAlignment="Center"
+			                        Text="Thoát" />
                             </StackPanel>
                         </TabItem.Header>
                     </TabItem>
@@ -136,26 +132,60 @@
                 <ListView.View>
                     <GridView>
                         <GridViewColumn
-                            DisplayMemberBinding="{Binding Id}"
-                            Header="STT"
-                            Width="Auto"/>
+                            Width="auto">
+                            <GridViewColumn.Header>
+                                <TextBlock Style="{StaticResource TableHeaderTextBlock}" Text="STT"/>
+                            </GridViewColumn.Header>
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Style="{StaticResource TableCellTextBlock}" Width="50" Text="{Binding Id}" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
                         <GridViewColumn
-                            DisplayMemberBinding="{Binding Name}"
-                            Header="Tên"
-                            Width="Auto"/>
+                            Width="auto">
+                            <GridViewColumn.Header>
+                                <TextBlock Style="{StaticResource TableHeaderTextBlock}" Text="Mã trạm"/>
+                            </GridViewColumn.Header>
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Style="{StaticResource TableCellTextBlock}" Width="50" Text="{Binding Name}" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
                         <GridViewColumn
-                            DisplayMemberBinding="{Binding Address}"
-                            Header="Địa chỉ"
-                            Width="Auto"
-                            />
+                            Width="auto">
+                            <GridViewColumn.Header>
+                                <TextBlock Style="{StaticResource TableHeaderTextBlock}" Text="Địa chỉ"/>
+                            </GridViewColumn.Header>
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Style="{StaticResource TableCellTextBlock}" TextAlignment="Left" Width="100" Text="{Binding Address}" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
                         <GridViewColumn
-                            DisplayMemberBinding="{Binding numberOfPumpOn}"
-                            Header="Số máy bật"
-                            Width="Auto"/>
+                            Width="auto">
+                            <GridViewColumn.Header>
+                                <TextBlock Style="{StaticResource TableHeaderTextBlock}" Text="Số máy bật"/>
+                            </GridViewColumn.Header>
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Style="{StaticResource TableCellTextBlock}" Width="50" Text="{Binding numberOfPumpOn}" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
                         <GridViewColumn
-                            DisplayMemberBinding="{Binding numberOfPumpOff}"
-                            Header="Số máy tắt"
-                            Width="Auto"/>
+                            Width="auto">
+                            <GridViewColumn.Header>
+                                <TextBlock Style="{StaticResource TableHeaderTextBlock}" Text="Số máy tắt"/>
+                            </GridViewColumn.Header>
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Style="{StaticResource TableCellTextBlock}" Width="50" Text="{Binding numberOfPumpOff}" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
                     </GridView>
                 </ListView.View>
             </ListView>

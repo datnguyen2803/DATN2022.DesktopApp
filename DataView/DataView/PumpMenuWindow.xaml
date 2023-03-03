@@ -150,7 +150,7 @@
                         <Image Grid.Row="0" Width="auto" Height="100">
                             <Image.Source>
                                 <BitmapImage DecodePixelWidth="200"  
-                                    UriSource="D:\Personal\DATN2022\DATN2022.DesktopApp\DataView\Image\hadongplace.jpg" />
+                                    UriSource="D:\1BK\DATN20221\DATN2022.DesktopApp\DataView\Image\hadongplace.jpg" />
                             </Image.Source>
                             
                     </Image>

@@ -13,9 +13,7 @@
           "MaterialDesignColors": "2.1.0",
           "MaterialDesignThemes": "4.7.0",
           "System.Net.Http.WinHttpHandler": "7.0.0",
-          "System.Windows.Interactivity.WPF": "2.0.20525",
-          "System.Windows.Controls.DataVisualization.Toolkit": "3.5.40128.1",
-          "WPFToolkit": "3.5.40128.1"
+          "System.Windows.Interactivity.WPF": "2.0.20525"
         },
         "runtime": {
           "DataView.dll": {}
@@ -95,22 +93,6 @@
             "fileVersion": "2.0.20525.0"
           }
         }
-      },
-      "System.Windows.Controls.DataVisualization.Toolkit/3.5.40128.1": {
-        "runtime": {
-          "System.Windows.Controls.DataVisualization.Toolkit.dll": {
-            "assemblyVersion": "3.5.40128.1",
-            "fileVersion": "3.5.50211.1"
-          }
-        }
-      },
-      "WPFToolkit/3.5.40128.1": {
-        "runtime": {
-          "WPFToolkit.dll": {
-            "assemblyVersion": "3.5.40128.1",
-            "fileVersion": "3.5.50211.1"
-          }
-        }
       }
     }
   },
@@ -168,16 +150,6 @@
       "sha512": "sha512-0r+Le4E7hCm4zToUvBzjSUyTcuU3rFeoPa7JyTdWIzR/F7wH6+O/pWkjHIG40hIA0z1wvRdZayvoizA4wcK1dg==",
       "path": "system.windows.interactivity.wpf/2.0.20525",
       "hashPath": "system.windows.interactivity.wpf.2.0.20525.nupkg.sha512"
-    },
-    "System.Windows.Controls.DataVisualization.Toolkit/3.5.40128.1": {
-      "type": "reference",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "WPFToolkit/3.5.40128.1": {
-      "type": "reference",
-      "serviceable": false,
-      "sha512": ""
     }
   }
 }

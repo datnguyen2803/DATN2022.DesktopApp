@@ -81,7 +81,7 @@ namespace DataView.ViewModel
             {
                 new ColumnSeries
                 {
-                    Title = "Bật",
+                    Title = "Số máy bật",
                     Values = new ChartValues<double> { 1, 4, 4, 4 }
                 }
             };
@@ -89,7 +89,7 @@ namespace DataView.ViewModel
             //adding series will update and animate the chart automatically
             pumpStateCollection.Add(new ColumnSeries
             {
-                Title = "Tắt",
+                Title = "Số máy tắt",
                 Values = new ChartValues<double> { 5, 2, 2, 2 }
             });
 
@@ -130,6 +130,27 @@ namespace DataView.ViewModel
             MyStationList.Add(station1);
             MyStationList.Add(station2);
             MyStationList.Add(station3);
+
+            //MyStationList.Add(new CustomStationModel() { Id = 1, Name = "A", Address = "A", numberOfPumpOn = 1, numberOfPumpOff = 2 });
+            //MyStationList.Add(new CustomStationModel() { Id = 1, Name = "A", Address = "A", numberOfPumpOn = 1, numberOfPumpOff = 2 });
+            //MyStationList.Add(new CustomStationModel() { Id = 1, Name = "A", Address = "A", numberOfPumpOn = 1, numberOfPumpOff = 2 });
+            //MyStationList.Add(new CustomStationModel() { Id = 1, Name = "A", Address = "A", numberOfPumpOn = 1, numberOfPumpOff = 2 });
+            //MyStationList.Add(new CustomStationModel() { Id = 1, Name = "A", Address = "A", numberOfPumpOn = 1, numberOfPumpOff = 2 });
+            //MyStationList.Add(new CustomStationModel() { Id = 1, Name = "A", Address = "A", numberOfPumpOn = 1, numberOfPumpOff = 2 });
+            //MyStationList.Add(new CustomStationModel() { Id = 1, Name = "A", Address = "A", numberOfPumpOn = 1, numberOfPumpOff = 2 });
+            //MyStationList.Add(new CustomStationModel() { Id = 1, Name = "A", Address = "A", numberOfPumpOn = 1, numberOfPumpOff = 2 });
+            //MyStationList.Add(new CustomStationModel() { Id = 1, Name = "A", Address = "A", numberOfPumpOn = 1, numberOfPumpOff = 2 });
+            //MyStationList.Add(new CustomStationModel() { Id = 1, Name = "A", Address = "A", numberOfPumpOn = 1, numberOfPumpOff = 2 });
+            //MyStationList.Add(new CustomStationModel() { Id = 1, Name = "A", Address = "A", numberOfPumpOn = 1, numberOfPumpOff = 2 });
+            //MyStationList.Add(new CustomStationModel() { Id = 1, Name = "A", Address = "A", numberOfPumpOn = 1, numberOfPumpOff = 2 });
+            //MyStationList.Add(new CustomStationModel() { Id = 1, Name = "A", Address = "A", numberOfPumpOn = 1, numberOfPumpOff = 2 });
+            //MyStationList.Add(new CustomStationModel() { Id = 1, Name = "A", Address = "A", numberOfPumpOn = 1, numberOfPumpOff = 2 });
+            //MyStationList.Add(new CustomStationModel() { Id = 1, Name = "A", Address = "A", numberOfPumpOn = 1, numberOfPumpOff = 2 });
+            //MyStationList.Add(new CustomStationModel() { Id = 1, Name = "A", Address = "A", numberOfPumpOn = 1, numberOfPumpOff = 2 });
+            //MyStationList.Add(new CustomStationModel() { Id = 1, Name = "A", Address = "A", numberOfPumpOn = 1, numberOfPumpOff = 2 });
+
+
+            MyStationList.Add(new CustomStationModel() { Id = 1, Name = "A", Address = "A", numberOfPumpOn = 1, numberOfPumpOff = 2 });
 
             MyPumpList.Add(new CustomPumpModel() { Id = 1, Name = "01", State = "Bật" });
             MyPumpList.Add(new CustomPumpModel() { Id = 2, Name = "02", State = "Bật" });

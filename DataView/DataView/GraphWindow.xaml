@@ -8,7 +8,7 @@
     xmlns:local="clr-namespace:DataView"
 		mc:Ignorable="d"
 		Title="Biểu đồ trạm" Height="450" Width="800"
-		Name="stationListWindow"
+		Name="graphWindow"
 		DataContext="{StaticResource StationVM}"
         
 	xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
@@ -24,25 +24,21 @@
         >
     <i:Interaction.Triggers>
         <i:EventTrigger EventName = "Loaded">
-            <i:InvokeCommandAction Command="{Binding LoadedWindowCommand}" CommandParameter="{Binding ElementName=pumpMenuWindow}" />
+            <i:InvokeCommandAction Command="{Binding LoadedWindowCommand}" CommandParameter="{Binding ElementName=graphWindow}" />
         </i:EventTrigger>
     </i:Interaction.Triggers>
 
     <Window.Resources>
 
-        <Style x:Key="PumpCard" TargetType="materialDesign:Card">
-            <Setter Property="Margin" Value="10" />
-            <Setter Property="Padding" Value="8 8 8 8" />
-            <Setter Property="Background" Value="#ede7f6" />
-            <Setter Property="Foreground" Value="#1a237e" />
+        <Style x:Key="TableHeaderTextBlock" TargetType="TextBlock">
+            <Setter Property="FontSize" Value ="15"/>
+            <Setter Property="TextAlignment" Value ="Left"/>
+            <Setter Property="FontWeight" Value ="Bold"/>
         </Style>
 
-        <Style x:Key="CardTitleText" TargetType="TextBlock">
-            <Setter Property="FontSize" Value="30" />
-        </Style>
-
-        <Style x:Key="CardBodyText" TargetType="TextBlock">
-            <Setter Property="FontSize" Value="16" />
+        <Style x:Key="TableCellTextBlock" TargetType="TextBlock">
+            <Setter Property="FontSize" Value ="15"/>
+            <Setter Property="TextAlignment" Value ="Center"/>
         </Style>
 
     </Window.Resources>
@@ -138,33 +134,68 @@
                     <ColumnDefinition Width="5*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
 
-                <StackPanel Grid.Column="0">
-                    <TextBlock> Địa chỉ: Hà Đông</TextBlock>
-                    <TextBlock> Tổng máy bơm: 6</TextBlock>
-                    <TextBlock> Máy bật: 2</TextBlock>
-                    <TextBlock> Máy tắt: 4</TextBlock>
+                <Grid Grid.Column="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="8*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <StackPanel Grid.Row="0" Margin="5" Orientation="Horizontal">
+                        <TextBlock FontSize="15" Text="Địa chỉ: "/>
+                        <TextBlock FontSize="15" Text="Hà Đông"/>
+                    </StackPanel>
+                    <StackPanel Grid.Row="1" Margin="5" Orientation="Horizontal">
+                        <TextBlock FontSize="15" Text="Tổng số máy: "/>
+                        <TextBlock FontSize="15" Text="6 "/>
+                        <TextBlock FontSize="15" Text="- Bật"/>
+                        <TextBlock FontSize="15" Text=" (3) "/>
+                        <TextBlock FontSize="15" Text="- Tắt"/>
+                        <TextBlock FontSize="15" Text=" (3)"/>
+                    </StackPanel>
+
+                    <ListView Grid.Row="2" Margin="0 0 0 10" ItemsSource="{Binding MyPumpList}">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn
+                            Width="auto">
+                                    <GridViewColumn.Header>
+                                        <TextBlock Style="{StaticResource TableHeaderTextBlock}" Text="STT"/>
+                                    </GridViewColumn.Header>
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Style="{StaticResource TableCellTextBlock}" Width="40" Text="{Binding Id}" />
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+
+                                <GridViewColumn
+                            Width="auto">
+                                    <GridViewColumn.Header>
+                                        <TextBlock Style="{StaticResource TableHeaderTextBlock}" Text="Máy"/>
+                                    </GridViewColumn.Header>
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Style="{StaticResource TableCellTextBlock}" Width="40" Text="{Binding Name}" />
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+
+                                <GridViewColumn
+                            Width="auto">
+                                    <GridViewColumn.Header>
+                                        <TextBlock Style="{StaticResource TableHeaderTextBlock}" Text="Trạng thái"/>
+                                    </GridViewColumn.Header>
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Style="{StaticResource TableCellTextBlock}" Width="50" Text="{Binding State}" />
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </Grid>
                 
-                    <ListView Grid.Column="0" Margin="0 0 0 10"
-                ItemsSource="{Binding MyPumpList}">
-                    <ListView.View>
-                        <GridView>
-                            <GridViewColumn
-                            DisplayMemberBinding="{Binding Id}"
-                            Header="STT"
-                            Width="auto"/>
-                            <GridViewColumn
-                            DisplayMemberBinding="{Binding Name}"
-                            Header="Tên máy"
-                            Width="auto"/>
-                            <GridViewColumn
-                            DisplayMemberBinding="{Binding State}"
-                            Header="Trạng thái"
-                            Width="auto"
-                            />
-                        </GridView>
-                    </ListView.View>
-                </ListView>
-                </StackPanel>
                 <Grid Grid.Column="1">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="2*"></RowDefinition>
@@ -176,7 +207,7 @@
 				        Style="{StaticResource MaterialDesignHeadline6TextBlock}"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
-				        Text="Số máy trong trạm" />
+				        Text="Biểu đồ tình trạng trạm" />
 
                     <lvc:CartesianChart Margin="5" Grid.Row="1" Series="{Binding pumpStateCollection}" LegendLocation="Bottom">
                         <lvc:CartesianChart.AxisX>

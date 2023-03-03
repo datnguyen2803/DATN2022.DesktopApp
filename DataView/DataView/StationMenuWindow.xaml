@@ -6,7 +6,7 @@
 	xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
 	xmlns:local="clr-namespace:DataView"
 		mc:Ignorable="d"
-		Title="Danh sách máy bơm" Height="450" Width="800"
+		Title="Menu trạm" Height="450" Width="800"
 		Name="stationMenuWindow"
 		DataContext="{StaticResource StationVM}"
         
@@ -228,6 +228,11 @@
                   Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}"
                   ToolTip="MaterialDesignFloatingActionMiniLightButton" HorizontalAlignment="Right" Margin="0,10, 10,10">
                     <materialDesign:PackIcon Kind="Plus" Height="25" Width="25" />
+                </Button>
+                <Button Width="50" Height="50"
+                  Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}"
+                  ToolTip="MaterialDesignFloatingActionMiniLightButton" HorizontalAlignment="Right" Margin="0,10, 80,10">
+                    <materialDesign:PackIcon Kind="ChartLine" Height="25" Width="25" />
                 </Button>
             </Grid>
         </Grid>

@@ -1,12 +1,195 @@
 ﻿<Window x:Class="DataView.GraphWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:DataView"
-        mc:Ignorable="d"
-        Title="GraphWindow" Height="450" Width="800">
-    <Grid>
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+    xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+    xmlns:local="clr-namespace:DataView"
+		mc:Ignorable="d"
+		Title="Biểu đồ trạm" Height="450" Width="800"
+		Name="stationListWindow"
+		DataContext="{StaticResource StationVM}"
         
+	xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+		TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+		TextElement.FontWeight="Regular"
+		TextElement.FontSize="13"
+		TextOptions.TextFormattingMode="Ideal"
+		TextOptions.TextRenderingMode="Auto"
+		Background="{DynamicResource MaterialDesignPaper}"
+		FontFamily="{DynamicResource MaterialDesignFont}"
+		WindowStartupLocation="CenterScreen"
+        
+        >
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName = "Loaded">
+            <i:InvokeCommandAction Command="{Binding LoadedWindowCommand}" CommandParameter="{Binding ElementName=pumpMenuWindow}" />
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+
+    <Window.Resources>
+
+        <Style x:Key="PumpCard" TargetType="materialDesign:Card">
+            <Setter Property="Margin" Value="10" />
+            <Setter Property="Padding" Value="8 8 8 8" />
+            <Setter Property="Background" Value="#ede7f6" />
+            <Setter Property="Foreground" Value="#1a237e" />
+        </Style>
+
+        <Style x:Key="CardTitleText" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="30" />
+        </Style>
+
+        <Style x:Key="CardBodyText" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="16" />
+        </Style>
+
+    </Window.Resources>
+
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0" HorizontalAlignment="Left" >
+            <materialDesign:Card>
+                <TabControl
+				materialDesign:ColorZoneAssist.Mode="Standard"
+				materialDesign:ElevationAssist.Elevation="Dp0"
+				Style="{StaticResource MaterialDesignNavigationRailTabControl}">
+                    <TabItem>
+                        <TabItem.Header>
+                            <StackPanel Width="auto" Height="auto">
+                                <materialDesign:PackIcon
+									Width="24"
+									Height="24"
+									HorizontalAlignment="Center"
+									Kind="ClockOutline" />
+                                <TextBlock HorizontalAlignment="Center" Text="Hiện tại" />
+                            </StackPanel>
+                        </TabItem.Header>
+                    </TabItem>
+                    <TabItem>
+                        <TabItem.Header>
+                            <StackPanel Width="auto" Height="auto">
+                                <materialDesign:PackIcon
+									Width="24"
+									Height="24"
+									HorizontalAlignment="Center"
+									Kind="HomeSearchOutline" />
+                                <TextBlock HorizontalAlignment="Center" Text="Khu vực" />
+                            </StackPanel>
+                        </TabItem.Header>
+                    </TabItem>
+                    <TabItem>
+                        <TabItem.Header>
+                            <StackPanel
+			Width="auto"
+			Height="auto">
+                                <materialDesign:PackIcon
+			Width="24"
+			Height="24"
+			HorizontalAlignment="Center"
+			Kind="InformationOutline" />
+                                <TextBlock
+			HorizontalAlignment="Center"
+			Text="About" />
+                            </StackPanel>
+                        </TabItem.Header>
+                    </TabItem>
+                    <TabItem>
+                        <TabItem.Header>
+                            <StackPanel
+			Width="auto"
+			Height="auto">
+                                <materialDesign:PackIcon
+			Width="24"
+			Height="24"
+			HorizontalAlignment="Center"
+			Kind="ExitToApp" />
+                                <TextBlock
+			HorizontalAlignment="Center"
+			Text="Thoát" />
+                            </StackPanel>
+                        </TabItem.Header>
+                    </TabItem>
+                </TabControl>
+            </materialDesign:Card>
+        </Grid>
+
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*"></RowDefinition>
+                <RowDefinition Height="8*"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <TextBlock
+                Grid.Row="0"
+				  Style="{StaticResource MaterialDesignHeadline4TextBlock}"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+				  Text="Thông tin trạm A" />
+
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="5*"></ColumnDefinition>
+                    <ColumnDefinition Width="5*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Column="0">
+                    <TextBlock> Địa chỉ: Hà Đông</TextBlock>
+                    <TextBlock> Tổng máy bơm: 6</TextBlock>
+                    <TextBlock> Máy bật: 2</TextBlock>
+                    <TextBlock> Máy tắt: 4</TextBlock>
+                
+                    <ListView Grid.Column="0" Margin="0 0 0 10"
+                ItemsSource="{Binding MyPumpList}">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn
+                            DisplayMemberBinding="{Binding Id}"
+                            Header="STT"
+                            Width="auto"/>
+                            <GridViewColumn
+                            DisplayMemberBinding="{Binding Name}"
+                            Header="Tên máy"
+                            Width="auto"/>
+                            <GridViewColumn
+                            DisplayMemberBinding="{Binding State}"
+                            Header="Trạng thái"
+                            Width="auto"
+                            />
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+                </StackPanel>
+                <Grid Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="2*"></RowDefinition>
+                        <RowDefinition Height="8*"></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock
+                        Grid.Row="0"
+				        Style="{StaticResource MaterialDesignHeadline6TextBlock}"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+				        Text="Số máy trong trạm" />
+
+                    <lvc:CartesianChart Margin="5" Grid.Row="1" Series="{Binding pumpStateCollection}" LegendLocation="Bottom">
+                        <lvc:CartesianChart.AxisX>
+                            <lvc:Axis Title="Thời gian" Labels="{Binding Labels}"></lvc:Axis>
+                        </lvc:CartesianChart.AxisX>
+                        <lvc:CartesianChart.AxisY>
+                            <lvc:Axis Title="Số lượng" LabelFormatter="{Binding Formatter}"></lvc:Axis>
+                        </lvc:CartesianChart.AxisY>
+                    </lvc:CartesianChart>
+                </Grid>
+            </Grid>
+        </Grid>
     </Grid>
 </Window>
+
+

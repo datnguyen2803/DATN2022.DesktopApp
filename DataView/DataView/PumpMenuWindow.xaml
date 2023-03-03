@@ -4,7 +4,8 @@
 	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 	xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
-	xmlns:local="clr-namespace:DataView"
+    xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+    xmlns:local="clr-namespace:DataView"
 		mc:Ignorable="d"
 		Title="Thông tin" Height="450" Width="800"
 		Name="pumpMenuWindow"
@@ -32,8 +33,8 @@
         <Style x:Key="PumpCard" TargetType="materialDesign:Card">
             <Setter Property="Margin" Value="10" />
             <Setter Property="Padding" Value="8 8 8 8" />
-            <Setter Property="Background" Value="{DynamicResource PrimaryHueLightBrush}" />
-            <Setter Property="Foreground" Value="{DynamicResource PrimaryHueLightForegroundBrush}" />
+            <Setter Property="Background" Value="#ede7f6" />
+            <Setter Property="Foreground" Value="#1a237e" />
         </Style>
 
         <Style x:Key="CardTitleText" TargetType="TextBlock">
@@ -131,19 +132,28 @@
                     VerticalAlignment="Center"
 				  Text="Thông tin máy bơm" />
 
-            <materialDesign:Card Grid.Row="1"
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="4*"></ColumnDefinition>
+                    <ColumnDefinition Width="6*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <materialDesign:Card Grid.Column="0"
                   Width="240"
                   Style="{StaticResource PumpCard}">
                 <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="100" />
-                        <RowDefinition Height="5*" />
-                        <RowDefinition Height="2*" />
-                    </Grid.RowDefinitions>
-                    <TextBlock Grid.Row="0"
-                      Width="100"
-                      Height="100"
-                       />
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="100" />
+                            <RowDefinition Height="5*" />
+                            <RowDefinition Height="2*" />
+                        </Grid.RowDefinitions>
+                        <Image Grid.Row="0" Width="auto" Height="100">
+                            <Image.Source>
+                                <BitmapImage DecodePixelWidth="200"  
+                                    UriSource="D:\Personal\DATN2022\DATN2022.DesktopApp\DataView\Image\hadongplace.jpg" />
+                            </Image.Source>
+                            
+                    </Image>
                     <StackPanel Grid.Row="1" Margin="5,20,5,0">
                         <TextBlock
                             FontWeight="Bold"
@@ -161,7 +171,7 @@
                             Trạng thái: Bật
                         </TextBlock>
                     </StackPanel>
-                    <ToolBarTray Grid.Row="2" Margin="5">
+                    <ToolBarTray Grid.Row="2" Margin="0" >
                         <ToolBar Width="230">
                             <Button>
                                 <materialDesign:PackIcon Kind="Information" HorizontalAlignment="Center" VerticalAlignment="Center"/>
@@ -176,6 +186,30 @@
                     </ToolBarTray>
                 </Grid>
             </materialDesign:Card>
+
+                <Grid Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="2*"></RowDefinition>
+                        <RowDefinition Height="8*"></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock
+                        Grid.Row="0"
+				          Style="{StaticResource MaterialDesignHeadline6TextBlock}"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+				          Text="Thời gian hoạt động trong 24h" />
+
+                    <lvc:PieChart Grid.Row="1" Margin="20" Series="{Binding pumpSeriesCollection}" LegendLocation="Right" Hoverable="False" InnerRadius="0">
+                        <lvc:PieChart.ChartLegend>
+                            <lvc:DefaultLegend BulletSize="15" TextBlock.FontSize="15"></lvc:DefaultLegend>
+                        </lvc:PieChart.ChartLegend>
+                        <lvc:PieChart.DataTooltip>
+                            <lvc:DefaultTooltip BulletSize="20"></lvc:DefaultTooltip>
+                        </lvc:PieChart.DataTooltip>
+                    </lvc:PieChart>
+                </Grid>
+            </Grid>
         </Grid>
     </Grid>
 </Window>

@@ -32,8 +32,8 @@
         <Style x:Key="PumpCard" TargetType="materialDesign:Card">
             <Setter Property="Margin" Value="10" />
             <Setter Property="Padding" Value="8 8 8 8" />
-            <Setter Property="Background" Value="{DynamicResource PrimaryHueLightBrush}" />
-            <Setter Property="Foreground" Value="{DynamicResource PrimaryHueLightForegroundBrush}" />
+            <Setter Property="Background" Value="#ede7f6" />
+            <Setter Property="Foreground" Value="#1a237e" />
         </Style>
 
         <Style x:Key="CardTitleText" TargetType="TextBlock">

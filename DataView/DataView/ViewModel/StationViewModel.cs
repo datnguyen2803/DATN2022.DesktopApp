@@ -1,13 +1,19 @@
-﻿using System;
+﻿using LiveCharts;
+using LiveCharts.Wpf;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Net;
+using System.Reflection.Emit;
 using System.Runtime.CompilerServices;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Xml.Linq;
 
 namespace DataView.ViewModel
 {
@@ -27,6 +33,21 @@ namespace DataView.ViewModel
             numberOfPumpOn = 0;
             numberOfPumpOff = 0;
         }
+
+    }
+
+    public class CustomPumpModel
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string State { get; set; }
+
+        public CustomPumpModel()
+        {
+            Id = 0;
+            Name = string.Empty;
+            State = string.Empty;
+        }
     }
 
 
@@ -37,8 +58,12 @@ namespace DataView.ViewModel
         #endregion
 
         public List<CustomStationModel> MyStationList { get; set; }
+        public List<CustomPumpModel> MyPumpList { get; set; }
 
-        public bool IsLoaded = false;
+        public SeriesCollection pumpStateCollection { get; set; }
+        public string[] Labels { get; set; }
+        public Func<double, string> Formatter { get; set; }
+
         public StationViewModel()
         {
             LoadedWindowCommand = new RelayCommand<Window>((p) => { return true; }, (p) =>
@@ -48,8 +73,31 @@ namespace DataView.ViewModel
 
 
             MyStationList = new List<CustomStationModel>();
+            MyPumpList = new List<CustomPumpModel>();
             GetDataFromDB();
             Debug.WriteLine("[datchaos]: " + MyStationList.Count);
+
+            pumpStateCollection = new SeriesCollection
+            {
+                new ColumnSeries
+                {
+                    Title = "Bật",
+                    Values = new ChartValues<double> { 1, 4, 4, 4 }
+                }
+            };
+
+            //adding series will update and animate the chart automatically
+            pumpStateCollection.Add(new ColumnSeries
+            {
+                Title = "Tắt",
+                Values = new ChartValues<double> { 5, 2, 2, 2 }
+            });
+
+            //also adding values updates and animates the chart automatically
+            //pumpStateCollection[1].Values.Add(48d);
+
+            Labels = new[] { "13h", "14h", "15h", "16h" };
+            Formatter = value => value.ToString("N");
         }
 
         private void GetDataFromDB()
@@ -82,6 +130,13 @@ namespace DataView.ViewModel
             MyStationList.Add(station1);
             MyStationList.Add(station2);
             MyStationList.Add(station3);
+
+            MyPumpList.Add(new CustomPumpModel() { Id = 1, Name = "01", State = "Bật" });
+            MyPumpList.Add(new CustomPumpModel() { Id = 2, Name = "02", State = "Bật" });
+            MyPumpList.Add(new CustomPumpModel() { Id = 3, Name = "03", State = "Tắt" });
+            MyPumpList.Add(new CustomPumpModel() { Id = 4, Name = "04", State = "Bật" });
+            MyPumpList.Add(new CustomPumpModel() { Id = 5, Name = "05", State = "Tắt" });
+            MyPumpList.Add(new CustomPumpModel() { Id = 6, Name = "06", State = "Tắt" });
         }
     }
 }

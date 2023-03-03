@@ -65,7 +65,7 @@ namespace DataView.UserControlDAT {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/DataView;component/usercontroldat/controlbaruc.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/DataView;V1.0.0.0;component/usercontroldat/controlbaruc.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\UserControlDAT\ControlBarUC.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

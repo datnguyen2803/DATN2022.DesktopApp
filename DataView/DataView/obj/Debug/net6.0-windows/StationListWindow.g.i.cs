@@ -65,7 +65,7 @@ namespace DataView {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/DataView;component/stationlistwindow.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/DataView;V1.0.0.0;component/stationlistwindow.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\StationListWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

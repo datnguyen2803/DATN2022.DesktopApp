@@ -21,29 +21,29 @@ namespace DataView.ViewModel
         {
             LoadedWindowCommand = new RelayCommand<Window>((p) => { return true; }, (p) =>
             {
-                //IsLoaded = true;
-                //if(p == null)
-                //{
-                //    return;
-                //}
-                //p.Hide();
-                //LoginWindow loginWindow = new LoginWindow();
-                //loginWindow.ShowDialog();
+                IsLoaded = true;
+                if (p == null)
+                {
+                    return;
+                }
 
-                //var loginVM = loginWindow.DataContext as LoginViewModel;
-                //if (loginVM == null) { return; }
+                p.Hide();
+                LoginWindow loginWindow = new LoginWindow();
+                loginWindow.ShowDialog();
 
-                //if(loginVM.IsLogin == true)
-                //{
-                //    p.Show();
-                //    loginWindow.Close();
-                //}
-                //else
-                //{
-                //    p.Close();
-                //}
+                var loginVM = loginWindow.DataContext as LoginViewModel;
+                if (loginVM == null) { return; }
 
-                p.Show();
+                if (loginVM.IsLogin == true)
+                {
+                    p.Show();
+                    loginWindow.Close();
+                }
+                else
+                {
+                    p.Close();
+                }
+
             }
             );
         }

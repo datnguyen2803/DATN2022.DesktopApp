@@ -67,7 +67,7 @@
                             </StackPanel>
                         </TabItem.Header>
                     </TabItem>
-                    <TabItem>
+                    <TabItem x:Name="tabItemStation">
                         <TabItem.Header>
                             <StackPanel Width="auto" Height="auto">
                                 <materialDesign:PackIcon

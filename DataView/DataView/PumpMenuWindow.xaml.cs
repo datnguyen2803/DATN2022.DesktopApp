@@ -23,5 +23,10 @@ namespace DataView
         {
             InitializeComponent();
         }
+
+        private void TabItem_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            MessageBox.Show("Unable to save file, try again.");
+        }
     }
 }

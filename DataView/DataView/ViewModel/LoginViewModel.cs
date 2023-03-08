@@ -1,8 +1,10 @@
 ﻿using DataView.DataModel;
+using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Runtime.CompilerServices;
 using System.Security.Cryptography.X509Certificates;
@@ -42,40 +44,65 @@ namespace DataView.ViewModel
 
         private void Login(Window p)
         {
-            if (p == null)
+            UserModel myUser = new UserModel()
             {
-                return;
-            }
-            else
-            {
-                // do nothing
-            }
-            //if ((Username == "admin") && (Password == "admin"))
-            //{
-            //    IsLogin = true;
-            //}
-            //else
-            //{
-            //    IsLogin = false;
-            //}
-
-            UserModel newRequest = new UserModel()
-            {
-                Id = 0,
                 Name = Username,
                 Password = Password
             };
 
-            GetLogin(newRequest);
+            try
+            {
+                var client = new RestClient();
 
-            if (IsLogin == true)
-            {
-                p.Close();
+                var request = new RestRequest("https://localhost:44393/api/user/login", Method.Post);
+                request.AddHeader("Content-type", "application/json");
+                request.AddBody(myUser);
+                var response = client.Execute(request);
+                //var data = JsonConvert.DeserializeObject<InternalAPIResponseCode>(response.Content);
+                //if (data.Code != 0)
+                //{
+                //    return false;
+                //}
+                //return true;
+
+                if (response.StatusCode == HttpStatusCode.OK)
+                {
+                    IsLogin = true;
+                }
+                else
+                {
+                    IsLogin = false;
+                }
+
+                if (p == null)
+                {
+                    return;
+                }
+                else
+                {
+                    // do nothing
+                }
+
+
+
+                // GetLogin(newRequest);
+
+
+                if (IsLogin == true)
+                {
+                    p.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Sai tài khoản hoặc mật khẩu");
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Sai tài khoản hoặc mật khẩu");
+                return;
             }
+
+
         }
 
         private async void GetLogin(UserModel _user)

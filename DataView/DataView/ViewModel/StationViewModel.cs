@@ -1,5 +1,8 @@
-﻿using LiveCharts;
+﻿using DataView.DataModel;
+using LiveCharts;
 using LiveCharts.Wpf;
+using Newtonsoft.Json;
+using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -102,55 +105,108 @@ namespace DataView.ViewModel
 
         private void GetDataFromDB()
         {
-            CustomStationModel station1 = new CustomStationModel()
+            //CustomStationModel station1 = new CustomStationModel()
+            //{
+            //    Id = 1,
+            //    Name = "A",
+            //    Address = "Hà Đông",
+            //    numberOfPumpOn = 5,
+            //    numberOfPumpOff = 3
+            //};
+            //CustomStationModel station2 = new CustomStationModel()
+            //{
+            //    Id = 2,
+            //    Name = "B",
+            //    Address = "Hai Bà Trưng",
+            //    numberOfPumpOn = 1,
+            //    numberOfPumpOff = 4
+            //};
+            //CustomStationModel station3 = new CustomStationModel()
+            //{
+            //    Id = 3,
+            //    Name = "C",
+            //    Address = "Từ Liêm",
+            //    numberOfPumpOn = 2,
+            //    numberOfPumpOff = 3
+            //};
+
+            //MyStationList.Add(station1);
+            //MyStationList.Add(station2);
+            //MyStationList.Add(station3);
+
+
+            //MyStationList.Add(new CustomStationModel() { Id = 1, Name = "A", Address = "A", numberOfPumpOn = 1, numberOfPumpOff = 2 });
+            //MyStationList.Add(new CustomStationModel() { Id = 1, Name = "A", Address = "A", numberOfPumpOn = 1, numberOfPumpOff = 2 });
+            //MyStationList.Add(new CustomStationModel() { Id = 1, Name = "A", Address = "A", numberOfPumpOn = 1, numberOfPumpOff = 2 });
+            //MyStationList.Add(new CustomStationModel() { Id = 1, Name = "A", Address = "A", numberOfPumpOn = 1, numberOfPumpOff = 2 });
+            //MyStationList.Add(new CustomStationModel() { Id = 1, Name = "A", Address = "A", numberOfPumpOn = 1, numberOfPumpOff = 2 });
+            //MyStationList.Add(new CustomStationModel() { Id = 1, Name = "A", Address = "A", numberOfPumpOn = 1, numberOfPumpOff = 2 });
+            //MyStationList.Add(new CustomStationModel() { Id = 1, Name = "A", Address = "A", numberOfPumpOn = 1, numberOfPumpOff = 2 });
+            //MyStationList.Add(new CustomStationModel() { Id = 1, Name = "A", Address = "A", numberOfPumpOn = 1, numberOfPumpOff = 2 });
+            //MyStationList.Add(new CustomStationModel() { Id = 1, Name = "A", Address = "A", numberOfPumpOn = 1, numberOfPumpOff = 2 });
+            //MyStationList.Add(new CustomStationModel() { Id = 1, Name = "A", Address = "A", numberOfPumpOn = 1, numberOfPumpOff = 2 });
+            //MyStationList.Add(new CustomStationModel() { Id = 1, Name = "A", Address = "A", numberOfPumpOn = 1, numberOfPumpOff = 2 });
+            //MyStationList.Add(new CustomStationModel() { Id = 1, Name = "A", Address = "A", numberOfPumpOn = 1, numberOfPumpOff = 2 });
+            //MyStationList.Add(new CustomStationModel() { Id = 1, Name = "A", Address = "A", numberOfPumpOn = 1, numberOfPumpOff = 2 });
+            //MyStationList.Add(new CustomStationModel() { Id = 1, Name = "A", Address = "A", numberOfPumpOn = 1, numberOfPumpOff = 2 });
+            //MyStationList.Add(new CustomStationModel() { Id = 1, Name = "A", Address = "A", numberOfPumpOn = 1, numberOfPumpOff = 2 });
+            //MyStationList.Add(new CustomStationModel() { Id = 1, Name = "A", Address = "A", numberOfPumpOn = 1, numberOfPumpOff = 2 });
+            //MyStationList.Add(new CustomStationModel() { Id = 1, Name = "A", Address = "A", numberOfPumpOn = 1, numberOfPumpOff = 2 });
+
+
+            try
             {
-                Id = 1,
-                Name = "A",
-                Address = "Hà Đông",
-                numberOfPumpOn = 5,
-                numberOfPumpOff = 3
-            };
-            CustomStationModel station2 = new CustomStationModel()
+                var client = new RestClient();
+
+                var request = new RestRequest("https://localhost:44393/api/station/getall", Method.Get);
+                request.AddHeader("Content-type", "application/json");
+                var response = client.Execute(request);
+                //var data = JsonConvert.DeserializeObject<InternalAPIResponseCode>(response.Content);
+                //if (data.Code != 0)
+                //{
+                //    return false;
+                //}
+                //return true;
+
+                
+
+                if (response.StatusCode == HttpStatusCode.OK)
+                {
+                    var stationList = JsonConvert.DeserializeObject<List<StationModel>>(response.Content);
+                    if(stationList == null)
+                    {
+                        return;
+                    }
+                    MyStationList.Clear();
+                    foreach (var station in stationList)
+                    {
+                        CustomStationModel customStation = new CustomStationModel()
+                        {
+                            Id = station.Id,
+                            Name = station.Name,
+                            Address = station.Address,
+                            numberOfPumpOn = 2,
+                            numberOfPumpOff = 3
+                        };
+
+                        MyStationList.Add(customStation);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Kiểm tra kết nối mạng");
+                    return;
+                }
+
+
+            }
+            catch (Exception ex)
             {
-                Id = 2,
-                Name = "B",
-                Address = "Hai Bà Trưng",
-                numberOfPumpOn = 1,
-                numberOfPumpOff = 4
-            };
-            CustomStationModel station3 = new CustomStationModel()
-            {
-                Id = 3,
-                Name = "C",
-                Address = "Từ Liêm",
-                numberOfPumpOn = 2,
-                numberOfPumpOff = 3
-            };
-
-            MyStationList.Add(station1);
-            MyStationList.Add(station2);
-            MyStationList.Add(station3);
-
-            //MyStationList.Add(new CustomStationModel() { Id = 1, Name = "A", Address = "A", numberOfPumpOn = 1, numberOfPumpOff = 2 });
-            //MyStationList.Add(new CustomStationModel() { Id = 1, Name = "A", Address = "A", numberOfPumpOn = 1, numberOfPumpOff = 2 });
-            //MyStationList.Add(new CustomStationModel() { Id = 1, Name = "A", Address = "A", numberOfPumpOn = 1, numberOfPumpOff = 2 });
-            //MyStationList.Add(new CustomStationModel() { Id = 1, Name = "A", Address = "A", numberOfPumpOn = 1, numberOfPumpOff = 2 });
-            //MyStationList.Add(new CustomStationModel() { Id = 1, Name = "A", Address = "A", numberOfPumpOn = 1, numberOfPumpOff = 2 });
-            //MyStationList.Add(new CustomStationModel() { Id = 1, Name = "A", Address = "A", numberOfPumpOn = 1, numberOfPumpOff = 2 });
-            //MyStationList.Add(new CustomStationModel() { Id = 1, Name = "A", Address = "A", numberOfPumpOn = 1, numberOfPumpOff = 2 });
-            //MyStationList.Add(new CustomStationModel() { Id = 1, Name = "A", Address = "A", numberOfPumpOn = 1, numberOfPumpOff = 2 });
-            //MyStationList.Add(new CustomStationModel() { Id = 1, Name = "A", Address = "A", numberOfPumpOn = 1, numberOfPumpOff = 2 });
-            //MyStationList.Add(new CustomStationModel() { Id = 1, Name = "A", Address = "A", numberOfPumpOn = 1, numberOfPumpOff = 2 });
-            //MyStationList.Add(new CustomStationModel() { Id = 1, Name = "A", Address = "A", numberOfPumpOn = 1, numberOfPumpOff = 2 });
-            //MyStationList.Add(new CustomStationModel() { Id = 1, Name = "A", Address = "A", numberOfPumpOn = 1, numberOfPumpOff = 2 });
-            //MyStationList.Add(new CustomStationModel() { Id = 1, Name = "A", Address = "A", numberOfPumpOn = 1, numberOfPumpOff = 2 });
-            //MyStationList.Add(new CustomStationModel() { Id = 1, Name = "A", Address = "A", numberOfPumpOn = 1, numberOfPumpOff = 2 });
-            //MyStationList.Add(new CustomStationModel() { Id = 1, Name = "A", Address = "A", numberOfPumpOn = 1, numberOfPumpOff = 2 });
-            //MyStationList.Add(new CustomStationModel() { Id = 1, Name = "A", Address = "A", numberOfPumpOn = 1, numberOfPumpOff = 2 });
-            //MyStationList.Add(new CustomStationModel() { Id = 1, Name = "A", Address = "A", numberOfPumpOn = 1, numberOfPumpOff = 2 });
+                MessageBox.Show("Null cmnr");
+                return;
+            }
 
 
-            MyStationList.Add(new CustomStationModel() { Id = 1, Name = "A", Address = "A", numberOfPumpOn = 1, numberOfPumpOff = 2 });
 
             MyPumpList.Add(new CustomPumpModel() { Id = 1, Name = "01", State = "Bật" });
             MyPumpList.Add(new CustomPumpModel() { Id = 2, Name = "02", State = "Bật" });

@@ -71,14 +71,15 @@
                             </StackPanel>
                         </TabItem.Header>
                     </TabItem>
-                    <TabItem>
+                    <TabItem MouseUp="TabItem_MouseUp">
                         <TabItem.Header>
                             <StackPanel Width="auto" Height="auto">
                                 <materialDesign:PackIcon
 									Width="24"
 									Height="24"
 									HorizontalAlignment="Center"
-									Kind="HomeSearchOutline" />
+									Kind="HomeSearchOutline"
+                                    />
                                 <TextBlock HorizontalAlignment="Center" Text="Khu vực" />
                             </StackPanel>
                         </TabItem.Header>
@@ -150,7 +151,8 @@
                         <Image Grid.Row="0" Width="auto" Height="100">
                             <Image.Source>
                                 <BitmapImage DecodePixelWidth="200"  
-                                    UriSource="D:\1BK\DATN20221\DATN2022.DesktopApp\DataView\Image\hadongplace.jpg" />
+                                    UriSource="D:\1BK\1.Subjects\2.DA_TT\DATN2\DataViewer\DATN2022.DesktopApp\DataView\Image\hadongplace.jpg"
+                                    />
                             </Image.Source>
                             
                     </Image>

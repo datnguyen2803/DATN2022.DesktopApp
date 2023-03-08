@@ -58,7 +58,7 @@
 				materialDesign:ColorZoneAssist.Mode="Standard"
 				materialDesign:ElevationAssist.Elevation="Dp0"
 				Style="{StaticResource MaterialDesignNavigationRailTabControl}">
-                    <TabItem>
+                    <TabItem Name="tabItemCurrent" MouseUp="tabItem_MouseUp">
                         <TabItem.Header>
                             <StackPanel Width="auto" Height="auto">
                                 <materialDesign:PackIcon
@@ -70,7 +70,7 @@
                             </StackPanel>
                         </TabItem.Header>
                     </TabItem>
-                    <TabItem>
+                    <TabItem Name="tabItemStation" MouseUp="tabItem_MouseUp">
                         <TabItem.Header>
                             <StackPanel Width="auto" Height="auto">
                                 <materialDesign:PackIcon

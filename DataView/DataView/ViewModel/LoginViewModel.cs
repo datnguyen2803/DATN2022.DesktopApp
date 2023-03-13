@@ -57,6 +57,7 @@ namespace DataView.ViewModel
 
                 if (IsLogin == true)
                 {
+                    MessageBox.Show("Đang đăng nhập...");
                     p.Close();
                 }
                 else

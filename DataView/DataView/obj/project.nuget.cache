@@ -1,18 +1,18 @@
 {
   "version": 2,
-  "dgSpecHash": "cpzZZqmVUIsCy2AUoCBmV7zX7/9icTiY4kuemGvB11GoSYhAvxZrH+GPVu1VxRbwW0k5v+mkc6HnhOFleL/QvA==",
+  "dgSpecHash": "LoiYhVVv/iUOYUXfvdBMUUXaSPBbd3Qla7uZYj34H74hYMOxIVf8drz23FBJgjKk7ey3mv+VYO2W2vwi2LpR9w==",
   "success": true,
-  "projectFilePath": "D:\\Personal\\DATN2022\\DATN2022.DesktopApp\\DataView\\DataView\\DataView.csproj",
+  "projectFilePath": "D:\\1BK\\DATN20221\\DATN2022.DesktopApp\\DataView\\DataView\\DataView.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\ntdat\\.nuget\\packages\\livecharts\\0.9.7\\livecharts.0.9.7.nupkg.sha512",
-    "C:\\Users\\ntdat\\.nuget\\packages\\livecharts.wpf\\0.9.7\\livecharts.wpf.0.9.7.nupkg.sha512",
-    "C:\\Users\\ntdat\\.nuget\\packages\\materialdesigncolors\\2.1.0\\materialdesigncolors.2.1.0.nupkg.sha512",
-    "C:\\Users\\ntdat\\.nuget\\packages\\materialdesignthemes\\4.7.0\\materialdesignthemes.4.7.0.nupkg.sha512",
-    "C:\\Users\\ntdat\\.nuget\\packages\\microsoft.xaml.behaviors.wpf\\1.1.39\\microsoft.xaml.behaviors.wpf.1.1.39.nupkg.sha512",
-    "C:\\Users\\ntdat\\.nuget\\packages\\newtonsoft.json\\13.0.2\\newtonsoft.json.13.0.2.nupkg.sha512",
-    "C:\\Users\\ntdat\\.nuget\\packages\\restsharp\\108.0.3\\restsharp.108.0.3.nupkg.sha512",
-    "C:\\Users\\ntdat\\.nuget\\packages\\system.net.http.winhttphandler\\7.0.0\\system.net.http.winhttphandler.7.0.0.nupkg.sha512",
-    "C:\\Users\\ntdat\\.nuget\\packages\\system.windows.interactivity.wpf\\2.0.20525\\system.windows.interactivity.wpf.2.0.20525.nupkg.sha512"
+    "C:\\Users\\Datchaos\\.nuget\\packages\\livecharts\\0.9.7\\livecharts.0.9.7.nupkg.sha512",
+    "C:\\Users\\Datchaos\\.nuget\\packages\\livecharts.wpf\\0.9.7\\livecharts.wpf.0.9.7.nupkg.sha512",
+    "C:\\Users\\Datchaos\\.nuget\\packages\\materialdesigncolors\\2.1.0\\materialdesigncolors.2.1.0.nupkg.sha512",
+    "C:\\Users\\Datchaos\\.nuget\\packages\\materialdesignthemes\\4.7.0\\materialdesignthemes.4.7.0.nupkg.sha512",
+    "C:\\Users\\Datchaos\\.nuget\\packages\\microsoft.xaml.behaviors.wpf\\1.1.39\\microsoft.xaml.behaviors.wpf.1.1.39.nupkg.sha512",
+    "C:\\Users\\Datchaos\\.nuget\\packages\\newtonsoft.json\\13.0.2\\newtonsoft.json.13.0.2.nupkg.sha512",
+    "C:\\Users\\Datchaos\\.nuget\\packages\\restsharp\\108.0.3\\restsharp.108.0.3.nupkg.sha512",
+    "C:\\Users\\Datchaos\\.nuget\\packages\\system.net.http.winhttphandler\\7.0.0\\system.net.http.winhttphandler.7.0.0.nupkg.sha512",
+    "C:\\Users\\Datchaos\\.nuget\\packages\\system.windows.interactivity.wpf\\2.0.20525\\system.windows.interactivity.wpf.2.0.20525.nupkg.sha512"
   ],
   "logs": [
     {

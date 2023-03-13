@@ -128,7 +128,7 @@
 				  Text="Danh sách trạm" />
 
             <ListView Grid.Row="1" Margin="0 0 0 10"
-                ItemsSource="{Binding MyStationList}">
+                ItemsSource="{Binding myStationList}">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn

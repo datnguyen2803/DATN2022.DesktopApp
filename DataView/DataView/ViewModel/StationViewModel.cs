@@ -1,4 +1,5 @@
 ﻿using DataView.DataModel;
+using DataView.Service;
 using LiveCharts;
 using LiveCharts.Wpf;
 using Newtonsoft.Json;
@@ -62,6 +63,8 @@ namespace DataView.ViewModel
 
         public List<CustomStationModel> MyStationList { get; set; }
         public List<CustomPumpModel> MyPumpList { get; set; }
+
+        public List<StationModel> myStationList { get; set; }
 
         public SeriesCollection pumpStateCollection { get; set; }
         public string[] Labels { get; set; }
@@ -154,66 +157,28 @@ namespace DataView.ViewModel
             //MyStationList.Add(new CustomStationModel() { Id = 1, Name = "A", Address = "A", numberOfPumpOn = 1, numberOfPumpOff = 2 });
 
 
-            try
+
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show("Null cmnr");
+            //    return;
+            //}
+
+
+
+            //MyPumpList.Add(new CustomPumpModel() { Id = 1, Name = "01", State = "Bật" });
+            //MyPumpList.Add(new CustomPumpModel() { Id = 2, Name = "02", State = "Bật" });
+            //MyPumpList.Add(new CustomPumpModel() { Id = 3, Name = "03", State = "Tắt" });
+            //MyPumpList.Add(new CustomPumpModel() { Id = 4, Name = "04", State = "Bật" });
+            //MyPumpList.Add(new CustomPumpModel() { Id = 5, Name = "05", State = "Tắt" });
+            //MyPumpList.Add(new CustomPumpModel() { Id = 6, Name = "06", State = "Tắt" });
+
+            myStationList = IStationService.GetAll();
+            if(myStationList == null)
             {
-                var client = new RestClient();
-
-                var request = new RestRequest("https://localhost:44393/api/station/getall", Method.Get);
-                request.AddHeader("Content-type", "application/json");
-                var response = client.Execute(request);
-                //var data = JsonConvert.DeserializeObject<InternalAPIResponseCode>(response.Content);
-                //if (data.Code != 0)
-                //{
-                //    return false;
-                //}
-                //return true;
-
-                
-
-                if (response.StatusCode == HttpStatusCode.OK)
-                {
-                    var stationList = JsonConvert.DeserializeObject<List<StationModel>>(response.Content);
-                    if(stationList == null)
-                    {
-                        return;
-                    }
-                    MyStationList.Clear();
-                    foreach (var station in stationList)
-                    {
-                        CustomStationModel customStation = new CustomStationModel()
-                        {
-                            Id = station.Id,
-                            Name = station.Name,
-                            Address = station.Address,
-                            numberOfPumpOn = 2,
-                            numberOfPumpOff = 3
-                        };
-
-                        MyStationList.Add(customStation);
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Kiểm tra kết nối mạng");
-                    return;
-                }
-
-
+                MessageBox.Show("No data retrieved");
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Null cmnr");
-                return;
-            }
-
-
-
-            MyPumpList.Add(new CustomPumpModel() { Id = 1, Name = "01", State = "Bật" });
-            MyPumpList.Add(new CustomPumpModel() { Id = 2, Name = "02", State = "Bật" });
-            MyPumpList.Add(new CustomPumpModel() { Id = 3, Name = "03", State = "Tắt" });
-            MyPumpList.Add(new CustomPumpModel() { Id = 4, Name = "04", State = "Bật" });
-            MyPumpList.Add(new CustomPumpModel() { Id = 5, Name = "05", State = "Tắt" });
-            MyPumpList.Add(new CustomPumpModel() { Id = 6, Name = "06", State = "Tắt" });
         }
     }
 }

@@ -8,5 +8,6 @@ namespace DataView.Service
 {
     public interface IPumpService
     {
+
     }
 }

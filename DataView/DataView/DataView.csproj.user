@@ -7,22 +7,22 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="AddPumpWindow.xaml.cs">
+    <Compile Update="View\AddPumpWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="GraphWindow.xaml.cs">
+    <Compile Update="View\GraphWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="LoginWindow.xaml.cs">
+    <Compile Update="View\LoginWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="PumpMenuWindow.xaml.cs">
+    <Compile Update="View\PumpMenuWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="StationListWindow.xaml.cs">
+    <Compile Update="View\StationListWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="StationMenuWindow.xaml.cs">
+    <Compile Update="View\StationMenuWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="UserControlDAT\ControlBarUC.xaml.cs">
@@ -30,19 +30,19 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="AddPumpWindow.xaml">
+    <Page Update="View\AddPumpWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="GraphWindow.xaml">
+    <Page Update="View\GraphWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="LoginWindow.xaml">
+    <Page Update="View\LoginWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="MainWindow.xaml">
+    <Page Update="View\MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="PumpMenuWindow.xaml">
+    <Page Update="View\PumpMenuWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Resources\Images.xaml">
@@ -51,10 +51,10 @@
     <Page Update="ResourceXAML\MainResource.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="StationListWindow.xaml">
+    <Page Update="View\StationListWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="StationMenuWindow.xaml">
+    <Page Update="View\StationMenuWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UserControlDAT\ControlBarUC.xaml">

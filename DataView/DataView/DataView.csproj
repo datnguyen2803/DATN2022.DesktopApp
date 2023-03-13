@@ -19,7 +19,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Model\" />
+    <Folder Include="Common\Command\" />
+    <Folder Include="Common\Component\" />
   </ItemGroup>
 
   <ItemGroup>

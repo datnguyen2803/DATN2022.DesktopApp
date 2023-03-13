@@ -1,4 +1,5 @@
 ﻿using DataView.DataModel;
+using DataView.Service;
 using RestSharp;
 using System;
 using System.Collections.Generic;
@@ -52,41 +53,7 @@ namespace DataView.ViewModel
 
             try
             {
-                var client = new RestClient();
-
-                var request = new RestRequest("https://localhost:44393/api/user/login", Method.Post);
-                request.AddHeader("Content-type", "application/json");
-                request.AddBody(myUser);
-                var response = client.Execute(request);
-                //var data = JsonConvert.DeserializeObject<InternalAPIResponseCode>(response.Content);
-                //if (data.Code != 0)
-                //{
-                //    return false;
-                //}
-                //return true;
-
-                if (response.StatusCode == HttpStatusCode.OK)
-                {
-                    IsLogin = true;
-                }
-                else
-                {
-                    IsLogin = false;
-                }
-
-                if (p == null)
-                {
-                    return;
-                }
-                else
-                {
-                    // do nothing
-                }
-
-
-
-                // GetLogin(newRequest);
-
+                IsLogin = IUserService.Login(myUser);
 
                 if (IsLogin == true)
                 {
@@ -97,12 +64,10 @@ namespace DataView.ViewModel
                     MessageBox.Show("Sai tài khoản hoặc mật khẩu");
                 }
             }
-            catch (Exception ex)
+            catch(Exception ex)
             {
                 return;
             }
-
-
         }
 
         private async void GetLogin(UserModel _user)

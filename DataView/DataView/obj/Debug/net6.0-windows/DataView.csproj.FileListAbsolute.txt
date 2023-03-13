@@ -183,3 +183,11 @@ D:\1BK\1.Subjects\2.DA_TT\DATN2\DataViewer\DATN2022.DesktopApp\DataView\DataView
 D:\1BK\1.Subjects\2.DA_TT\DATN2\DataViewer\DATN2022.DesktopApp\DataView\DataView\obj\Debug\net6.0-windows\DataView.pdb
 D:\1BK\1.Subjects\2.DA_TT\DATN2\DataViewer\DATN2022.DesktopApp\DataView\DataView\obj\Debug\net6.0-windows\DataView.genruntimeconfig.cache
 D:\1BK\1.Subjects\2.DA_TT\DATN2\DataViewer\DATN2022.DesktopApp\DataView\DataView\obj\Debug\net6.0-windows\ref\DataView.dll
+D:\Personal\DATN2022\DATN2022.DesktopApp\DataView\DataView\obj\Debug\net6.0-windows\Resources\Images.baml
+D:\Personal\DATN2022\DATN2022.DesktopApp\DataView\DataView\obj\Debug\net6.0-windows\View\AddPumpWindow.g.cs
+D:\Personal\DATN2022\DATN2022.DesktopApp\DataView\DataView\obj\Debug\net6.0-windows\View\GraphWindow.g.cs
+D:\Personal\DATN2022\DATN2022.DesktopApp\DataView\DataView\obj\Debug\net6.0-windows\View\LoginWindow.g.cs
+D:\Personal\DATN2022\DATN2022.DesktopApp\DataView\DataView\obj\Debug\net6.0-windows\View\MainWindow.g.cs
+D:\Personal\DATN2022\DATN2022.DesktopApp\DataView\DataView\obj\Debug\net6.0-windows\View\PumpMenuWindow.g.cs
+D:\Personal\DATN2022\DATN2022.DesktopApp\DataView\DataView\obj\Debug\net6.0-windows\View\StationListWindow.g.cs
+D:\Personal\DATN2022\DATN2022.DesktopApp\DataView\DataView\obj\Debug\net6.0-windows\View\StationMenuWindow.g.cs

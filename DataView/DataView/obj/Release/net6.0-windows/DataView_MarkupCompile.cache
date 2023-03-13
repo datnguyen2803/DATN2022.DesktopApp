@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\1BK\1.Subjects\2.DA_TT\DATN2\DataViewer\DATN2022.DesktopApp\DataView\DataView\obj\Release\net6.0-windows\
+D:\Personal\DATN2022\DATN2022.DesktopApp\DataView\DataView\obj\Release\net6.0-windows\
 DataView
 none
 false
 TRACE;RELEASE;NET;NET6_0;NETCOREAPP
-D:\1BK\1.Subjects\2.DA_TT\DATN2\DataViewer\DATN2022.DesktopApp\DataView\DataView\App.xaml
-10-1237709332
+D:\Personal\DATN2022\DATN2022.DesktopApp\DataView\DataView\App.xaml
+10-1286223313
 
-20541933757
-204-1661143876
-AddPumpWindow.xaml;GraphWindow.xaml;LoginWindow.xaml;MainWindow.xaml;PumpMenuWindow.xaml;Resources\Images.xaml;ResourceXAML\MainResource.xaml;StationListWindow.xaml;StationMenuWindow.xaml;UserControlDAT\ControlBarUC.xaml;
+26-198602551
+204-1548970980
+Resources\Images.xaml;ResourceXAML\MainResource.xaml;UserControlDAT\ControlBarUC.xaml;View\AddPumpWindow.xaml;View\GraphWindow.xaml;View\LoginWindow.xaml;View\MainWindow.xaml;View\PumpMenuWindow.xaml;View\StationListWindow.xaml;View\StationMenuWindow.xaml;
 
 True
 

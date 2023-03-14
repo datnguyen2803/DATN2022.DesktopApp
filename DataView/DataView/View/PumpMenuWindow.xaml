@@ -148,14 +148,14 @@
                             <RowDefinition Height="5*" />
                             <RowDefinition Height="2*" />
                         </Grid.RowDefinitions>
-                        <Image Grid.Row="0" Width="auto" Height="100">
+                        <!--<Image Grid.Row="0" Width="auto" Height="100">
                             <Image.Source>
                                 <BitmapImage DecodePixelWidth="200"  
                                     UriSource="D:\1BK\1.Subjects\2.DA_TT\DATN2\DataViewer\DATN2022.DesktopApp\DataView\Image\hadongplace.jpg"
                                     />
                             </Image.Source>
                             
-                    </Image>
+                    </Image>-->
                     <StackPanel Grid.Row="1" Margin="5,20,5,0">
                         <TextBlock
                             FontWeight="Bold"

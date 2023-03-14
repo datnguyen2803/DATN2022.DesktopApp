@@ -8,11 +8,16 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static DataView.Common.Helper.ConstantHelper;
 
 namespace DataView.Service
 {
     public interface IUserService
     {
+        private static void PrintDebug(APIResponseCode ErrorCode, string ErrorMessage)
+        {
+            Debug.WriteLine(String.Format("[UserService]: ErrorCode = {0}, Description: {1}", ErrorCode, ErrorMessage));
+        }
 
         public static bool Register(UserModel regUSer)
         {
@@ -41,6 +46,7 @@ namespace DataView.Service
                     }
                     else
                     {
+                        PrintDebug(myResponseModel.Code, myResponseModel.Message);
                         retVal = false;
                     }
                 }
@@ -80,6 +86,7 @@ namespace DataView.Service
                     }
                     else
                     {
+                        PrintDebug(myResponseModel.Code, myResponseModel.Message);
                         retVal = false;
                     }
                 }
@@ -121,10 +128,10 @@ namespace DataView.Service
                     if (myResponseModel.Code == ConstantHelper.APIResponseCode.CODE_SUCCESS)
                     {
                         myUser = JsonConvert.DeserializeObject<UserModel>((string)myResponseModel.Data);
-                        Debug.WriteLine(String.Format("[UserService]: Name = {0}, Pass = {1}", myUser.Name, myUser.Password));
                     }
                     else
                     {
+                        PrintDebug(myResponseModel.Code, myResponseModel.Message);
                         // do nothing
                     }
                 }

@@ -12,7 +12,7 @@ namespace DataView.Common.Helper
     {
         public APIResponseCode Code { get; set; }
         public string Message { get; set; }
-        public object Data { get; set; }
+        public object? Data { get; set; }
 
         public ResponseModel()
         {

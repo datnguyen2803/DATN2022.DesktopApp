@@ -1,9 +1,13 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:viewmodel="clr-namespace:DataView.ViewModel">
+                    xmlns:viewmodel="clr-namespace:DataView.ViewModel"
+                    xmlns:view="clr-namespace:DataView.View">
     <viewmodel:MainViewModel x:Key="MainVM"></viewmodel:MainViewModel>
     <viewmodel:LoginViewModel x:Key="LoginVM"></viewmodel:LoginViewModel>
     <viewmodel:StationViewModel x:Key="StationVM"></viewmodel:StationViewModel>
     <viewmodel:PumpViewModel x:Key="PumpVM"></viewmodel:PumpViewModel>
+
+    <view:LoginView x:Key="LoginView"></view:LoginView>
+    <view:StationListView x:Key="StationListView"></view:StationListView>
 
 </ResourceDictionary>

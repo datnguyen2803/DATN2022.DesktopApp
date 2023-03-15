@@ -13,10 +13,16 @@
     <Compile Update="View\GraphWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="View\LoginView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="View\LoginWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="View\PumpMenuWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\StationListView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="View\StationListWindow.xaml.cs">
@@ -36,10 +42,13 @@
     <Page Update="View\GraphWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="View\LoginView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="View\LoginWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="View\MainWindow.xaml">
+    <Page Update="ViewControl\MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\PumpMenuWindow.xaml">
@@ -49,6 +58,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="ResourceXAML\MainResource.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\StationListView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\StationListWindow.xaml">

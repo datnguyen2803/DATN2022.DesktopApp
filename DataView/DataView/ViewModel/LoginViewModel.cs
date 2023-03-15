@@ -1,5 +1,6 @@
 ﻿using DataView.DataModel;
 using DataView.Service;
+using Prism.Mvvm;
 using RestSharp;
 using System;
 using System.Collections.Generic;
@@ -18,7 +19,7 @@ using System.Windows.Input;
 
 namespace DataView.ViewModel
 {
-    class LoginViewModel : BaseViewModel
+    class LoginViewModel : BindableBase
     {
         #region commands
         public ICommand LoginCommand { get; set; }
@@ -28,8 +29,8 @@ namespace DataView.ViewModel
 
         private string _username;
         private string _password;
-        public string Username { get => _username; set { _username = value; OnPropertyChanged(); } }
-        public string Password { get => _password; set { _password = value; OnPropertyChanged(); } }
+        public string Username { get => _username; set { _username = value; RaisePropertyChanged(); } }
+        public string Password { get => _password; set { _password = value; RaisePropertyChanged(); } }
         public bool IsLogin { get; set; }
         public LoginViewModel()
         {
@@ -54,15 +55,16 @@ namespace DataView.ViewModel
             try
             {
                 IsLogin = IUserService.Login(myUser);
-
+                MessageBox.Show(String.Format("Đang đăng nhập vào user {0} pass {1}", Username, Password));
+                IsLogin = true;
                 if (IsLogin == true)
                 {
-                    MessageBox.Show("Đang đăng nhập...");
-                    p.Close();
+                    MessageBox.Show("Thành công!");
+                    //p.Close();
                 }
                 else
                 {
-                    MessageBox.Show("Sai tài khoản hoặc mật khẩu");
+                    MessageBox.Show("Sai tài khoản hoặc mật khẩu!!!");
                 }
             }
             catch(Exception ex)
@@ -70,43 +72,6 @@ namespace DataView.ViewModel
                 return;
             }
         }
-
-        private async void GetLogin(UserModel _user)
-        {
-            var handler = new WinHttpHandler();
-            HttpClient client = new HttpClient(handler);
-            //client.BaseAddress = new Uri("https://localhost:44393/");
-            //client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
-
-
-            //HttpResponseMessage response = client.GetAsync("api/user").Result;
-            //Trace.WriteLine(response);
-
-            var JsonData = JsonSerializer.Serialize(_user);
-            Trace.WriteLine("datchaos check" + JsonData);
-
-            var request = new HttpRequestMessage
-            {
-                Method = HttpMethod.Get,
-                RequestUri = new Uri("https://localhost:44393/api/user/login"),
-                Content = new StringContent(JsonData)
-            };
-            
-
-            var response = await client.SendAsync(request);
-
-            if (response.IsSuccessStatusCode)
-            {
-                string myres = response.Content.ReadAsStringAsync().Result;
-                IsLogin = true;
-            }
-            else
-            {
-                MessageBox.Show("Error Code: " + response.StatusCode);
-                IsLogin = false;
-            }
-        }
-
 
         private void Exit(Window p)
         {
@@ -116,8 +81,9 @@ namespace DataView.ViewModel
             }
             else
             {
-                p.Close();
+                //p.Close();
             }
+            
         }
     }
 }

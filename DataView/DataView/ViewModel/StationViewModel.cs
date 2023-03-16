@@ -3,6 +3,7 @@ using DataView.Service;
 using LiveCharts;
 using LiveCharts.Wpf;
 using Newtonsoft.Json;
+using Prism.Mvvm;
 using RestSharp;
 using System;
 using System.Collections.Generic;
@@ -57,7 +58,7 @@ namespace DataView.ViewModel
     }
 
 
-    public class StationViewModel : BaseViewModel
+    public class StationViewModel : BindableBase
     {
         #region commands
         public ICommand LoadedWindowCommand { get; set; }

@@ -25,6 +25,9 @@
     <Compile Update="oldWindow\PumpMenuWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="View\PumpMenuView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="View\StationListView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -35,6 +38,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="UserControlDAT\ControlBarUC.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\StationMenuView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -66,6 +72,9 @@
     <Page Update="ResourceXAML\MainResource.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="View\PumpMenuView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="View\StationListView.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -76,6 +85,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UserControlDAT\ControlBarUC.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\StationMenuView.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

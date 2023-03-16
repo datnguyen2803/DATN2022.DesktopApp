@@ -34,5 +34,16 @@ namespace DataView.Common.Helper
             public static readonly string MESSAGE_PUMP_NOT_FOUND = "No pump matches the station name and pump name";
             public static readonly string MESSAGE_PUMP_DUPLICATE = "Cannot add the same pump";
         }
+
+        public enum INTERNAL_MESSAGE_CODE
+        {
+            CODE_INTERNAL_NONE = 0,
+
+            CODE_INTERNAL_ON_LOGIN,
+            CODE_INTERNAL_LOGIN_SUCCESS,
+            CODE_INTERNAL_LOGIN_FAIL,
+
+            CODE_INTERNAL_MAX
+        }
     }
 }

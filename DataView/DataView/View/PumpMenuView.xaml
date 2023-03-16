@@ -1,0 +1,211 @@
+﻿<UserControl x:Class="DataView.View.PumpMenuView"
+             x:Name="pumpMenuView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:DataView.View"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800"
+             
+             DataContext="{StaticResource PumpVM}"  
+             
+             TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+             TextElement.FontWeight="Regular"
+             TextElement.FontSize="13"
+             TextOptions.TextFormattingMode="Ideal"
+             TextOptions.TextRenderingMode="Auto"
+             Background="{DynamicResource MaterialDesignPaper}"
+             FontFamily="{DynamicResource MaterialDesignFont}"          >
+
+
+    <UserControl.Resources>
+
+        <Style x:Key="PumpCard" TargetType="materialDesign:Card">
+            <Setter Property="Margin" Value="10" />
+            <Setter Property="Padding" Value="8 8 8 8" />
+            <Setter Property="Background" Value="#ede7f6" />
+            <Setter Property="Foreground" Value="#1a237e" />
+        </Style>
+
+        <Style x:Key="CardTitleText" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="30" />
+        </Style>
+
+        <Style x:Key="CardBodyText" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="16" />
+        </Style>
+
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <!--Side bar-->
+        <Grid Grid.Column="0" HorizontalAlignment="Left" >
+            <materialDesign:Card>
+                <TabControl
+				materialDesign:ColorZoneAssist.Mode="Standard"
+				materialDesign:ElevationAssist.Elevation="Dp0"
+				Style="{StaticResource MaterialDesignNavigationRailTabControl}">
+                    <TabItem>
+                        <TabItem.Header>
+                            <StackPanel Width="auto" Height="auto">
+                                <materialDesign:PackIcon
+									Width="24"
+									Height="24"
+									HorizontalAlignment="Center"
+									Kind="ClockOutline" />
+                                <TextBlock HorizontalAlignment="Center" Text="Hiện tại" />
+                            </StackPanel>
+                        </TabItem.Header>
+                    </TabItem>
+                    <TabItem x:Name="tabItemStation">
+                        <TabItem.Header>
+                            <StackPanel Width="auto" Height="auto">
+                                <materialDesign:PackIcon
+									Width="24"
+									Height="24"
+									HorizontalAlignment="Center"
+									Kind="HomeSearchOutline" />
+                                <TextBlock HorizontalAlignment="Center" Text="Khu vực" />
+                            </StackPanel>
+                        </TabItem.Header>
+                    </TabItem>
+                    <TabItem>
+                        <TabItem.Header>
+                            <StackPanel
+			                    Width="auto"
+			                    Height="auto">
+                                <materialDesign:PackIcon
+			                        Width="24"
+			                        Height="24"
+			                        HorizontalAlignment="Center"
+			                        Kind="InformationOutline" />
+                                <TextBlock
+			                        HorizontalAlignment="Center"
+			                        Text="About" />
+                            </StackPanel>
+                        </TabItem.Header>
+                    </TabItem>
+                    <TabItem>
+                        <TabItem.Header>
+                            <StackPanel
+			                    Width="auto"
+			                    Height="auto">
+                                <materialDesign:PackIcon
+			                        Width="24"
+			                        Height="24"
+			                        HorizontalAlignment="Center"
+			                        Kind="ExitToApp" />
+                                <TextBlock
+			                        HorizontalAlignment="Center"
+			                        Text="Thoát" />
+                            </StackPanel>
+                        </TabItem.Header>
+                    </TabItem>
+                </TabControl>
+            </materialDesign:Card>
+        </Grid>
+        
+        <!--Content-->
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*"></RowDefinition>
+                <RowDefinition Height="8*"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <TextBlock
+                Grid.Row="0"
+				  Style="{StaticResource MaterialDesignHeadline4TextBlock}"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+				  Text="Thông tin máy bơm" />
+
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="4*"></ColumnDefinition>
+                    <ColumnDefinition Width="6*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <materialDesign:Card Grid.Column="0"
+                  Width="240"
+                  Style="{StaticResource PumpCard}">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="100" />
+                            <RowDefinition Height="5*" />
+                            <RowDefinition Height="2*" />
+                        </Grid.RowDefinitions>
+                        <!--<Image Grid.Row="0" Width="auto" Height="100">
+                            <Image.Source>
+                                <BitmapImage DecodePixelWidth="200"  
+                                    UriSource="D:\1BK\1.Subjects\2.DA_TT\DATN2\DataViewer\DATN2022.DesktopApp\DataView\Image\hadongplace.jpg"
+                                    />
+                            </Image.Source>
+                            
+                    </Image>-->
+                        <StackPanel Grid.Row="1" Margin="5,20,5,0">
+                            <TextBlock
+                            FontWeight="Bold"
+                            FontSize="20">
+                            Máy bơm 01
+                            </TextBlock>
+                            <TextBlock
+                            VerticalAlignment="Center"
+                            TextWrapping="Wrap" >
+                            Trạm A
+                            </TextBlock>
+                            <TextBlock
+                            VerticalAlignment="Center"
+                            TextWrapping="Wrap" >
+                            Trạng thái: Bật
+                            </TextBlock>
+                        </StackPanel>
+                        <ToolBarTray Grid.Row="2" Margin="0" >
+                            <ToolBar Width="230">
+                                <Button>
+                                    <materialDesign:PackIcon Kind="Information" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Button>
+                                <Button>
+                                    <materialDesign:PackIcon Kind="Pencil" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Button>
+                                <Button>
+                                    <materialDesign:PackIcon Kind="Delete" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Button>
+                            </ToolBar>
+                        </ToolBarTray>
+                    </Grid>
+                </materialDesign:Card>
+
+                <Grid Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="2*"></RowDefinition>
+                        <RowDefinition Height="8*"></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock
+                        Grid.Row="0"
+				          Style="{StaticResource MaterialDesignHeadline6TextBlock}"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+				          Text="Thời gian hoạt động trong 24h" />
+
+                    <lvc:PieChart Grid.Row="1" Margin="20" Series="{Binding pumpSeriesCollection}" LegendLocation="Right" Hoverable="False" InnerRadius="0">
+                        <lvc:PieChart.ChartLegend>
+                            <lvc:DefaultLegend BulletSize="15" TextBlock.FontSize="15"></lvc:DefaultLegend>
+                        </lvc:PieChart.ChartLegend>
+                        <lvc:PieChart.DataTooltip>
+                            <lvc:DefaultTooltip BulletSize="20"></lvc:DefaultTooltip>
+                        </lvc:PieChart.DataTooltip>
+                    </lvc:PieChart>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Grid>
+</UserControl>

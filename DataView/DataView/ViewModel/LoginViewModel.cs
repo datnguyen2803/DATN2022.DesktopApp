@@ -1,5 +1,7 @@
-﻿using DataView.DataModel;
+﻿using DataView.Common.Helper;
+using DataView.DataModel;
 using DataView.Service;
+using GalaSoft.MvvmLight.Messaging;
 using Prism.Mvvm;
 using RestSharp;
 using System;
@@ -61,6 +63,10 @@ namespace DataView.ViewModel
                 {
                     MessageBox.Show("Thành công!");
                     //p.Close();
+
+                    InternalMessage newMess = new InternalMessage(ConstantHelper.INTERNAL_MESSAGE_CODE.CODE_INTERNAL_LOGIN_SUCCESS);
+
+                    Messenger.Default.Send(newMess);
                 }
                 else
                 {

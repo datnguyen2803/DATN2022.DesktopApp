@@ -3,6 +3,7 @@
                     xmlns:viewmodel="clr-namespace:DataView.ViewModel"
                     xmlns:view="clr-namespace:DataView.View">
     <viewmodel:MainViewModel x:Key="MainVM"></viewmodel:MainViewModel>
+    <viewmodel:HomeViewModel x:Key="HomeVM"></viewmodel:HomeViewModel>
     <viewmodel:LoginViewModel x:Key="LoginVM"></viewmodel:LoginViewModel>
     <viewmodel:StationViewModel x:Key="StationVM"></viewmodel:StationViewModel>
     <viewmodel:PumpViewModel x:Key="PumpVM"></viewmodel:PumpViewModel>

@@ -38,13 +38,13 @@ namespace DataView.ViewModel
             _username = string.Empty;
             _password = string.Empty;
 
-            LoginCommand = new RelayCommand<Window>((p) => { return true; }, (p) => { Login(p); });
-            ExitCommand = new RelayCommand<Window>((p) => { return true; }, (p) => { Exit(p); });
+            LoginCommand = new RelayCommand<UserControl>((p) => { return true; }, (p) => { Login(p); });
+            ExitCommand = new RelayCommand<UserControl>((p) => { return true; }, (p) => { Exit(p); });
 
             PasswordChangedCommand = new RelayCommand<PasswordBox>((p) => { return true; }, (p) => { Password = p.Password; });
         }
 
-        private void Login(Window p)
+        private void Login(UserControl p)
         {
             UserModel myUser = new UserModel()
             {
@@ -73,7 +73,7 @@ namespace DataView.ViewModel
             }
         }
 
-        private void Exit(Window p)
+        private void Exit(UserControl p)
         {
             if(p == null)
             {

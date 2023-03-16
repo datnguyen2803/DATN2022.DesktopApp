@@ -29,6 +29,8 @@ namespace DataView.ViewModel
 
         private LoginViewModel loginViewModel = new LoginViewModel();
 
+        private HomeViewModel homeViewModel = new HomeViewModel();
+
         private StationListViewModel stationListModel = new StationListViewModel();
 
         public MainViewModel()
@@ -43,14 +45,7 @@ namespace DataView.ViewModel
                 }
 
                 CurrentViewModel = loginViewModel;
-                if(loginViewModel.IsLogin == true)
-                {
-                    CurrentViewModel = stationListModel;
-                }
-                else
-                {
-                    // do nothing
-                }
+                CurrentViewModel = homeViewModel;
 
 
             }

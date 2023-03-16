@@ -7,28 +7,31 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="View\AddPumpWindow.xaml.cs">
+    <Compile Update="oldWindow\AddPumpWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="View\GraphWindow.xaml.cs">
+    <Compile Update="oldWindow\GraphWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\HomeView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="View\LoginView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="View\LoginWindow.xaml.cs">
+    <Compile Update="oldWindow\LoginWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="View\PumpMenuWindow.xaml.cs">
+    <Compile Update="oldWindow\PumpMenuWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="View\StationListView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="View\StationListWindow.xaml.cs">
+    <Compile Update="oldWindow\StationListWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="View\StationMenuWindow.xaml.cs">
+    <Compile Update="oldWindow\StationMenuWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="UserControlDAT\ControlBarUC.xaml.cs">
@@ -36,22 +39,25 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="View\AddPumpWindow.xaml">
+    <Page Update="oldWindow\AddPumpWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="View\GraphWindow.xaml">
+    <Page Update="oldWindow\GraphWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\HomeView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\LoginView.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="View\LoginWindow.xaml">
+    <Page Update="oldWindow\LoginWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="ViewControl\MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="View\PumpMenuWindow.xaml">
+    <Page Update="oldWindow\PumpMenuWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Resources\Images.xaml">
@@ -63,10 +69,10 @@
     <Page Update="View\StationListView.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="View\StationListWindow.xaml">
+    <Page Update="oldWindow\StationListWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="View\StationMenuWindow.xaml">
+    <Page Update="oldWindow\StationMenuWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UserControlDAT\ControlBarUC.xaml">

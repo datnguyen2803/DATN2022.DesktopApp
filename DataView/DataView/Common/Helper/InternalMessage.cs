@@ -14,14 +14,14 @@ namespace DataView.Common.Helper
 
         public InternalMessage()
         {
-            Code = INTERNAL_MESSAGE_CODE.CODE_INTERNAL_NONE;
+            Code = INTERNAL_MESSAGE_CODE.CODE_INTERNAL_MESSAGE_NONE;
             Message = String.Empty;
         }
 
-        public InternalMessage(INTERNAL_MESSAGE_CODE code)
+        public InternalMessage(INTERNAL_MESSAGE_CODE code, String message = "")
         {
             Code = code;
-            Message = String.Empty;
+            Message = message;
         }
     }
 }

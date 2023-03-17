@@ -32,11 +32,16 @@
             <view:HomeView/>
         </DataTemplate>
 
-        <DataTemplate DataType = "{x:Type viewModel:StationListViewModel}">
-            <view:StationListView/>
+        <DataTemplate DataType = "{x:Type viewModel:StationViewModel}">
+            <view:StationMenuView/>
         </DataTemplate>
-        
-        
+
+        <DataTemplate DataType = "{x:Type viewModel:PumpViewModel}">
+            <view:PumpMenuView/>
+        </DataTemplate>
+
+
+
     </Window.Resources>
 
     <i:Interaction.Triggers>

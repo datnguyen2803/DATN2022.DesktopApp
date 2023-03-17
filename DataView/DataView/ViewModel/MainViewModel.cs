@@ -22,7 +22,12 @@ namespace DataView.ViewModel
         public ICommand CloseWindowCommand { get; set; }
         #endregion
 
-        public bool IsLoaded = false;
+        public bool IsWindowLoaded = false;
+
+        public SIDEBAR_ITEM_CODE SelectedSideBarItem { get; set; }
+        public INTERNAL_VIEW_CODE CurrentView { get; set; }
+
+        private Window _window { get; set; }
 
         private BindableBase _currentViewModel;
         public BindableBase CurrentViewModel
@@ -30,7 +35,6 @@ namespace DataView.ViewModel
             get { return _currentViewModel; }
             set { SetProperty(ref _currentViewModel, value); }
         }
-
         private LoginViewModel loginViewModel { get; set; }
         private HomeViewModel homeViewModel { get; set; }
         private StationViewModel stationViewModel { get; set; }
@@ -43,11 +47,16 @@ namespace DataView.ViewModel
 
             LoadedWindowCommand = new RelayCommand<Window>((f) => { return true; }, (f) =>
             {
-                IsLoaded = true;
+                IsWindowLoaded = true;
                 if (f == null)
                 {
                     return;
                 }
+
+                _window = f as Window;
+
+                CurrentView = INTERNAL_VIEW_CODE.CODE_INTERNAL_VIEW_LOGIN;
+                SelectedSideBarItem = SIDEBAR_ITEM_CODE.SIDEBAR_ITEM_NONE;
 
                 loginViewModel = new LoginViewModel();
                 homeViewModel = new HomeViewModel();
@@ -59,10 +68,6 @@ namespace DataView.ViewModel
             }
             );
 
-            CloseWindowCommand = new RelayCommand<Window>((p) => { return true; }, (p) =>
-            {
-                p.Close();
-            });
         }
 
         public void HandleInternalMessage(InternalMessage _internalMessage)
@@ -70,11 +75,31 @@ namespace DataView.ViewModel
             INTERNAL_MESSAGE_CODE myCode = _internalMessage.Code;
             switch (myCode)
             {
-                case INTERNAL_MESSAGE_CODE.CODE_INTERNAL_LOGIN_SUCCESS:
+                case INTERNAL_MESSAGE_CODE.CODE_INTERNAL_MESSAGE_LOGIN_SUCCESS:
                     CurrentViewModel = homeViewModel;
+                    CurrentView = INTERNAL_VIEW_CODE.CODE_INTERNAL_VIEW_HOME;
+                    SelectedSideBarItem = SIDEBAR_ITEM_CODE.SIDEBAR_ITEM_HOME;
                     break;
-                case INTERNAL_MESSAGE_CODE.CODE_INTERNAL_LOGIN_FAIL:
+
+
+                case INTERNAL_MESSAGE_CODE.CODE_INTERNAL_MESSAGE_LOGIN_FAIL:
                     // do nothing
+                    break;
+
+                case INTERNAL_MESSAGE_CODE.CODE_INTERNAL_MESSAGE_CHANGETO_HOME:
+                    CurrentViewModel = homeViewModel;
+                    CurrentView = INTERNAL_VIEW_CODE.CODE_INTERNAL_VIEW_HOME;
+                    SelectedSideBarItem = SIDEBAR_ITEM_CODE.SIDEBAR_ITEM_HOME;
+                    break;
+
+                case INTERNAL_MESSAGE_CODE.CODE_INTERNAL_MESSAGE_CHANGETO_STATION_MENU:
+                    CurrentViewModel = stationViewModel;
+                    CurrentView = INTERNAL_VIEW_CODE.CODE_INTERNAL_VIEW_STATION_MENU;
+                    SelectedSideBarItem = SIDEBAR_ITEM_CODE.SIDEBAR_ITEM_SEARCH;
+                    break;
+
+                case INTERNAL_MESSAGE_CODE.CODE_INTERNAL_MESSAGE_QUIT:
+                    Stop();
                     break;
 
                 default:
@@ -84,11 +109,17 @@ namespace DataView.ViewModel
 
         private void Start()
         {
-
-
             CurrentViewModel = loginViewModel;
             Messenger.Default.Register<InternalMessage>(this, HandleInternalMessage);
         }
 
+
+        private void Stop()
+        {
+            CurrentView = INTERNAL_VIEW_CODE.CODE_INTERNAL_VIEW_NONE;
+            SelectedSideBarItem = SIDEBAR_ITEM_CODE.SIDEBAR_ITEM_NONE;
+
+            _window.Close();
+        }
     }
 }

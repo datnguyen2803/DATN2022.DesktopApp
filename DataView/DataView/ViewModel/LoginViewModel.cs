@@ -18,6 +18,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using static DataView.Common.Helper.ConstantHelper;
 
 namespace DataView.ViewModel
 {
@@ -40,13 +41,13 @@ namespace DataView.ViewModel
             _username = string.Empty;
             _password = string.Empty;
 
-            LoginCommand = new RelayCommand<UserControl>((p) => { return true; }, (p) => { Login(p); });
-            ExitCommand = new RelayCommand<UserControl>((p) => { return true; }, (p) => { Exit(p); });
+            LoginCommand = new RelayCommand<UserControl>((p) => { return true; }, (p) => { Login(); });
+            ExitCommand = new RelayCommand<UserControl>((p) => { return true; }, (p) => { Exit(); });
 
             PasswordChangedCommand = new RelayCommand<PasswordBox>((p) => { return true; }, (p) => { Password = p.Password; });
         }
 
-        private void Login(UserControl p)
+        private void Login()
         {
             UserModel myUser = new UserModel()
             {
@@ -56,21 +57,18 @@ namespace DataView.ViewModel
 
             try
             {
-                IsLogin = IUserService.Login(myUser);
-                MessageBox.Show(String.Format("Đang đăng nhập vào user {0} pass {1}", Username, Password));
+                //IsLogin = IUserService.Login(myUser);
                 IsLogin = true;
                 if (IsLogin == true)
                 {
                     MessageBox.Show("Thành công!");
-                    //p.Close();
 
-                    InternalMessage newMess = new InternalMessage(ConstantHelper.INTERNAL_MESSAGE_CODE.CODE_INTERNAL_LOGIN_SUCCESS);
-
-                    Messenger.Default.Send(newMess);
+                    SendToMain(INTERNAL_MESSAGE_CODE.CODE_INTERNAL_MESSAGE_LOGIN_SUCCESS);
                 }
                 else
                 {
                     MessageBox.Show("Sai tài khoản hoặc mật khẩu!!!");
+                    SendToMain(INTERNAL_MESSAGE_CODE.CODE_INTERNAL_MESSAGE_LOGIN_FAIL);
                 }
             }
             catch(Exception ex)
@@ -79,17 +77,15 @@ namespace DataView.ViewModel
             }
         }
 
-        private void Exit(UserControl p)
+        private void Exit()
         {
-            if(p == null)
-            {
-                return;
-            }
-            else
-            {
-                //p.Close();
-            }
-            
+            SendToMain(INTERNAL_MESSAGE_CODE.CODE_INTERNAL_MESSAGE_QUIT);
+        }
+
+        private void SendToMain(INTERNAL_MESSAGE_CODE _code, String _message = "")
+        {
+            InternalMessage newMess = new InternalMessage(_code, _message);
+            Messenger.Default.Send(newMess);
         }
     }
 }

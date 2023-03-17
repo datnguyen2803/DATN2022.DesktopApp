@@ -37,13 +37,49 @@ namespace DataView.Common.Helper
 
         public enum INTERNAL_MESSAGE_CODE
         {
-            CODE_INTERNAL_NONE = 0,
+            CODE_INTERNAL_MESSAGE_NONE = 0,
 
-            CODE_INTERNAL_ON_LOGIN,
-            CODE_INTERNAL_LOGIN_SUCCESS,
-            CODE_INTERNAL_LOGIN_FAIL,
+            CODE_INTERNAL_MESSAGE_ON_LOGIN,
+            CODE_INTERNAL_MESSAGE_LOGIN_SUCCESS,
+            CODE_INTERNAL_MESSAGE_LOGIN_FAIL,
 
-            CODE_INTERNAL_MAX
+            CODE_INTERNAL_MESSAGE_CHANGETO_HOME,
+            CODE_INTERNAL_MESSAGE_CHANGETO_STATION_MENU,
+            CODE_INTERNAL_MESSAGE_CHANGETO_PUMP_MENU,
+            CODE_INTERNAL_MESSAGE_CHANGETO_PUMP_UPDATE,
+            CODE_INTERNAL_MESSAGE_CHANGETO_SEARCH,
+
+            CODE_INTERNAL_MESSAGE_GO_BACK,
+
+            CODE_INTERNAL_MESSAGE_QUIT,
+
+            CODE_INTERNAL_MESSAGE_MAX
+        }
+
+        public enum INTERNAL_VIEW_CODE
+        {
+            CODE_INTERNAL_VIEW_NONE = 0,
+
+            CODE_INTERNAL_VIEW_LOGIN,
+            CODE_INTERNAL_VIEW_HOME,
+            CODE_INTERNAL_VIEW_STATION_MENU,
+            CODE_INTERNAL_VIEW_PUMP_MENU,
+            CODE_INTERNAL_VIEW_PUMP_UPDATE,
+            CODE_INTERNAL_VIEW_SEARCH,
+
+            CODE_INTERNAL_VIEW_MAX
+        }
+
+        public enum SIDEBAR_ITEM_CODE
+        {
+            SIDEBAR_ITEM_NONE = 0,
+
+            SIDEBAR_ITEM_HOME,
+            SIDEBAR_ITEM_SEARCH,
+            SIDEBAR_ITEM_ABOUT,
+            SIDEBAR_ITEM_QUIT,
+
+            SIDEBAR_ITEM_MAX
         }
     }
 }

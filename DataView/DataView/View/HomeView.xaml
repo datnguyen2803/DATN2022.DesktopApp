@@ -72,6 +72,11 @@
                                 <TextBlock HorizontalAlignment="Center" Text="Khu vực" />
                             </StackPanel>
                         </TabItem.Header>
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName = "MouseUp">
+                                <i:InvokeCommandAction Command="{Binding SelectViewCommand}" CommandParameter="{Binding ElementName=tabItemStation}" />
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
                     </TabItem>
                     <TabItem>
                         <TabItem.Header>

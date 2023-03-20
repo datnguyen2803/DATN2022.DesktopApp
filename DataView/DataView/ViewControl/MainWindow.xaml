@@ -40,8 +40,6 @@
             <view:PumpMenuView/>
         </DataTemplate>
 
-
-
     </Window.Resources>
 
     <i:Interaction.Triggers>

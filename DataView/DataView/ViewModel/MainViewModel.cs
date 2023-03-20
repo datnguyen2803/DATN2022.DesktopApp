@@ -24,11 +24,7 @@ namespace DataView.ViewModel
         #endregion
 
         public bool IsWindowLoaded = false;
-
-        public static SIDEBAR_ITEM_CODE SelectedSideBarItem { get; set; }
-        public INTERNAL_VIEW_CODE CurrentView { get; set; }
-
-        private Window _window { get; set; }
+        private Window window { get; set; }
 
         private BindableBase _currentViewModel;
         public BindableBase CurrentViewModel
@@ -38,8 +34,6 @@ namespace DataView.ViewModel
         }
         private LoginViewModel loginViewModel { get; set; }
         private HomeViewModel homeViewModel { get; set; }
-        private StationViewModel stationViewModel { get; set; }
-        private PumpViewModel pumpViewModel { get; set; }
 
         public InternalMessage internalMessage { get; set; }
 
@@ -54,15 +48,10 @@ namespace DataView.ViewModel
                     return;
                 }
 
-                _window = f as Window;
-
-                CurrentView = INTERNAL_VIEW_CODE.CODE_INTERNAL_VIEW_LOGIN;
-                SelectedSideBarItem = SIDEBAR_ITEM_CODE.SIDEBAR_ITEM_NONE;
+                window = f as Window;
 
                 loginViewModel = new LoginViewModel();
                 homeViewModel = new HomeViewModel();
-                stationViewModel = new StationViewModel();
-                pumpViewModel = new PumpViewModel();
 
                 Start();
 
@@ -79,46 +68,25 @@ namespace DataView.ViewModel
 
         private void Stop()
         {
-            CurrentView = INTERNAL_VIEW_CODE.CODE_INTERNAL_VIEW_NONE;
-            SelectedSideBarItem = SIDEBAR_ITEM_CODE.SIDEBAR_ITEM_NONE;
-
-            _window.Close();
+            window.Close();
         }
 
         private void HandleInternalMessage(InternalMessage _internalMessage)
         {
-            INTERNAL_MESSAGE_CODE myCode = _internalMessage.Code;
-            switch (myCode)
+            if(_internalMessage == null)
+            {
+                return;
+            }
+            internalMessage = _internalMessage;
+            switch (internalMessage.Code)
             {
                 case INTERNAL_MESSAGE_CODE.CODE_INTERNAL_MESSAGE_LOGIN_SUCCESS:
                     CurrentViewModel = homeViewModel;
-                    CurrentView = INTERNAL_VIEW_CODE.CODE_INTERNAL_VIEW_HOME;
-                    SelectedSideBarItem = SIDEBAR_ITEM_CODE.SIDEBAR_ITEM_HOME;
                     break;
 
 
                 case INTERNAL_MESSAGE_CODE.CODE_INTERNAL_MESSAGE_LOGIN_FAIL:
                     // do nothing
-                    break;
-
-                case INTERNAL_MESSAGE_CODE.CODE_INTERNAL_MESSAGE_CHANGETO_HOME:
-                    CurrentViewModel = homeViewModel;
-                    CurrentView = INTERNAL_VIEW_CODE.CODE_INTERNAL_VIEW_HOME;
-                    SelectedSideBarItem = SIDEBAR_ITEM_CODE.SIDEBAR_ITEM_HOME;
-                    break;
-
-                case INTERNAL_MESSAGE_CODE.CODE_INTERNAL_MESSAGE_CHANGETO_STATION_MENU:
-                    Debug.WriteLine("Changing to station menu...");
-                    CurrentViewModel = stationViewModel;
-                    CurrentView = INTERNAL_VIEW_CODE.CODE_INTERNAL_VIEW_STATION_MENU;
-                    SelectedSideBarItem = SIDEBAR_ITEM_CODE.SIDEBAR_ITEM_SEARCH;
-                    break;
-
-                case INTERNAL_MESSAGE_CODE.CODE_INTERNAL_MESSAGE_CHANGETO_PUMP_MENU:
-                    Debug.WriteLine("Changing to pump menu...");
-                    CurrentViewModel = pumpViewModel;
-                    CurrentView = INTERNAL_VIEW_CODE.CODE_INTERNAL_VIEW_PUMP_MENU;
-                    SelectedSideBarItem = SIDEBAR_ITEM_CODE.SIDEBAR_ITEM_ABOUT;
                     break;
 
                 case INTERNAL_MESSAGE_CODE.CODE_INTERNAL_MESSAGE_QUIT:
@@ -129,8 +97,5 @@ namespace DataView.ViewModel
                     break;
             }
         }
-
-
-        public static SIDEBAR_ITEM_CODE getSelectedSidebarItem() { return SelectedSideBarItem; }
     }
 }

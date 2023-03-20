@@ -8,6 +8,7 @@ using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Windows.Media;
 using System.Linq;
 using System.Net;
 using System.Reflection.Emit;
@@ -46,15 +47,29 @@ namespace DataView.ViewModel
 
     public class CustomPumpModel
     {
-        public int Id { get; set; }
+        public int Order { get; set; }
         public string Name { get; set; }
         public string State { get; set; }
+        public SolidColorBrush PColor { get; set; }
 
         public CustomPumpModel()
         {
-            Id = 0;
+            Order = 0;
             Name = string.Empty;
             State = string.Empty;
+            PColor = new SolidColorBrush();
+        }
+
+        public CustomPumpModel(int order, string name, string state)
+        {
+            BrushConverter converter = new System.Windows.Media.BrushConverter();
+            SolidColorBrush greenBrush = (SolidColorBrush)converter.ConvertFromString("#afe1af");
+            SolidColorBrush redBrush = (SolidColorBrush)converter.ConvertFromString("#fcd1d6");
+
+            Order = order;
+            Name = name;
+            State = state;
+            PColor = (state == "Bật") ? greenBrush : redBrush;
         }
     }
 
@@ -65,14 +80,8 @@ namespace DataView.ViewModel
         public ICommand LoadedWindowCommand { get; set; }
         #endregion
 
-        public bool IsHomeSelected { get; set; }
-        public bool IsSearchSelected { get; set; }
-        public bool IsAboutSelected { get; set; }
 
-        public List<CustomStationModel> MyStationList { get; set; }
         public List<CustomPumpModel> MyPumpList { get; set; }
-
-        public List<StationModel> myStationList { get; set; }
 
         public SeriesCollection pumpStateCollection { get; set; }
         public string[] Labels { get; set; }
@@ -85,12 +94,8 @@ namespace DataView.ViewModel
                 //p.Show();
             });
 
-            MyStationList = new List<CustomStationModel>();
             MyPumpList = new List<CustomPumpModel>();
-
-            InitSidebar();
             GetDataFromDB();
-            Debug.WriteLine("[datchaos]: " + MyStationList.Count);
 
             pumpStateCollection = new SeriesCollection
             {
@@ -115,86 +120,27 @@ namespace DataView.ViewModel
             Formatter = value => value.ToString("N");
         }
 
-        private void InitSidebar()
-        {
-            IsHomeSelected = MainViewModel.getSelectedSidebarItem() == SIDEBAR_ITEM_CODE.SIDEBAR_ITEM_HOME ? true : false;
-            IsSearchSelected = MainViewModel.getSelectedSidebarItem() == SIDEBAR_ITEM_CODE.SIDEBAR_ITEM_SEARCH ? true : false;
-            IsAboutSelected = MainViewModel.getSelectedSidebarItem() == SIDEBAR_ITEM_CODE.SIDEBAR_ITEM_ABOUT ? true : false;
-        }
 
         private void GetDataFromDB()
         {
-            //CustomStationModel station1 = new CustomStationModel()
-            //{
-            //    Id = 1,
-            //    Name = "A",
-            //    Address = "Hà Đông",
-            //    numberOfPumpOn = 5,
-            //    numberOfPumpOff = 3
-            //};
-            //CustomStationModel station2 = new CustomStationModel()
-            //{
-            //    Id = 2,
-            //    Name = "B",
-            //    Address = "Hai Bà Trưng",
-            //    numberOfPumpOn = 1,
-            //    numberOfPumpOff = 4
-            //};
-            //CustomStationModel station3 = new CustomStationModel()
-            //{
-            //    Id = 3,
-            //    Name = "C",
-            //    Address = "Từ Liêm",
-            //    numberOfPumpOn = 2,
-            //    numberOfPumpOff = 3
-            //};
 
-            //MyStationList.Add(station1);
-            //MyStationList.Add(station2);
-            //MyStationList.Add(station3);
+            List<PumpModel> tempList = IPumpService.GetByStationName("A");
 
-
-            //MyStationList.Add(new CustomStationModel() { Id = 1, Name = "A", Address = "A", numberOfPumpOn = 1, numberOfPumpOff = 2 });
-            //MyStationList.Add(new CustomStationModel() { Id = 1, Name = "A", Address = "A", numberOfPumpOn = 1, numberOfPumpOff = 2 });
-            //MyStationList.Add(new CustomStationModel() { Id = 1, Name = "A", Address = "A", numberOfPumpOn = 1, numberOfPumpOff = 2 });
-            //MyStationList.Add(new CustomStationModel() { Id = 1, Name = "A", Address = "A", numberOfPumpOn = 1, numberOfPumpOff = 2 });
-            //MyStationList.Add(new CustomStationModel() { Id = 1, Name = "A", Address = "A", numberOfPumpOn = 1, numberOfPumpOff = 2 });
-            //MyStationList.Add(new CustomStationModel() { Id = 1, Name = "A", Address = "A", numberOfPumpOn = 1, numberOfPumpOff = 2 });
-            //MyStationList.Add(new CustomStationModel() { Id = 1, Name = "A", Address = "A", numberOfPumpOn = 1, numberOfPumpOff = 2 });
-            //MyStationList.Add(new CustomStationModel() { Id = 1, Name = "A", Address = "A", numberOfPumpOn = 1, numberOfPumpOff = 2 });
-            //MyStationList.Add(new CustomStationModel() { Id = 1, Name = "A", Address = "A", numberOfPumpOn = 1, numberOfPumpOff = 2 });
-            //MyStationList.Add(new CustomStationModel() { Id = 1, Name = "A", Address = "A", numberOfPumpOn = 1, numberOfPumpOff = 2 });
-            //MyStationList.Add(new CustomStationModel() { Id = 1, Name = "A", Address = "A", numberOfPumpOn = 1, numberOfPumpOff = 2 });
-            //MyStationList.Add(new CustomStationModel() { Id = 1, Name = "A", Address = "A", numberOfPumpOn = 1, numberOfPumpOff = 2 });
-            //MyStationList.Add(new CustomStationModel() { Id = 1, Name = "A", Address = "A", numberOfPumpOn = 1, numberOfPumpOff = 2 });
-            //MyStationList.Add(new CustomStationModel() { Id = 1, Name = "A", Address = "A", numberOfPumpOn = 1, numberOfPumpOff = 2 });
-            //MyStationList.Add(new CustomStationModel() { Id = 1, Name = "A", Address = "A", numberOfPumpOn = 1, numberOfPumpOff = 2 });
-            //MyStationList.Add(new CustomStationModel() { Id = 1, Name = "A", Address = "A", numberOfPumpOn = 1, numberOfPumpOff = 2 });
-            //MyStationList.Add(new CustomStationModel() { Id = 1, Name = "A", Address = "A", numberOfPumpOn = 1, numberOfPumpOff = 2 });
-
-
-
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show("Null cmnr");
-            //    return;
-            //}
-
-
-
-            //MyPumpList.Add(new CustomPumpModel() { Id = 1, Name = "01", State = "Bật" });
-            //MyPumpList.Add(new CustomPumpModel() { Id = 2, Name = "02", State = "Bật" });
-            //MyPumpList.Add(new CustomPumpModel() { Id = 3, Name = "03", State = "Tắt" });
-            //MyPumpList.Add(new CustomPumpModel() { Id = 4, Name = "04", State = "Bật" });
-            //MyPumpList.Add(new CustomPumpModel() { Id = 5, Name = "05", State = "Tắt" });
-            //MyPumpList.Add(new CustomPumpModel() { Id = 6, Name = "06", State = "Tắt" });
-
-            myStationList = IStationService.GetAll();
-            if(myStationList == null)
+            for(int i = 0; i < tempList.Count; i++) 
             {
-                MessageBox.Show("No data retrieved");
+                PumpModel tempPump = tempList[i];
+                String _state = tempPump.State == 1 ? "Bật" : "Tắt";
+                CustomPumpModel myCustomPump = new CustomPumpModel(i, tempPump.Position, _state);
+                MyPumpList.Add(myCustomPump);
             }
+
+            //MyPumpList.Add(new CustomPumpModel(1, "01", "Bật"));
+            //MyPumpList.Add(new CustomPumpModel(2, "02", "Bật"));
+            //MyPumpList.Add(new CustomPumpModel(3, "03", "Tắt"));
+            //MyPumpList.Add(new CustomPumpModel(4, "04", "Tắt"));
+            //MyPumpList.Add(new CustomPumpModel(5, "05", "Tắt"));
+            //MyPumpList.Add(new CustomPumpModel(6, "06", "Tắt"));
+
         }
     }
 }

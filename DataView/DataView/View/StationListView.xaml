@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:DataView.View"
              
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800"
+             d:DesignHeight="450" d:DesignWidth="728"
              
              xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
@@ -17,7 +17,7 @@
              TextOptions.TextRenderingMode="Auto"
              Background="{DynamicResource MaterialDesignPaper}"
              FontFamily="{DynamicResource MaterialDesignFont}"
-             DataContext="{StaticResource LoginVM}"                      >
+             DataContext="{StaticResource StationListVM}"                      >
 
     <UserControl.Resources>
         <Style x:Key="TableHeaderTextBlock" TargetType="TextBlock">
@@ -32,78 +32,8 @@
         </Style>
     </UserControl.Resources>
     
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="auto"></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-        </Grid.ColumnDefinitions>
-        <Grid Grid.Column="0" HorizontalAlignment="Left" >
-            <materialDesign:Card>
-                <TabControl
-				materialDesign:ColorZoneAssist.Mode="Standard"
-				materialDesign:ElevationAssist.Elevation="Dp0"
-				Style="{StaticResource MaterialDesignNavigationRailTabControl}">
-                    <TabItem>
-                        <TabItem.Header>
-                            <StackPanel Width="auto" Height="auto">
-                                <materialDesign:PackIcon
-									Width="24"
-									Height="24"
-									HorizontalAlignment="Center"
-									Kind="ClockOutline" />
-                                <TextBlock HorizontalAlignment="Center" Text="Hiện tại" />
-                            </StackPanel>
-                        </TabItem.Header>
-                    </TabItem>
-                    <TabItem x:Name="tabItemStation">
-                        <TabItem.Header>
-                            <StackPanel Width="auto" Height="auto">
-                                <materialDesign:PackIcon
-									Width="24"
-									Height="24"
-									HorizontalAlignment="Center"
-									Kind="HomeSearchOutline" />
-                                <TextBlock HorizontalAlignment="Center" Text="Khu vực" />
-                            </StackPanel>
-                        </TabItem.Header>
-                    </TabItem>
-                    <TabItem>
-                        <TabItem.Header>
-                            <StackPanel
-			                    Width="auto"
-			                    Height="auto">
-                                <materialDesign:PackIcon
-			                        Width="24"
-			                        Height="24"
-			                        HorizontalAlignment="Center"
-			                        Kind="InformationOutline" />
-                                <TextBlock
-			                        HorizontalAlignment="Center"
-			                        Text="About" />
-                            </StackPanel>
-                        </TabItem.Header>
-                    </TabItem>
-                    <TabItem>
-                        <TabItem.Header>
-                            <StackPanel
-			                    Width="auto"
-			                    Height="auto">
-                                <materialDesign:PackIcon
-			                        Width="24"
-			                        Height="24"
-			                        HorizontalAlignment="Center"
-			                        Kind="ExitToApp" />
-                                <TextBlock
-			                        HorizontalAlignment="Center"
-			                        Text="Thoát" />
-                            </StackPanel>
-                        </TabItem.Header>
-                    </TabItem>
-                </TabControl>
-            </materialDesign:Card>
-        </Grid>
 
-        <Grid Grid.Column="1">
+        <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="2*"></RowDefinition>
                 <RowDefinition Height="8*"></RowDefinition>
@@ -178,5 +108,5 @@
                 </ListView.View>
             </ListView>
         </Grid>
-    </Grid>
+
 </UserControl>

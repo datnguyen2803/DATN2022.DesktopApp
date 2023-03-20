@@ -57,8 +57,7 @@ namespace DataView.ViewModel
 
             try
             {
-                //IsLogin = IUserService.Login(myUser);
-                IsLogin = true;
+                IsLogin = IUserService.Login(myUser);
                 if (IsLogin == true)
                 {
                     MessageBox.Show("Thành công!");

@@ -20,87 +20,84 @@ namespace DataView.ViewModel
         #region commands
         #endregion
 
-        public bool IsHomeSelected { get; set; }
-        public bool IsSearchSelected { get; set; }
-        public bool IsAboutSelected { get; set; }
 
-        public class CustomStationModel
+
+        public static SIDEBAR_ITEM_CODE SelectedSideBarCode { get; set; }
+        public INTERNAL_VIEW_CODE CurrentContentCode { get; set; }
+        public InternalMessage internalMessage { get; set; }
+
+        private BindableBase _currentContentViewModel;
+        public BindableBase CurrentContentViewModel
         {
-            public int Id { get; set; }
-            public string Name { get; set; }
-            public string Address { get; set; }
-            public int numberOfPumpOn { get; set; }
-            public int numberOfPumpOff { get; set; }
-
-            public CustomStationModel()
-            {
-                Id = 0;
-                Name = string.Empty;
-                Address = string.Empty;
-                numberOfPumpOn = 0;
-                numberOfPumpOff = 0;
-            }
-
+            get { return _currentContentViewModel; }
+            set { SetProperty(ref _currentContentViewModel, value); }
         }
+        private StationListViewModel stationListViewModel { get; set; }
+        private StationViewModel stationViewModel { get; set; }
+        private PumpViewModel pumpViewModel { get; set; }
 
-        public List<CustomStationModel> myStationList { get; set; }
+        
 
         public HomeViewModel()
         {
+            CurrentContentCode = INTERNAL_VIEW_CODE.CODE_INTERNAL_VIEW_STATION_LIST;
+            //SelectedSideBarCode = SIDEBAR_ITEM_CODE.SIDEBAR_ITEM_HOME;
+            internalMessage = new InternalMessage();
 
-            myStationList = new List<CustomStationModel>();
+            //stationListViewModel = new StationListViewModel();
+            //stationViewModel = new StationViewModel();
+            //pumpViewModel = new PumpViewModel();
 
-            InitSidebar();
-            GetDataFromDB();
-            
+            CurrentContentViewModel = new StationListViewModel();
+
+            Start();
 
         }
 
-        private void GetDataFromDB()
+        private void Start()
         {
-            CustomStationModel station1 = new CustomStationModel()
-            {
-                Id = 1,
-                Name = "A",
-                Address = "Hà Đông",
-                numberOfPumpOn = 1,
-                numberOfPumpOff = 3
-            };
-            CustomStationModel station2 = new CustomStationModel()
-            {
-                Id = 2,
-                Name = "B",
-                Address = "Hai Bà Trưng",
-                numberOfPumpOn = 1,
-                numberOfPumpOff = 4
-            };
-            CustomStationModel station3 = new CustomStationModel()
-            {
-                Id = 3,
-                Name = "C",
-                Address = "Từ Liêm",
-                numberOfPumpOn = 2,
-                numberOfPumpOff = 3
-            };
+            Messenger.Default.Register<InternalMessage>(this, HandleInternalMessage);
+        }
 
-            myStationList.Add(station1);
-            myStationList.Add(station2);
-            myStationList.Add(station3);
+        private void HandleInternalMessage(InternalMessage _internalMessage)
+        {
+            if(_internalMessage == null)
+            {
+                return;
+            }
+            internalMessage = _internalMessage;
+            switch (internalMessage.Code)
+            {
+                case INTERNAL_MESSAGE_CODE.CODE_INTERNAL_MESSAGE_CHANGETO_STATION_LIST:
+                    Debug.WriteLine("Changing to station list...");
+                    CurrentContentViewModel = new StationListViewModel();
+                    CurrentContentCode = INTERNAL_VIEW_CODE.CODE_INTERNAL_VIEW_STATION_LIST;
+                    SelectedSideBarCode = SIDEBAR_ITEM_CODE.SIDEBAR_ITEM_STATION_LIST;
+                    break;
 
+                case INTERNAL_MESSAGE_CODE.CODE_INTERNAL_MESSAGE_CHANGETO_STATION_MENU:
+                    Debug.WriteLine("Changing to station menu...");
+                    CurrentContentViewModel = new StationViewModel();
+                    CurrentContentCode = INTERNAL_VIEW_CODE.CODE_INTERNAL_VIEW_STATION_MENU;
+                    SelectedSideBarCode = SIDEBAR_ITEM_CODE.SIDEBAR_ITEM_STATION_MENU;
+                    break;
+
+                case INTERNAL_MESSAGE_CODE.CODE_INTERNAL_MESSAGE_CHANGETO_PUMP_MENU:
+                    Debug.WriteLine("Changing to pump menu...");
+                    CurrentContentViewModel = new PumpViewModel();
+                    CurrentContentCode = INTERNAL_VIEW_CODE.CODE_INTERNAL_VIEW_PUMP_MENU;
+                    SelectedSideBarCode = SIDEBAR_ITEM_CODE.SIDEBAR_ITEM_ABOUT;
+                    break;
+
+                default:
+                    break;
+            }
         }
 
         private void SendToMain(INTERNAL_MESSAGE_CODE _code, String _message = "")
         {
             InternalMessage newMess = new InternalMessage(_code, _message);
             Messenger.Default.Send(newMess);
-        }
-
-        private void InitSidebar()
-        {
-            IsHomeSelected = MainViewModel.getSelectedSidebarItem() == SIDEBAR_ITEM_CODE.SIDEBAR_ITEM_HOME ? true : false;
-            IsSearchSelected = MainViewModel.getSelectedSidebarItem() == SIDEBAR_ITEM_CODE.SIDEBAR_ITEM_SEARCH ? true : false;
-            IsAboutSelected = MainViewModel.getSelectedSidebarItem() == SIDEBAR_ITEM_CODE.SIDEBAR_ITEM_ABOUT ? true : false;
-            Debug.WriteLine($"IsHomeSelected = {0} IsSearchSelected = {1} IsAboutSelected = {2}", IsHomeSelected, IsSearchSelected, IsAboutSelected);
         }
     }
 }

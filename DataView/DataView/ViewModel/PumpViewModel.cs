@@ -34,10 +34,6 @@ namespace DataView.ViewModel
 
         //public Collection<PieData> PumpTime { get; set; }
 
-        public bool IsHomeSelected { get; set; }
-        public bool IsSearchSelected { get; set; }
-        public bool IsAboutSelected { get; set; }
-
         public SeriesCollection pumpSeriesCollection { get; set; }
 
         public Func<ChartPoint, string> PointLabel { get; set; }
@@ -70,15 +66,8 @@ namespace DataView.ViewModel
             //    PumpTime = new Collection<PieData>();
             //    GetDataFromDB();
 
-            InitSidebar();
         }
 
-        private void InitSidebar()
-        {
-            IsHomeSelected = MainViewModel.getSelectedSidebarItem() == SIDEBAR_ITEM_CODE.SIDEBAR_ITEM_HOME ? true : false;
-            IsSearchSelected = MainViewModel.getSelectedSidebarItem() == SIDEBAR_ITEM_CODE.SIDEBAR_ITEM_SEARCH ? true : false;
-            IsAboutSelected = MainViewModel.getSelectedSidebarItem() == SIDEBAR_ITEM_CODE.SIDEBAR_ITEM_ABOUT ? true : false;
-        }
 
         //private void GetDataFromDB()
         //{

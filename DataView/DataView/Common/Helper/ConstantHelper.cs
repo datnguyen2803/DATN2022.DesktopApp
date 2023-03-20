@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media;
 
 namespace DataView.Common.Helper
 {
@@ -43,7 +44,7 @@ namespace DataView.Common.Helper
             CODE_INTERNAL_MESSAGE_LOGIN_SUCCESS,
             CODE_INTERNAL_MESSAGE_LOGIN_FAIL,
 
-            CODE_INTERNAL_MESSAGE_CHANGETO_HOME,
+            CODE_INTERNAL_MESSAGE_CHANGETO_STATION_LIST,
             CODE_INTERNAL_MESSAGE_CHANGETO_STATION_MENU,
             CODE_INTERNAL_MESSAGE_CHANGETO_PUMP_MENU,
             CODE_INTERNAL_MESSAGE_CHANGETO_PUMP_UPDATE,
@@ -61,7 +62,7 @@ namespace DataView.Common.Helper
             CODE_INTERNAL_VIEW_NONE = 0,
 
             CODE_INTERNAL_VIEW_LOGIN,
-            CODE_INTERNAL_VIEW_HOME,
+            CODE_INTERNAL_VIEW_STATION_LIST,
             CODE_INTERNAL_VIEW_STATION_MENU,
             CODE_INTERNAL_VIEW_PUMP_MENU,
             CODE_INTERNAL_VIEW_PUMP_UPDATE,
@@ -74,8 +75,8 @@ namespace DataView.Common.Helper
         {
             SIDEBAR_ITEM_NONE = 0,
 
-            SIDEBAR_ITEM_HOME,
-            SIDEBAR_ITEM_SEARCH,
+            SIDEBAR_ITEM_STATION_LIST,
+            SIDEBAR_ITEM_STATION_MENU,
             SIDEBAR_ITEM_ABOUT,
             SIDEBAR_ITEM_QUIT,
 

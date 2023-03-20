@@ -27,43 +27,5 @@ namespace DataView.View
         {
             InitializeComponent();
         }
-
-        public void tabItemOnClick(object sender, RoutedEventArgs e)
-        {
-            var tabItem = sender as TabItem;
-            if (tabItem == null)
-            {
-                return;
-            }
-            String tabItemName = tabItem.Name;
-
-            switch (tabItemName)
-            {
-                case "tabItemHome":
-                    SendToMain(INTERNAL_MESSAGE_CODE.CODE_INTERNAL_MESSAGE_CHANGETO_HOME);
-                    break;
-
-                case "tabItemStation":
-                    SendToMain(INTERNAL_MESSAGE_CODE.CODE_INTERNAL_MESSAGE_CHANGETO_STATION_MENU);
-                    break;
-
-                case "tabItemAbout":
-                    SendToMain(INTERNAL_MESSAGE_CODE.CODE_INTERNAL_MESSAGE_CHANGETO_PUMP_MENU);
-                    break;
-
-                case "tabItemQuit":
-                    SendToMain(INTERNAL_MESSAGE_CODE.CODE_INTERNAL_MESSAGE_QUIT);
-                    break;
-
-                default:
-                    break;
-            }
-        }
-
-        private void SendToMain(INTERNAL_MESSAGE_CODE _code, String _message = "")
-        {
-            InternalMessage newMess = new InternalMessage(_code, _message);
-            Messenger.Default.Send(newMess);
-        }
     }
 }

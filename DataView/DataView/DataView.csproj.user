@@ -28,6 +28,9 @@
     <Compile Update="View\PumpMenuView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="View\Sidebar.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="View\StationListView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -73,6 +76,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\PumpMenuView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\Sidebar.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\StationListView.xaml">

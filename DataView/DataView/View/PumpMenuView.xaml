@@ -39,108 +39,37 @@
         </Style>
 
     </UserControl.Resources>
+    
+    <!--Content-->
+    <Grid Grid.Column="1">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition Height="8*"></RowDefinition>
+        </Grid.RowDefinitions>
 
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="auto"></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-        </Grid.ColumnDefinitions>
-
-        <!--Side bar-->
-        <Grid Grid.Column="0" HorizontalAlignment="Left" >
-            <TabControl x:Name="sideNavigate"
-				materialDesign:ColorZoneAssist.Mode="Standard"
-				materialDesign:ElevationAssist.Elevation="Dp0"
-				Style="{StaticResource MaterialDesignNavigationRailTabControl}">
-                <TabItem Name="tabItemHome" MouseUp="tabItemOnClick" IsSelected="{Binding IsHomeSelected}">
-                    <TabItem.Header>
-                        <StackPanel Width="auto" Height="auto">
-                            <materialDesign:PackIcon
-									Width="24"
-									Height="24"
-									HorizontalAlignment="Center"
-									Kind="ClockOutline" />
-                            <TextBlock HorizontalAlignment="Center" Text="Hiện tại" />
-                        </StackPanel>
-                    </TabItem.Header>
-                </TabItem>
-                <TabItem Name="tabItemStation" MouseUp="tabItemOnClick" IsSelected="{Binding IsSearchSelected}">
-                    <TabItem.Header>
-                        <StackPanel Width="auto" Height="auto">
-                            <materialDesign:PackIcon
-									Width="24"
-									Height="24"
-									HorizontalAlignment="Center"
-									Kind="HomeSearchOutline" />
-                            <TextBlock HorizontalAlignment="Center" Text="Khu vực" />
-                        </StackPanel>
-                    </TabItem.Header>
-                </TabItem>
-                <TabItem Name="tabItemAbout" MouseUp="tabItemOnClick" IsSelected="{Binding IsAboutSelected}">
-                    <TabItem.Header>
-                        <StackPanel
-			                    Width="auto"
-			                    Height="auto">
-                            <materialDesign:PackIcon
-			                        Width="24"
-			                        Height="24"
-			                        HorizontalAlignment="Center"
-			                        Kind="InformationOutline" />
-                            <TextBlock
-			                        HorizontalAlignment="Center"
-			                        Text="About" />
-                        </StackPanel>
-                    </TabItem.Header>
-                </TabItem>
-                <TabItem Name="tabItemQuit" MouseUp="tabItemOnClick">
-                    <TabItem.Header>
-                        <StackPanel
-			                    Width="auto"
-			                    Height="auto">
-                            <materialDesign:PackIcon
-			                        Width="24"
-			                        Height="24"
-			                        HorizontalAlignment="Center"
-			                        Kind="ExitToApp" />
-                            <TextBlock
-			                        HorizontalAlignment="Center"
-			                        Text="Thoát" />
-                        </StackPanel>
-                    </TabItem.Header>
-                </TabItem>
-            </TabControl>
-        </Grid>
-        
-        <!--Content-->
-        <Grid Grid.Column="1">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="2*"></RowDefinition>
-                <RowDefinition Height="8*"></RowDefinition>
-            </Grid.RowDefinitions>
-
-            <TextBlock
+        <TextBlock
                 Grid.Row="0"
 				  Style="{StaticResource MaterialDesignHeadline4TextBlock}"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
 				  Text="Thông tin máy bơm" />
 
-            <Grid Grid.Row="1">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="4*"></ColumnDefinition>
-                    <ColumnDefinition Width="6*"></ColumnDefinition>
-                </Grid.ColumnDefinitions>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="4*"></ColumnDefinition>
+                <ColumnDefinition Width="6*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
 
-                <materialDesign:Card Grid.Column="0"
+            <materialDesign:Card Grid.Column="0"
                   Width="240"
                   Style="{StaticResource PumpCard}">
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="100" />
-                            <RowDefinition Height="5*" />
-                            <RowDefinition Height="2*" />
-                        </Grid.RowDefinitions>
-                        <!--<Image Grid.Row="0" Width="auto" Height="100">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="100" />
+                        <RowDefinition Height="5*" />
+                        <RowDefinition Height="2*" />
+                    </Grid.RowDefinitions>
+                    <!--<Image Grid.Row="0" Width="auto" Height="100">
                             <Image.Source>
                                 <BitmapImage DecodePixelWidth="200"  
                                     UriSource="D:\1BK\1.Subjects\2.DA_TT\DATN2\DataViewer\DATN2022.DesktopApp\DataView\Image\hadongplace.jpg"
@@ -148,61 +77,60 @@
                             </Image.Source>
                             
                     </Image>-->
-                        <StackPanel Grid.Row="1" Margin="5,20,5,0">
-                            <TextBlock
+                    <StackPanel Grid.Row="1" Margin="5,20,5,0">
+                        <TextBlock
                             FontWeight="Bold"
                             FontSize="20">
                             Máy bơm 01
-                            </TextBlock>
-                            <TextBlock
+                        </TextBlock>
+                        <TextBlock
                             VerticalAlignment="Center"
                             TextWrapping="Wrap" >
                             Trạm A
-                            </TextBlock>
-                            <TextBlock
+                        </TextBlock>
+                        <TextBlock
                             VerticalAlignment="Center"
                             TextWrapping="Wrap" >
                             Trạng thái: Bật
-                            </TextBlock>
-                        </StackPanel>
-                        <ToolBarTray Grid.Row="2" Margin="0" >
-                            <ToolBar Width="230">
-                                <Button>
-                                    <materialDesign:PackIcon Kind="Information" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                </Button>
-                                <Button>
-                                    <materialDesign:PackIcon Kind="Pencil" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                </Button>
-                                <Button>
-                                    <materialDesign:PackIcon Kind="Delete" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                </Button>
-                            </ToolBar>
-                        </ToolBarTray>
-                    </Grid>
-                </materialDesign:Card>
+                        </TextBlock>
+                    </StackPanel>
+                    <ToolBarTray Grid.Row="2" Margin="0" >
+                        <ToolBar Width="230">
+                            <Button>
+                                <materialDesign:PackIcon Kind="Information" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Button>
+                            <Button>
+                                <materialDesign:PackIcon Kind="Pencil" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Button>
+                            <Button>
+                                <materialDesign:PackIcon Kind="Delete" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Button>
+                        </ToolBar>
+                    </ToolBarTray>
+                </Grid>
+            </materialDesign:Card>
 
-                <Grid Grid.Column="1">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="2*"></RowDefinition>
-                        <RowDefinition Height="8*"></RowDefinition>
-                    </Grid.RowDefinitions>
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2*"></RowDefinition>
+                    <RowDefinition Height="8*"></RowDefinition>
+                </Grid.RowDefinitions>
 
-                    <TextBlock
+                <TextBlock
                         Grid.Row="0"
 				          Style="{StaticResource MaterialDesignHeadline6TextBlock}"
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center"
 				          Text="Thời gian hoạt động trong 24h" />
 
-                    <lvc:PieChart Grid.Row="1" Margin="20" Series="{Binding pumpSeriesCollection}" LegendLocation="Right" Hoverable="False" InnerRadius="0">
-                        <lvc:PieChart.ChartLegend>
-                            <lvc:DefaultLegend BulletSize="15" TextBlock.FontSize="15"></lvc:DefaultLegend>
-                        </lvc:PieChart.ChartLegend>
-                        <lvc:PieChart.DataTooltip>
-                            <lvc:DefaultTooltip BulletSize="20"></lvc:DefaultTooltip>
-                        </lvc:PieChart.DataTooltip>
-                    </lvc:PieChart>
-                </Grid>
+                <lvc:PieChart Grid.Row="1" Margin="20" Series="{Binding pumpSeriesCollection}" LegendLocation="Right" Hoverable="False" InnerRadius="0">
+                    <lvc:PieChart.ChartLegend>
+                        <lvc:DefaultLegend BulletSize="15" TextBlock.FontSize="15"></lvc:DefaultLegend>
+                    </lvc:PieChart.ChartLegend>
+                    <lvc:PieChart.DataTooltip>
+                        <lvc:DefaultTooltip BulletSize="20"></lvc:DefaultTooltip>
+                    </lvc:PieChart.DataTooltip>
+                </lvc:PieChart>
             </Grid>
         </Grid>
     </Grid>

@@ -67,7 +67,7 @@ namespace DataView.Service
         {
             var myPumpList = new List<PumpModel>();
             string ApiServ = "pump";
-            string ApiAction = "get";
+            string ApiAction = "GetByStationName";
             string ApiParameter = "stationname=" + StationName;
             try
             {
@@ -90,7 +90,8 @@ namespace DataView.Service
                 {
                     if (myResponseModel.Code == ConstantHelper.APIResponseCode.CODE_SUCCESS)
                     {
-                        myPumpList = JsonConvert.DeserializeObject<List<PumpModel>>((string)myResponseModel.Data);
+                        string responseData = myResponseModel.Data.ToString();
+                        myPumpList = JsonConvert.DeserializeObject<List<PumpModel>>(responseData);
                     }
                     else
                     {

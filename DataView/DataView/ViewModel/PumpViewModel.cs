@@ -1,6 +1,7 @@
 ﻿using LiveCharts;
 using LiveCharts.Wpf;
 using Microsoft.VisualBasic;
+using Prism.Mvvm;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -15,6 +16,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media.Imaging;
+using static DataView.Common.Helper.ConstantHelper;
 
 namespace DataView.ViewModel
 {
@@ -24,13 +26,17 @@ namespace DataView.ViewModel
         public int Value { get; set; }
     }
 
-    public class PumpViewModel : BaseViewModel
+    public class PumpViewModel : BindableBase
     {
         #region commands
         public ICommand LoadedWindowCommand { get; set; }
         #endregion
 
         //public Collection<PieData> PumpTime { get; set; }
+
+        public bool IsHomeSelected { get; set; }
+        public bool IsSearchSelected { get; set; }
+        public bool IsAboutSelected { get; set; }
 
         public SeriesCollection pumpSeriesCollection { get; set; }
 
@@ -63,6 +69,15 @@ namespace DataView.ViewModel
 
             //    PumpTime = new Collection<PieData>();
             //    GetDataFromDB();
+
+            InitSidebar();
+        }
+
+        private void InitSidebar()
+        {
+            IsHomeSelected = MainViewModel.getSelectedSidebarItem() == SIDEBAR_ITEM_CODE.SIDEBAR_ITEM_HOME ? true : false;
+            IsSearchSelected = MainViewModel.getSelectedSidebarItem() == SIDEBAR_ITEM_CODE.SIDEBAR_ITEM_SEARCH ? true : false;
+            IsAboutSelected = MainViewModel.getSelectedSidebarItem() == SIDEBAR_ITEM_CODE.SIDEBAR_ITEM_ABOUT ? true : false;
         }
 
         //private void GetDataFromDB()

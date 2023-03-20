@@ -19,6 +19,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Xml.Linq;
+using static DataView.Common.Helper.ConstantHelper;
 
 namespace DataView.ViewModel
 {
@@ -64,6 +65,10 @@ namespace DataView.ViewModel
         public ICommand LoadedWindowCommand { get; set; }
         #endregion
 
+        public bool IsHomeSelected { get; set; }
+        public bool IsSearchSelected { get; set; }
+        public bool IsAboutSelected { get; set; }
+
         public List<CustomStationModel> MyStationList { get; set; }
         public List<CustomPumpModel> MyPumpList { get; set; }
 
@@ -80,9 +85,10 @@ namespace DataView.ViewModel
                 //p.Show();
             });
 
-
             MyStationList = new List<CustomStationModel>();
             MyPumpList = new List<CustomPumpModel>();
+
+            InitSidebar();
             GetDataFromDB();
             Debug.WriteLine("[datchaos]: " + MyStationList.Count);
 
@@ -107,6 +113,13 @@ namespace DataView.ViewModel
 
             Labels = new[] { "13h", "14h", "15h", "16h" };
             Formatter = value => value.ToString("N");
+        }
+
+        private void InitSidebar()
+        {
+            IsHomeSelected = MainViewModel.getSelectedSidebarItem() == SIDEBAR_ITEM_CODE.SIDEBAR_ITEM_HOME ? true : false;
+            IsSearchSelected = MainViewModel.getSelectedSidebarItem() == SIDEBAR_ITEM_CODE.SIDEBAR_ITEM_SEARCH ? true : false;
+            IsAboutSelected = MainViewModel.getSelectedSidebarItem() == SIDEBAR_ITEM_CODE.SIDEBAR_ITEM_ABOUT ? true : false;
         }
 
         private void GetDataFromDB()

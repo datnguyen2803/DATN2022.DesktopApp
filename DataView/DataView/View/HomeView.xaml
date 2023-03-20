@@ -35,6 +35,11 @@
 
     </UserControl.Resources>
 
+    <!--<i:Interaction.Triggers>
+                    <i:EventTrigger EventName = "MouseUp">
+                        <i:InvokeCommandAction Command="{Binding SelectViewCommand}" CommandParameter="{Binding ElementName=sideNavigate}" />
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>-->
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -44,74 +49,67 @@
         
         <!--Side bar-->
         <Grid Grid.Column="0" HorizontalAlignment="Left" >
-            <materialDesign:Card>
-                <TabControl
+            <TabControl x:Name="sideNavigate"
 				materialDesign:ColorZoneAssist.Mode="Standard"
 				materialDesign:ElevationAssist.Elevation="Dp0"
 				Style="{StaticResource MaterialDesignNavigationRailTabControl}">
-                    <TabItem>
-                        <TabItem.Header>
-                            <StackPanel Width="auto" Height="auto">
-                                <materialDesign:PackIcon
+                <TabItem Name="tabItemHome" MouseUp="tabItemOnClick" IsSelected="{Binding IsHomeSelected}">
+                    <TabItem.Header>
+                        <StackPanel Width="auto" Height="auto">
+                            <materialDesign:PackIcon
 									Width="24"
 									Height="24"
 									HorizontalAlignment="Center"
 									Kind="ClockOutline" />
-                                <TextBlock HorizontalAlignment="Center" Text="Hiện tại" />
-                            </StackPanel>
-                        </TabItem.Header>
-                    </TabItem>
-                    <TabItem x:Name="tabItemStation">
-                        <TabItem.Header>
-                            <StackPanel Width="auto" Height="auto">
-                                <materialDesign:PackIcon
+                            <TextBlock HorizontalAlignment="Center" Text="Hiện tại" />
+                        </StackPanel>
+                    </TabItem.Header>
+                </TabItem>
+                <TabItem Name="tabItemStation" MouseUp="tabItemOnClick" IsSelected="{Binding IsSearchSelected}">
+                    <TabItem.Header>
+                        <StackPanel Width="auto" Height="auto">
+                            <materialDesign:PackIcon
 									Width="24"
 									Height="24"
 									HorizontalAlignment="Center"
 									Kind="HomeSearchOutline" />
-                                <TextBlock HorizontalAlignment="Center" Text="Khu vực" />
-                            </StackPanel>
-                        </TabItem.Header>
-                        <i:Interaction.Triggers>
-                            <i:EventTrigger EventName = "MouseUp">
-                                <i:InvokeCommandAction Command="{Binding SelectViewCommand}" CommandParameter="{Binding ElementName=tabItemStation}" />
-                            </i:EventTrigger>
-                        </i:Interaction.Triggers>
-                    </TabItem>
-                    <TabItem>
-                        <TabItem.Header>
-                            <StackPanel
+                            <TextBlock HorizontalAlignment="Center" Text="Khu vực" />
+                        </StackPanel>
+                    </TabItem.Header>
+                </TabItem>
+                <TabItem Name="tabItemAbout" MouseUp="tabItemOnClick" IsSelected="{Binding IsAboutSelected}">
+                    <TabItem.Header>
+                        <StackPanel
 			                    Width="auto"
 			                    Height="auto">
-                                <materialDesign:PackIcon
+                            <materialDesign:PackIcon
 			                        Width="24"
 			                        Height="24"
 			                        HorizontalAlignment="Center"
 			                        Kind="InformationOutline" />
-                                <TextBlock
+                            <TextBlock
 			                        HorizontalAlignment="Center"
 			                        Text="About" />
-                            </StackPanel>
-                        </TabItem.Header>
-                    </TabItem>
-                    <TabItem>
-                        <TabItem.Header>
-                            <StackPanel
+                        </StackPanel>
+                    </TabItem.Header>
+                </TabItem>
+                <TabItem Name="tabItemQuit" MouseUp="tabItemOnClick">
+                    <TabItem.Header>
+                        <StackPanel
 			                    Width="auto"
 			                    Height="auto">
-                                <materialDesign:PackIcon
+                            <materialDesign:PackIcon
 			                        Width="24"
 			                        Height="24"
 			                        HorizontalAlignment="Center"
 			                        Kind="ExitToApp" />
-                                <TextBlock
+                            <TextBlock
 			                        HorizontalAlignment="Center"
 			                        Text="Thoát" />
-                            </StackPanel>
-                        </TabItem.Header>
-                    </TabItem>
-                </TabControl>
-            </materialDesign:Card>
+                        </StackPanel>
+                    </TabItem.Header>
+                </TabItem>
+            </TabControl>
         </Grid>
 
         <!--Content-->

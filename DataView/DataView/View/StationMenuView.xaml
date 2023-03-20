@@ -44,72 +44,70 @@
             <ColumnDefinition Width="auto"></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        
+
         <!--Side bar-->
         <Grid Grid.Column="0" HorizontalAlignment="Left" >
-            <materialDesign:Card>
-                <TabControl
+            <TabControl x:Name="sideNavigate"
 				materialDesign:ColorZoneAssist.Mode="Standard"
 				materialDesign:ElevationAssist.Elevation="Dp0"
 				Style="{StaticResource MaterialDesignNavigationRailTabControl}">
-                    <TabItem>
-                        <TabItem.Header>
-                            <StackPanel Width="auto" Height="auto">
-                                <materialDesign:PackIcon
+                <TabItem Name="tabItemHome" MouseUp="tabItemOnClick" IsSelected="{Binding IsHomeSelected}">
+                    <TabItem.Header>
+                        <StackPanel Width="auto" Height="auto">
+                            <materialDesign:PackIcon
 									Width="24"
 									Height="24"
 									HorizontalAlignment="Center"
 									Kind="ClockOutline" />
-                                <TextBlock HorizontalAlignment="Center" Text="Hiện tại" />
-                            </StackPanel>
-                        </TabItem.Header>
-                    </TabItem>
-                    <TabItem>
-                        <TabItem.Header>
-                            <StackPanel Width="auto" Height="auto">
-                                <materialDesign:PackIcon
+                            <TextBlock HorizontalAlignment="Center" Text="Hiện tại" />
+                        </StackPanel>
+                    </TabItem.Header>
+                </TabItem>
+                <TabItem Name="tabItemStation" MouseUp="tabItemOnClick" IsSelected="{Binding IsSearchSelected}">
+                    <TabItem.Header>
+                        <StackPanel Width="auto" Height="auto">
+                            <materialDesign:PackIcon
 									Width="24"
 									Height="24"
 									HorizontalAlignment="Center"
 									Kind="HomeSearchOutline" />
-                                <TextBlock HorizontalAlignment="Center" Text="Khu vực" />
-                            </StackPanel>
-                        </TabItem.Header>
-                    </TabItem>
-                    <TabItem>
-                        <TabItem.Header>
-                            <StackPanel
-			Width="auto"
-			Height="auto">
-                                <materialDesign:PackIcon
-			Width="24"
-			Height="24"
-			HorizontalAlignment="Center"
-			Kind="InformationOutline" />
-                                <TextBlock
-			HorizontalAlignment="Center"
-			Text="About" />
-                            </StackPanel>
-                        </TabItem.Header>
-                    </TabItem>
-                    <TabItem>
-                        <TabItem.Header>
-                            <StackPanel
-			Width="auto"
-			Height="auto">
-                                <materialDesign:PackIcon
-			Width="24"
-			Height="24"
-			HorizontalAlignment="Center"
-			Kind="ExitToApp" />
-                                <TextBlock
-			HorizontalAlignment="Center"
-			Text="Thoát" />
-                            </StackPanel>
-                        </TabItem.Header>
-                    </TabItem>
-                </TabControl>
-            </materialDesign:Card>
+                            <TextBlock HorizontalAlignment="Center" Text="Khu vực" />
+                        </StackPanel>
+                    </TabItem.Header>
+                </TabItem>
+                <TabItem Name="tabItemAbout" MouseUp="tabItemOnClick" IsSelected="{Binding IsAboutSelected}">
+                    <TabItem.Header>
+                        <StackPanel
+			                    Width="auto"
+			                    Height="auto">
+                            <materialDesign:PackIcon
+			                        Width="24"
+			                        Height="24"
+			                        HorizontalAlignment="Center"
+			                        Kind="InformationOutline" />
+                            <TextBlock
+			                        HorizontalAlignment="Center"
+			                        Text="About" />
+                        </StackPanel>
+                    </TabItem.Header>
+                </TabItem>
+                <TabItem Name="tabItemQuit" MouseUp="tabItemOnClick">
+                    <TabItem.Header>
+                        <StackPanel
+			                    Width="auto"
+			                    Height="auto">
+                            <materialDesign:PackIcon
+			                        Width="24"
+			                        Height="24"
+			                        HorizontalAlignment="Center"
+			                        Kind="ExitToApp" />
+                            <TextBlock
+			                        HorizontalAlignment="Center"
+			                        Text="Thoát" />
+                        </StackPanel>
+                    </TabItem.Header>
+                </TabItem>
+            </TabControl>
         </Grid>
 
         <!--Content-->

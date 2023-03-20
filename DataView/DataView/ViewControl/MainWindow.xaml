@@ -6,7 +6,7 @@
 	xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
 	xmlns:local="clr-namespace:DataView"
 		mc:Ignorable="d"
-		Title="Trang chủ" Height="450" Width="800"
+		Title="Phần mềm giám sát" Height="450" Width="800"
 		Name="mainWindow"
 		DataContext="{StaticResource MainVM}"
         

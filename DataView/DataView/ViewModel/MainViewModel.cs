@@ -3,6 +3,7 @@ using GalaSoft.MvvmLight.Messaging;
 using Prism.Mvvm;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -24,7 +25,7 @@ namespace DataView.ViewModel
 
         public bool IsWindowLoaded = false;
 
-        public SIDEBAR_ITEM_CODE SelectedSideBarItem { get; set; }
+        public static SIDEBAR_ITEM_CODE SelectedSideBarItem { get; set; }
         public INTERNAL_VIEW_CODE CurrentView { get; set; }
 
         private Window _window { get; set; }
@@ -70,7 +71,21 @@ namespace DataView.ViewModel
 
         }
 
-        public void HandleInternalMessage(InternalMessage _internalMessage)
+        private void Start()
+        {
+            CurrentViewModel = loginViewModel;
+            Messenger.Default.Register<InternalMessage>(this, HandleInternalMessage);
+        }
+
+        private void Stop()
+        {
+            CurrentView = INTERNAL_VIEW_CODE.CODE_INTERNAL_VIEW_NONE;
+            SelectedSideBarItem = SIDEBAR_ITEM_CODE.SIDEBAR_ITEM_NONE;
+
+            _window.Close();
+        }
+
+        private void HandleInternalMessage(InternalMessage _internalMessage)
         {
             INTERNAL_MESSAGE_CODE myCode = _internalMessage.Code;
             switch (myCode)
@@ -93,9 +108,17 @@ namespace DataView.ViewModel
                     break;
 
                 case INTERNAL_MESSAGE_CODE.CODE_INTERNAL_MESSAGE_CHANGETO_STATION_MENU:
+                    Debug.WriteLine("Changing to station menu...");
                     CurrentViewModel = stationViewModel;
                     CurrentView = INTERNAL_VIEW_CODE.CODE_INTERNAL_VIEW_STATION_MENU;
                     SelectedSideBarItem = SIDEBAR_ITEM_CODE.SIDEBAR_ITEM_SEARCH;
+                    break;
+
+                case INTERNAL_MESSAGE_CODE.CODE_INTERNAL_MESSAGE_CHANGETO_PUMP_MENU:
+                    Debug.WriteLine("Changing to pump menu...");
+                    CurrentViewModel = pumpViewModel;
+                    CurrentView = INTERNAL_VIEW_CODE.CODE_INTERNAL_VIEW_PUMP_MENU;
+                    SelectedSideBarItem = SIDEBAR_ITEM_CODE.SIDEBAR_ITEM_ABOUT;
                     break;
 
                 case INTERNAL_MESSAGE_CODE.CODE_INTERNAL_MESSAGE_QUIT:
@@ -107,19 +130,7 @@ namespace DataView.ViewModel
             }
         }
 
-        private void Start()
-        {
-            CurrentViewModel = loginViewModel;
-            Messenger.Default.Register<InternalMessage>(this, HandleInternalMessage);
-        }
 
-
-        private void Stop()
-        {
-            CurrentView = INTERNAL_VIEW_CODE.CODE_INTERNAL_VIEW_NONE;
-            SelectedSideBarItem = SIDEBAR_ITEM_CODE.SIDEBAR_ITEM_NONE;
-
-            _window.Close();
-        }
+        public static SIDEBAR_ITEM_CODE getSelectedSidebarItem() { return SelectedSideBarItem; }
     }
 }

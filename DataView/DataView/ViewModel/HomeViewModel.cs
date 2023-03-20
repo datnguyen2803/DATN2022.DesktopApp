@@ -4,9 +4,11 @@ using GalaSoft.MvvmLight.Messaging;
 using Prism.Mvvm;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using static DataView.Common.Helper.ConstantHelper;
@@ -16,8 +18,11 @@ namespace DataView.ViewModel
     class HomeViewModel : BindableBase
     {
         #region commands
-        public ICommand SelectViewCommand { get; set; }
         #endregion
+
+        public bool IsHomeSelected { get; set; }
+        public bool IsSearchSelected { get; set; }
+        public bool IsAboutSelected { get; set; }
 
         public class CustomStationModel
         {
@@ -43,12 +48,12 @@ namespace DataView.ViewModel
         public HomeViewModel()
         {
 
-            SelectViewCommand = new RelayCommand<object>((p) => { return true; }, (p) => { SendToMain(INTERNAL_MESSAGE_CODE.CODE_INTERNAL_MESSAGE_CHANGETO_STATION_MENU); });
-
-
             myStationList = new List<CustomStationModel>();
 
+            InitSidebar();
             GetDataFromDB();
+            
+
         }
 
         private void GetDataFromDB()
@@ -58,7 +63,7 @@ namespace DataView.ViewModel
                 Id = 1,
                 Name = "A",
                 Address = "Hà Đông",
-                numberOfPumpOn = 5,
+                numberOfPumpOn = 1,
                 numberOfPumpOff = 3
             };
             CustomStationModel station2 = new CustomStationModel()
@@ -84,14 +89,18 @@ namespace DataView.ViewModel
 
         }
 
-
-
         private void SendToMain(INTERNAL_MESSAGE_CODE _code, String _message = "")
         {
             InternalMessage newMess = new InternalMessage(_code, _message);
             Messenger.Default.Send(newMess);
         }
 
-
+        private void InitSidebar()
+        {
+            IsHomeSelected = MainViewModel.getSelectedSidebarItem() == SIDEBAR_ITEM_CODE.SIDEBAR_ITEM_HOME ? true : false;
+            IsSearchSelected = MainViewModel.getSelectedSidebarItem() == SIDEBAR_ITEM_CODE.SIDEBAR_ITEM_SEARCH ? true : false;
+            IsAboutSelected = MainViewModel.getSelectedSidebarItem() == SIDEBAR_ITEM_CODE.SIDEBAR_ITEM_ABOUT ? true : false;
+            Debug.WriteLine($"IsHomeSelected = {0} IsSearchSelected = {1} IsAboutSelected = {2}", IsHomeSelected, IsSearchSelected, IsAboutSelected);
+        }
     }
 }

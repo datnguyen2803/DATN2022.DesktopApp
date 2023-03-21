@@ -89,7 +89,7 @@
                             </GridViewColumn.Header>
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <TextBlock Style="{StaticResource TableCellTextBlock}" Width="50" Text="{Binding numberOfPumpOn}" />
+                                    <TextBlock Style="{StaticResource TableCellTextBlock}" Width="50" Text="{Binding numberOfPumpsOn}" />
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
@@ -100,7 +100,7 @@
                             </GridViewColumn.Header>
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <TextBlock Style="{StaticResource TableCellTextBlock}" Width="50" Text="{Binding numberOfPumpOff}" />
+                                    <TextBlock Style="{StaticResource TableCellTextBlock}" Width="50" Text="{Binding numberOfPumpsOff}" />
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>

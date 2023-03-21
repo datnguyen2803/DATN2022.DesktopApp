@@ -245,3 +245,5 @@ D:\1BK\DATN20221\DATN2022.DesktopApp\DataView\DataView\obj\Debug\net6.0-windows\
 D:\1BK\DATN20221\DATN2022.DesktopApp\DataView\DataView\obj\Debug\net6.0-windows\DataView.pdb
 D:\1BK\DATN20221\DATN2022.DesktopApp\DataView\DataView\obj\Debug\net6.0-windows\DataView.genruntimeconfig.cache
 D:\1BK\DATN20221\DATN2022.DesktopApp\DataView\DataView\obj\Debug\net6.0-windows\ref\DataView.dll
+D:\Personal\DATN2022\DATN2022.DesktopApp\DataView\DataView\obj\Debug\net6.0-windows\View\Sidebar.g.cs
+D:\Personal\DATN2022\DATN2022.DesktopApp\DataView\DataView\obj\Debug\net6.0-windows\View\Sidebar.baml

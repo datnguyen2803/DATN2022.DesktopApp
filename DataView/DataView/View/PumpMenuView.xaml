@@ -78,11 +78,14 @@
                             
                     </Image>-->
                     <StackPanel Grid.Row="1" Margin="5,20,5,0">
-                        <TextBlock
-                            FontWeight="Bold"
-                            FontSize="20">
-                            Máy bơm 01
-                        </TextBlock>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock
+                                FontWeight="Bold"
+                                FontSize="20" Text="Máy bơm " />
+                            <TextBlock
+                                FontWeight="Bold"
+                                FontSize="20" Text="{Binding Name}"/>
+                        </StackPanel>
                         <TextBlock
                             VerticalAlignment="Center"
                             TextWrapping="Wrap" >

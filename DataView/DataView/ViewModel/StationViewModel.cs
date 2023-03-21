@@ -21,29 +21,11 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Xml.Linq;
 using static DataView.Common.Helper.ConstantHelper;
+using DataView.Common.Helper;
+using GalaSoft.MvvmLight.Messaging;
 
 namespace DataView.ViewModel
 {
-    public class CustomStationModel
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Address { get; set; }
-        public int numberOfPumpOn { get; set; }
-        public int numberOfPumpOff { get; set; }
-
-        public CustomStationModel() 
-        {
-            Id = 0;
-            Name = string.Empty;
-            Address = string.Empty;
-            numberOfPumpOn = 0;
-            numberOfPumpOff = 0;
-        }
-
-    }
-
-
 
     public class CustomPumpModel
     {
@@ -133,14 +115,12 @@ namespace DataView.ViewModel
                 CustomPumpModel myCustomPump = new CustomPumpModel(i, tempPump.Position, _state);
                 MyPumpList.Add(myCustomPump);
             }
+        }
 
-            //MyPumpList.Add(new CustomPumpModel(1, "01", "Bật"));
-            //MyPumpList.Add(new CustomPumpModel(2, "02", "Bật"));
-            //MyPumpList.Add(new CustomPumpModel(3, "03", "Tắt"));
-            //MyPumpList.Add(new CustomPumpModel(4, "04", "Tắt"));
-            //MyPumpList.Add(new CustomPumpModel(5, "05", "Tắt"));
-            //MyPumpList.Add(new CustomPumpModel(6, "06", "Tắt"));
-
+        private void SendToHome(INTERNAL_MESSAGE_CODE _code, object? data = null)
+        {
+            InternalMessage newMess = new InternalMessage(_code, data);
+            Messenger.Default.Send(newMess);
         }
     }
 }

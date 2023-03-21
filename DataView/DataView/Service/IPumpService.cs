@@ -152,6 +152,89 @@ namespace DataView.Service
             }
         }
 
+        public static List<PumpModel> GetByPumpState(string StationName, int State)
+        {
+            var myPumpList = new List<PumpModel>();
+            string ApiServ = "pump";
+            string ApiAction = "GetByPumpState";
+            string ApiParameter = "stationname=" + StationName + "&" + "state=" + State;
+            try
+            {
+                var client = new RestClient();
+
+                var request = new RestRequest(ConstantHelper.APIURL + "/" + ApiServ + "/" + ApiAction + "?" + ApiParameter, Method.Get);
+                request.AddHeader("Content-type", "application/json");
+                var response = client.Execute(request);
+                if (response.Content == null)
+                {
+                    return myPumpList;
+                }
+                var myResponseModel = JsonConvert.DeserializeObject<ResponseModel>(response.Content);
+
+                if (myResponseModel == null)
+                {
+                    // do nothing
+                }
+                else
+                {
+                    if (myResponseModel.Code == ConstantHelper.APIResponseCode.CODE_SUCCESS)
+                    {
+                        string responseData = myResponseModel.Data.ToString();
+                        myPumpList = JsonConvert.DeserializeObject<List<PumpModel>>(responseData);
+                    }
+                    else
+                    {
+                        PrintDebug(myResponseModel.Code, myResponseModel.Message);
+                        // do nothing
+                    }
+                }
+
+                return myPumpList;
+            }
+            catch (Exception ex)
+            {
+                return myPumpList;
+            }
+        }
+
+        public static int GetNumberOfPumpsOn(string StationName)
+        {
+            int retVal = -1;
+            try
+            {
+                List<PumpModel> myPumpList = GetByPumpState(StationName, 1);
+                if(myPumpList == null)
+                {
+                    return retVal = -1;
+                }
+                retVal = myPumpList.Count;
+                return retVal;
+            }
+            catch (Exception ex)
+            {
+                return retVal = -1;
+            }
+        }
+
+        public static int GetNumberOfPumpsOff(string StationName)
+        {
+            int retVal = -1;
+            try
+            {
+                List<PumpModel> myPumpList = GetByPumpState(StationName, 0);
+                if (myPumpList == null)
+                {
+                    return retVal = -1;
+                }
+                retVal = myPumpList.Count;
+                return retVal;
+            }
+            catch (Exception ex)
+            {
+                return retVal = -1;
+            }
+        }
+
         public static bool New (PumpModel newPump)
         {
             bool retVal = false;

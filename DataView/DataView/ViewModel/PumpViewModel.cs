@@ -26,6 +26,7 @@ namespace DataView.ViewModel
         public int Value { get; set; }
     }
 
+
     public class PumpViewModel : BindableBase
     {
         #region commands
@@ -38,12 +39,18 @@ namespace DataView.ViewModel
 
         public Func<ChartPoint, string> PointLabel { get; set; }
 
-        public PumpViewModel()
+        CustomPumpModel SelectedPump { get; set; }
+
+
+
+        public PumpViewModel(CustomPumpModel customPumpModel)
         {
             LoadedWindowCommand = new RelayCommand<Window>((p) => { return true; }, (p) =>
             {
                 //p.Show();
             });
+
+            SelectedPump = customPumpModel;
 
             PointLabel = chartPoint =>
                 string.Format("{0} ({1:P})", chartPoint.Y, chartPoint.Participation);
@@ -61,6 +68,7 @@ namespace DataView.ViewModel
                     Values = new ChartValues<double> { 10 }
                 },
             };
+
 
 
             //    PumpTime = new Collection<PieData>();

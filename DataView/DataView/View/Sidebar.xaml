@@ -31,23 +31,23 @@
                 <TabItem.Header>
                     <StackPanel Width="auto" Height="auto">
                         <materialDesign:PackIcon
-									Width="24"
-									Height="24"
+									Width="30"
+									Height="30"
 									HorizontalAlignment="Center"
-									Kind="ClockOutline" />
-                        <TextBlock HorizontalAlignment="Center" Text="Hiện tại" />
+									Kind="HomeOutline" />
+                        <TextBlock HorizontalAlignment="Center" Text="Trang chủ" />
                     </StackPanel>
                 </TabItem.Header>
             </TabItem>
-            <TabItem Name="tabItemStation" MouseUp="tabItemOnClick">
+            <TabItem Name="tabItemConfig" MouseUp="tabItemOnClick">
                 <TabItem.Header>
                     <StackPanel Width="auto" Height="auto">
                         <materialDesign:PackIcon
-									Width="24"
-									Height="24"
+									Width="30"
+									Height="30"
 									HorizontalAlignment="Center"
-									Kind="HomeSearchOutline" />
-                        <TextBlock HorizontalAlignment="Center" Text="Khu vực" />
+									Kind="CogOutline" />
+                        <TextBlock HorizontalAlignment="Center" Text="Cấu hình" />
                     </StackPanel>
                 </TabItem.Header>
             </TabItem>
@@ -57,13 +57,13 @@
 			                    Width="auto"
 			                    Height="auto">
                         <materialDesign:PackIcon
-			                        Width="24"
-			                        Height="24"
+			                        Width="30"
+			                        Height="30"
 			                        HorizontalAlignment="Center"
 			                        Kind="InformationOutline" />
                         <TextBlock
 			                        HorizontalAlignment="Center"
-			                        Text="About" />
+			                        Text="Thông tin" />
                     </StackPanel>
                 </TabItem.Header>
             </TabItem>
@@ -73,8 +73,8 @@
 			                    Width="auto"
 			                    Height="auto">
                         <materialDesign:PackIcon
-			                        Width="24"
-			                        Height="24"
+			                        Width="30"
+			                        Height="30"
 			                        HorizontalAlignment="Center"
 			                        Kind="ExitToApp" />
                         <TextBlock

@@ -1,5 +1,7 @@
-﻿using DataView.DataModel;
+﻿using DataView.Common.Helper;
+using DataView.DataModel;
 using DataView.Service;
+using GalaSoft.MvvmLight.Messaging;
 using Prism.Mvvm;
 using System;
 using System.Collections.Generic;
@@ -7,15 +9,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Documents;
+using System.Windows.Input;
+using static DataView.Common.Helper.ConstantHelper;
+using static DataView.ViewModel.StationListViewModel;
 
 namespace DataView.ViewModel
 {
     public class StationListViewModel : BindableBase
     {
+
+        #region commands
+        public ICommand SelectStationCommand { get; set; }
+        #endregion
+
+
         public class CustomStationModel
         {
-            public int Id { get; set; }
+            public int Order { get; set; }
             public string Name { get; set; }
             public string Address { get; set; }
             public int numberOfPumpsOn { get; set; }
@@ -23,7 +35,7 @@ namespace DataView.ViewModel
 
             public CustomStationModel()
             {
-                Id = 0;
+                Order = 0;
                 Name = string.Empty;
                 Address = string.Empty;
                 numberOfPumpsOn = 0;
@@ -34,12 +46,17 @@ namespace DataView.ViewModel
 
         public List<CustomStationModel> myStationList { get; set; }
 
+        public CustomStationModel selectedStation { get; set; }
+
         public StationListViewModel()
         {
             myStationList = new List<CustomStationModel>();
+            selectedStation = new CustomStationModel();
 
             GetDataFromDB();
-        }
+
+            SelectStationCommand = new RelayCommand<ListView>((p) => { return true; }, (p) => { SelectStationHandler(p); });
+    }
 
         private void GetDataFromDB()
         {
@@ -88,7 +105,7 @@ namespace DataView.ViewModel
 
                 CustomStationModel tempCustomStation = new CustomStationModel()
                 {
-                    Id = i+1,
+                    Order = i+1,
                     Name = tempStation.Name,
                     Address = tempStation.Address,
                     numberOfPumpsOn = numberOfPumpsOn,
@@ -100,5 +117,18 @@ namespace DataView.ViewModel
 
         }
 
+        private void SelectStationHandler(ListView uc)
+        {
+            selectedStation = (CustomStationModel) uc.SelectedItem;
+            SendToMain(INTERNAL_MESSAGE_CODE.CODE_INTERNAL_MESSAGE_CHANGETO_STATION_MENU, selectedStation);
+
         }
+
+        private void SendToMain(INTERNAL_MESSAGE_CODE _code, object _message = null)
+        {
+            InternalMessage newMess = new InternalMessage(_code, _message);
+            Messenger.Default.Send(newMess);
+        }
+
     }
+}

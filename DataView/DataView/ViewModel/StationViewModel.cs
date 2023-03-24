@@ -23,6 +23,7 @@ using System.Xml.Linq;
 using static DataView.Common.Helper.ConstantHelper;
 using DataView.Common.Helper;
 using GalaSoft.MvvmLight.Messaging;
+using static DataView.ViewModel.StationListViewModel;
 
 namespace DataView.ViewModel
 {
@@ -59,10 +60,9 @@ namespace DataView.ViewModel
     public class StationViewModel : BindableBase
     {
         #region commands
-        public ICommand LoadedWindowCommand { get; set; }
         #endregion
 
-
+        public CustomStationModel myStation { get; set; }
         public List<CustomPumpModel> MyPumpList { get; set; }
 
         public SeriesCollection pumpStateCollection { get; set; }
@@ -71,12 +71,8 @@ namespace DataView.ViewModel
 
         public StationViewModel()
         {
-            LoadedWindowCommand = new RelayCommand<Window>((p) => { return true; }, (p) =>
-            {
-                //p.Show();
-            });
-
             MyPumpList = new List<CustomPumpModel>();
+            myStation = new CustomStationModel();
             GetDataFromDB();
 
             pumpStateCollection = new SeriesCollection
@@ -102,11 +98,41 @@ namespace DataView.ViewModel
             Formatter = value => value.ToString("N");
         }
 
+        public StationViewModel(CustomStationModel customStationModel)
+        {
+            MyPumpList = new List<CustomPumpModel>();
+            myStation = customStationModel;
+
+            GetDataFromDB();
+
+            //pumpStateCollection = new SeriesCollection
+            //{
+            //    new ColumnSeries
+            //    {
+            //        Title = "Số máy bật",
+            //        Values = new ChartValues<double> { 1, 4, 4, 4 }
+            //    }
+            //};
+
+            ////adding series will update and animate the chart automatically
+            //pumpStateCollection.Add(new ColumnSeries
+            //{
+            //    Title = "Số máy tắt",
+            //    Values = new ChartValues<double> { 5, 2, 2, 2 }
+            //});
+
+            ////also adding values updates and animates the chart automatically
+            ////pumpStateCollection[1].Values.Add(48d);
+
+            //Labels = new[] { "13h", "14h", "15h", "16h" };
+            //Formatter = value => value.ToString("N");
+        }
+
 
         private void GetDataFromDB()
         {
 
-            List<PumpModel> tempList = IPumpService.GetByStationName("A");
+            List<PumpModel> tempList = IPumpService.GetByStationName(myStation.Name);
 
             for(int i = 0; i < tempList.Count; i++) 
             {

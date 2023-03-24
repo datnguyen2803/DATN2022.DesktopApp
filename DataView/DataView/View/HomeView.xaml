@@ -35,11 +35,6 @@
         </DataTemplate>
     </UserControl.Resources>
 
-    <!--<i:Interaction.Triggers>
-                    <i:EventTrigger EventName = "MouseUp">
-                        <i:InvokeCommandAction Command="{Binding SelectViewCommand}" CommandParameter="{Binding ElementName=sideNavigate}" />
-                    </i:EventTrigger>
-                </i:Interaction.Triggers>-->
 
     <Grid>
         <Grid.ColumnDefinitions>

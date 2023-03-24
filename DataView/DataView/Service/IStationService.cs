@@ -45,7 +45,8 @@ namespace DataView.Service
                 {
                     if (myResponseModel.Code == ConstantHelper.APIResponseCode.CODE_SUCCESS)
                     {
-                        myStationList = JsonConvert.DeserializeObject<List<StationModel>>((string)myResponseModel.Data);
+                        var myResponseData = myResponseModel.Data.ToString();
+                        myStationList = JsonConvert.DeserializeObject<List<StationModel>>(myResponseData);
                     }
                     else
                     {

@@ -51,7 +51,6 @@ namespace DataView.ViewModel
                 window = f as Window;
 
                 loginViewModel = new LoginViewModel();
-                homeViewModel = new HomeViewModel();
 
                 Start();
 
@@ -81,7 +80,7 @@ namespace DataView.ViewModel
             switch (internalMessage.Code)
             {
                 case INTERNAL_MESSAGE_CODE.CODE_INTERNAL_MESSAGE_LOGIN_SUCCESS:
-                    CurrentViewModel = homeViewModel;
+                    CurrentViewModel = new HomeViewModel();
                     break;
 
 

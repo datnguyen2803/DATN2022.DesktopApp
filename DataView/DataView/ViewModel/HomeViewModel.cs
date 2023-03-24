@@ -12,6 +12,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using static DataView.Common.Helper.ConstantHelper;
+using static DataView.ViewModel.StationListViewModel;
 
 namespace DataView.ViewModel
 {
@@ -32,9 +33,9 @@ namespace DataView.ViewModel
             get { return _currentContentViewModel; }
             set { SetProperty(ref _currentContentViewModel, value); }
         }
-        private StationListViewModel stationListViewModel { get; set; }
-        private StationViewModel stationViewModel { get; set; }
-        private PumpViewModel pumpViewModel { get; set; }
+        //private StationListViewModel stationListViewModel { get; set; }
+        //private StationViewModel stationViewModel { get; set; }
+        //private PumpViewModel pumpViewModel { get; set; }
 
         
 
@@ -72,20 +73,42 @@ namespace DataView.ViewModel
                     Debug.WriteLine("Changing to station list...");
                     CurrentContentViewModel = new StationListViewModel();
                     CurrentContentCode = INTERNAL_VIEW_CODE.CODE_INTERNAL_VIEW_STATION_LIST;
-                    SelectedSideBarCode = SIDEBAR_ITEM_CODE.SIDEBAR_ITEM_STATION_LIST;
+                    SelectedSideBarCode = SIDEBAR_ITEM_CODE.SIDEBAR_ITEM_HOME;
                     break;
 
                 case INTERNAL_MESSAGE_CODE.CODE_INTERNAL_MESSAGE_CHANGETO_STATION_MENU:
+                    CustomStationModel recStation = (CustomStationModel)internalMessage.Data;
                     Debug.WriteLine("Changing to station menu...");
-                    CurrentContentViewModel = new StationViewModel();
+                    CurrentContentViewModel = new StationViewModel(recStation);
                     CurrentContentCode = INTERNAL_VIEW_CODE.CODE_INTERNAL_VIEW_STATION_MENU;
-                    SelectedSideBarCode = SIDEBAR_ITEM_CODE.SIDEBAR_ITEM_STATION_MENU;
+                    SelectedSideBarCode = SIDEBAR_ITEM_CODE.SIDEBAR_ITEM_HOME;
                     break;
 
                 case INTERNAL_MESSAGE_CODE.CODE_INTERNAL_MESSAGE_CHANGETO_PUMP_MENU:
                     Debug.WriteLine("Changing to pump menu...");
                     CurrentContentViewModel = new PumpViewModel();
                     CurrentContentCode = INTERNAL_VIEW_CODE.CODE_INTERNAL_VIEW_PUMP_MENU;
+                    SelectedSideBarCode = SIDEBAR_ITEM_CODE.SIDEBAR_ITEM_HOME;
+                    break;
+
+                case INTERNAL_MESSAGE_CODE.CODE_INTERNAL_MESSAGE_CHANGETO_PUMP_UPDATE:
+                    Debug.WriteLine("Changing to pump update...");
+                    //CurrentContentViewModel = new PumpViewModel();
+                    CurrentContentCode = INTERNAL_VIEW_CODE.CODE_INTERNAL_VIEW_PUMP_UPDATE;
+                    SelectedSideBarCode = SIDEBAR_ITEM_CODE.SIDEBAR_ITEM_HOME;
+                    break;
+
+                case INTERNAL_MESSAGE_CODE.CODE_INTERNAL_MESSAGE_CHANGETO_CONFIG:
+                    Debug.WriteLine("Changing to Info...");
+                    //CurrentContentViewModel = new PumpViewModel();
+                    CurrentContentCode = INTERNAL_VIEW_CODE.CODE_INTERNAL_VIEW_CONFIG;
+                    SelectedSideBarCode = SIDEBAR_ITEM_CODE.SIDEBAR_ITEM_CONFIG;
+                    break;
+
+                case INTERNAL_MESSAGE_CODE.CODE_INTERNAL_MESSAGE_CHANGETO_ABOUT:
+                    Debug.WriteLine("Changing to About...");
+                    //CurrentContentViewModel = new PumpViewModel();
+                    CurrentContentCode = INTERNAL_VIEW_CODE.CODE_INTERNAL_VIEW_ABOUT;
                     SelectedSideBarCode = SIDEBAR_ITEM_CODE.SIDEBAR_ITEM_ABOUT;
                     break;
 

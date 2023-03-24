@@ -9,7 +9,7 @@ namespace DataView.Common.Helper
 {
     public class ConstantHelper
     {
-        public static readonly string APIURL = "https://localhost:44393/api";
+        public static readonly string APIURL = "http://pumpsmonitor.somee.com/api";
 
         public enum APIResponseCode
         {
@@ -48,7 +48,8 @@ namespace DataView.Common.Helper
             CODE_INTERNAL_MESSAGE_CHANGETO_STATION_MENU,
             CODE_INTERNAL_MESSAGE_CHANGETO_PUMP_MENU,
             CODE_INTERNAL_MESSAGE_CHANGETO_PUMP_UPDATE,
-            CODE_INTERNAL_MESSAGE_CHANGETO_SEARCH,
+            CODE_INTERNAL_MESSAGE_CHANGETO_CONFIG,
+            CODE_INTERNAL_MESSAGE_CHANGETO_ABOUT,
 
             CODE_INTERNAL_MESSAGE_GO_BACK,
 
@@ -66,7 +67,8 @@ namespace DataView.Common.Helper
             CODE_INTERNAL_VIEW_STATION_MENU,
             CODE_INTERNAL_VIEW_PUMP_MENU,
             CODE_INTERNAL_VIEW_PUMP_UPDATE,
-            CODE_INTERNAL_VIEW_SEARCH,
+            CODE_INTERNAL_VIEW_CONFIG,
+            CODE_INTERNAL_VIEW_ABOUT,
 
             CODE_INTERNAL_VIEW_MAX
         }
@@ -75,8 +77,8 @@ namespace DataView.Common.Helper
         {
             SIDEBAR_ITEM_NONE = 0,
 
-            SIDEBAR_ITEM_STATION_LIST,
-            SIDEBAR_ITEM_STATION_MENU,
+            SIDEBAR_ITEM_HOME,
+            SIDEBAR_ITEM_CONFIG,
             SIDEBAR_ITEM_ABOUT,
             SIDEBAR_ITEM_QUIT,
 

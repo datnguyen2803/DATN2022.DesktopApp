@@ -43,6 +43,38 @@ namespace DataView.ViewModel
 
 
 
+        public PumpViewModel()
+        {
+            LoadedWindowCommand = new RelayCommand<Window>((p) => { return true; }, (p) =>
+            {
+                //p.Show();
+            });
+
+
+            PointLabel = chartPoint =>
+                string.Format("{0} ({1:P})", chartPoint.Y, chartPoint.Participation);
+
+            pumpSeriesCollection = new SeriesCollection
+            {
+                new PieSeries
+                {
+                    Title = "Thời gian bật",
+                    Values = new ChartValues<double> { 14 }
+                },
+                new PieSeries
+                {
+                    Title = "Thời gian tắt",
+                    Values = new ChartValues<double> { 10 }
+                },
+            };
+
+
+
+            //    PumpTime = new Collection<PieData>();
+            //    GetDataFromDB();
+
+        }
+
         public PumpViewModel(CustomPumpModel customPumpModel)
         {
             LoadedWindowCommand = new RelayCommand<Window>((p) => { return true; }, (p) =>

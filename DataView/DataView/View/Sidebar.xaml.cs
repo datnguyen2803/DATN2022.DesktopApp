@@ -43,12 +43,12 @@ namespace DataView.View
                     SendToMain(INTERNAL_MESSAGE_CODE.CODE_INTERNAL_MESSAGE_CHANGETO_STATION_LIST);
                     break;
 
-                case "tabItemStation":
-                    SendToMain(INTERNAL_MESSAGE_CODE.CODE_INTERNAL_MESSAGE_CHANGETO_STATION_MENU);
+                case "tabItemConfig":
+                    SendToMain(INTERNAL_MESSAGE_CODE.CODE_INTERNAL_MESSAGE_CHANGETO_CONFIG);
                     break;
 
                 case "tabItemAbout":
-                    SendToMain(INTERNAL_MESSAGE_CODE.CODE_INTERNAL_MESSAGE_CHANGETO_PUMP_MENU);
+                    SendToMain(INTERNAL_MESSAGE_CODE.CODE_INTERNAL_MESSAGE_CHANGETO_ABOUT);
                     break;
 
                 case "tabItemQuit":

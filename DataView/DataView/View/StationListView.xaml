@@ -31,82 +31,86 @@
             <Setter Property="TextAlignment" Value ="Center"/>
         </Style>
     </UserControl.Resources>
-    
 
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="2*"></RowDefinition>
-                <RowDefinition Height="8*"></RowDefinition>
-            </Grid.RowDefinitions>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition Height="8*"></RowDefinition>
+        </Grid.RowDefinitions>
 
-            <TextBlock
-				  Style="{StaticResource MaterialDesignHeadline4TextBlock}"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Center"
-				  Text="Danh sách trạm" />
+        <TextBlock
+				Style="{StaticResource MaterialDesignHeadline4TextBlock}"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+				Text="Danh sách trạm" />
 
-            <ListView Grid.Row="1" Margin="0 0 0 10"
-                ItemsSource="{Binding myStationList}">
-                <ListView.View>
-                    <GridView>
-                        <GridViewColumn
-                            Width="auto">
-                            <GridViewColumn.Header>
-                                <TextBlock Style="{StaticResource TableHeaderTextBlock}" Text="STT"/>
-                            </GridViewColumn.Header>
-                            <GridViewColumn.CellTemplate>
-                                <DataTemplate>
-                                    <TextBlock Style="{StaticResource TableCellTextBlock}" Width="50" Text="{Binding Id}" />
-                                </DataTemplate>
-                            </GridViewColumn.CellTemplate>
-                        </GridViewColumn>
-                        <GridViewColumn
-                            Width="auto">
-                            <GridViewColumn.Header>
-                                <TextBlock Style="{StaticResource TableHeaderTextBlock}" Text="Mã trạm"/>
-                            </GridViewColumn.Header>
-                            <GridViewColumn.CellTemplate>
-                                <DataTemplate>
-                                    <TextBlock Style="{StaticResource TableCellTextBlock}" Width="50" Text="{Binding Name}" />
-                                </DataTemplate>
-                            </GridViewColumn.CellTemplate>
-                        </GridViewColumn>
-                        <GridViewColumn
-                            Width="auto">
-                            <GridViewColumn.Header>
-                                <TextBlock Style="{StaticResource TableHeaderTextBlock}" Text="Địa chỉ"/>
-                            </GridViewColumn.Header>
-                            <GridViewColumn.CellTemplate>
-                                <DataTemplate>
-                                    <TextBlock Style="{StaticResource TableCellTextBlock}" TextAlignment="Left" Width="100" Text="{Binding Address}" />
-                                </DataTemplate>
-                            </GridViewColumn.CellTemplate>
-                        </GridViewColumn>
-                        <GridViewColumn
-                            Width="auto">
-                            <GridViewColumn.Header>
-                                <TextBlock Style="{StaticResource TableHeaderTextBlock}" Text="Số máy bật"/>
-                            </GridViewColumn.Header>
-                            <GridViewColumn.CellTemplate>
-                                <DataTemplate>
-                                    <TextBlock Style="{StaticResource TableCellTextBlock}" Width="50" Text="{Binding numberOfPumpsOn}" />
-                                </DataTemplate>
-                            </GridViewColumn.CellTemplate>
-                        </GridViewColumn>
-                        <GridViewColumn
-                            Width="auto">
-                            <GridViewColumn.Header>
-                                <TextBlock Style="{StaticResource TableHeaderTextBlock}" Text="Số máy tắt"/>
-                            </GridViewColumn.Header>
-                            <GridViewColumn.CellTemplate>
-                                <DataTemplate>
-                                    <TextBlock Style="{StaticResource TableCellTextBlock}" Width="50" Text="{Binding numberOfPumpsOff}" />
-                                </DataTemplate>
-                            </GridViewColumn.CellTemplate>
-                        </GridViewColumn>
-                    </GridView>
-                </ListView.View>
-            </ListView>
-        </Grid>
+        <ListView Grid.Row="1" Margin="0 0 0 10"
+            ItemsSource="{Binding myStationList}" x:Name="StationList">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName = "SelectionChanged">
+                    <i:InvokeCommandAction Command="{Binding SelectStationCommand}" CommandParameter="{Binding ElementName=StationList}" />
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn
+                        Width="auto">
+                        <GridViewColumn.Header>
+                            <TextBlock Style="{StaticResource TableHeaderTextBlock}" Text="STT"/>
+                        </GridViewColumn.Header>
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Style="{StaticResource TableCellTextBlock}" Width="50" Text="{Binding Order}" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn
+                        Width="auto">
+                        <GridViewColumn.Header>
+                            <TextBlock Style="{StaticResource TableHeaderTextBlock}" Text="Mã trạm"/>
+                        </GridViewColumn.Header>
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Style="{StaticResource TableCellTextBlock}" Width="50" Text="{Binding Name}" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn
+                        Width="auto">
+                        <GridViewColumn.Header>
+                            <TextBlock Style="{StaticResource TableHeaderTextBlock}" Text="Địa chỉ"/>
+                        </GridViewColumn.Header>
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Style="{StaticResource TableCellTextBlock}" TextAlignment="Left" Width="100" Text="{Binding Address}" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn
+                        Width="auto">
+                        <GridViewColumn.Header>
+                            <TextBlock Style="{StaticResource TableHeaderTextBlock}" Text="Số máy bật"/>
+                        </GridViewColumn.Header>
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Style="{StaticResource TableCellTextBlock}" Width="50" Text="{Binding numberOfPumpsOn}" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn
+                        Width="auto">
+                        <GridViewColumn.Header>
+                            <TextBlock Style="{StaticResource TableHeaderTextBlock}" Text="Số máy tắt"/>
+                        </GridViewColumn.Header>
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Style="{StaticResource TableCellTextBlock}" Width="50" Text="{Binding numberOfPumpsOff}" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
 
 </UserControl>

@@ -23,6 +23,8 @@
     <UserControl.Resources>
 
         <Style x:Key="PumpCard" TargetType="materialDesign:Card">
+            <Setter Property="Width" Value="180" />
+            <Setter Property="Height" Value="80" />
             <Setter Property="Margin" Value="10" />
             <Setter Property="Padding" Value="8 8 8 8" />
             <Setter Property="Background" Value="White" />
@@ -89,7 +91,69 @@
         
         <!--grid list-->
         <Grid Grid.Row="3">
-            <Grid>
+            <ListBox ItemsSource="{Binding MyPumpList}">
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel/>
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid HorizontalAlignment="Stretch" Margin="3" Width="Auto">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <!-- Grid content here -->
+                            <materialDesign:Card
+                            Style="{StaticResource PumpCard}" Background="{Binding PColor}">
+                                <StackPanel>
+                                    <TextBlock Style="{StaticResource CardTitleText}" Text="{Binding Name}"></TextBlock>
+                                    <TextBlock Style="{StaticResource CardBodyText}" Text="{Binding State}"></TextBlock>
+                                </StackPanel>
+                            </materialDesign:Card>
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            
+            <!--<ListView ItemsSource="{Binding MyPumpList}" HorizontalAlignment="Stretch" Height="auto">
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="{x:Type ListViewItem}">
+                        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                    </Style>
+                </ListView.ItemContainerStyle>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid HorizontalAlignment="Stretch" Margin="3" Width="Auto">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            --><!-- Grid content here --><!--
+                            <materialDesign:Card
+                            Style="{StaticResource PumpCard}" Background="{Binding PColor}">
+                                <StackPanel>
+                                    <TextBlock Style="{StaticResource CardTitleText}" Text="{Binding Name}"></TextBlock>
+                                    <TextBlock Style="{StaticResource CardBodyText}" Text="{Binding State}"></TextBlock>
+                                </StackPanel>
+                            </materialDesign:Card>
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>-->
+
+            <!--<Grid>
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*"/>
@@ -156,7 +220,7 @@
                         </materialDesign:Card>
                     </Grid>
                 </Grid>
-            </Grid>
+            </Grid>-->
         </Grid>
 
         <!--bottom buttons-->

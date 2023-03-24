@@ -27,7 +27,7 @@
 				materialDesign:ColorZoneAssist.Mode="Standard"
 				materialDesign:ElevationAssist.Elevation="Dp0"
 				Style="{StaticResource MaterialDesignNavigationRailTabControl}">
-            <TabItem Name="tabItemHome" MouseUp="tabItemOnClick">
+            <TabItem Name="tabItemHome" MouseDoubleClick="tabItemOnClick">
                 <TabItem.Header>
                     <StackPanel Width="auto" Height="auto">
                         <materialDesign:PackIcon
@@ -39,7 +39,7 @@
                     </StackPanel>
                 </TabItem.Header>
             </TabItem>
-            <TabItem Name="tabItemConfig" MouseUp="tabItemOnClick">
+            <TabItem Name="tabItemConfig" MouseDoubleClick="tabItemOnClick">
                 <TabItem.Header>
                     <StackPanel Width="auto" Height="auto">
                         <materialDesign:PackIcon
@@ -51,7 +51,7 @@
                     </StackPanel>
                 </TabItem.Header>
             </TabItem>
-            <TabItem Name="tabItemAbout" MouseUp="tabItemOnClick">
+            <TabItem Name="tabItemAbout" MouseDoubleClick="tabItemOnClick">
                 <TabItem.Header>
                     <StackPanel
 			                    Width="auto"
@@ -67,7 +67,7 @@
                     </StackPanel>
                 </TabItem.Header>
             </TabItem>
-            <TabItem Name="tabItemQuit" MouseUp="tabItemOnClick">
+            <TabItem Name="tabItemQuit" MouseDoubleClick="tabItemOnClick">
                 <TabItem.Header>
                     <StackPanel
 			                    Width="auto"

@@ -48,11 +48,12 @@ namespace DataView.ViewModel
             BrushConverter converter = new System.Windows.Media.BrushConverter();
             SolidColorBrush greenBrush = (SolidColorBrush)converter.ConvertFromString("#afe1af");
             SolidColorBrush redBrush = (SolidColorBrush)converter.ConvertFromString("#fcd1d6");
+            string BatString = "Bật";
 
             Order = order;
             Name = name;
             State = state;
-            PColor = (state == "Bật") ? greenBrush : redBrush;
+            PColor = (String.Compare(state, BatString) == 0) ? greenBrush : redBrush;
         }
     }
 
@@ -62,7 +63,7 @@ namespace DataView.ViewModel
         #region commands
         #endregion
 
-        public CustomStationModel myStation { get; set; }
+        public string myStationName { get; set; }
         public List<CustomPumpModel> MyPumpList { get; set; }
 
         public SeriesCollection pumpStateCollection { get; set; }
@@ -72,36 +73,36 @@ namespace DataView.ViewModel
         public StationViewModel()
         {
             MyPumpList = new List<CustomPumpModel>();
-            myStation = new CustomStationModel();
+            myStationName = "A";
             GetDataFromDB();
 
-            pumpStateCollection = new SeriesCollection
-            {
-                new ColumnSeries
-                {
-                    Title = "Số máy bật",
-                    Values = new ChartValues<double> { 1, 4, 4, 4 }
-                }
-            };
+            //pumpStateCollection = new SeriesCollection
+            //{
+            //    new ColumnSeries
+            //    {
+            //        Title = "Số máy bật",
+            //        Values = new ChartValues<double> { 1, 4, 4, 4 }
+            //    }
+            //};
 
             //adding series will update and animate the chart automatically
-            pumpStateCollection.Add(new ColumnSeries
-            {
-                Title = "Số máy tắt",
-                Values = new ChartValues<double> { 5, 2, 2, 2 }
-            });
+            //pumpStateCollection.Add(new ColumnSeries
+            //{
+            //    Title = "Số máy tắt",
+            //    Values = new ChartValues<double> { 5, 2, 2, 2 }
+            //});
 
             //also adding values updates and animates the chart automatically
             //pumpStateCollection[1].Values.Add(48d);
 
-            Labels = new[] { "13h", "14h", "15h", "16h" };
-            Formatter = value => value.ToString("N");
+            //Labels = new[] { "13h", "14h", "15h", "16h" };
+            //Formatter = value => value.ToString("N");
         }
 
         public StationViewModel(CustomStationModel customStationModel)
         {
             MyPumpList = new List<CustomPumpModel>();
-            myStation = customStationModel;
+            myStationName = string.Empty;
 
             GetDataFromDB();
 
@@ -132,7 +133,9 @@ namespace DataView.ViewModel
         private void GetDataFromDB()
         {
 
-            List<PumpModel> tempList = IPumpService.GetByStationName(myStation.Name);
+            List<PumpModel> tempList = IPumpService.GetByStationName(myStationName);
+
+            MyPumpList.Clear();
 
             for(int i = 0; i < tempList.Count; i++) 
             {

@@ -33,11 +33,8 @@ namespace DataView.ViewModel
             get { return _currentContentViewModel; }
             set { SetProperty(ref _currentContentViewModel, value); }
         }
-        //private StationListViewModel stationListViewModel { get; set; }
-        //private StationViewModel stationViewModel { get; set; }
-        //private PumpViewModel pumpViewModel { get; set; }
 
-        
+
 
         public HomeViewModel()
         {
@@ -79,7 +76,7 @@ namespace DataView.ViewModel
                 case INTERNAL_MESSAGE_CODE.CODE_INTERNAL_MESSAGE_CHANGETO_STATION_MENU:
                     CustomStationModel recStation = (CustomStationModel)internalMessage.Data;
                     Debug.WriteLine("Changing to station menu...");
-                    CurrentContentViewModel = new StationViewModel(recStation);
+                    CurrentContentViewModel = new StationViewModel();
                     CurrentContentCode = INTERNAL_VIEW_CODE.CODE_INTERNAL_VIEW_STATION_MENU;
                     SelectedSideBarCode = SIDEBAR_ITEM_CODE.SIDEBAR_ITEM_HOME;
                     break;

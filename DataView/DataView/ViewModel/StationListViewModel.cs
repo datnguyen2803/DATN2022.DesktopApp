@@ -5,6 +5,7 @@ using GalaSoft.MvvmLight.Messaging;
 using Prism.Mvvm;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Input;
+using System.Windows.Media;
 using static DataView.Common.Helper.ConstantHelper;
 using static DataView.ViewModel.StationListViewModel;
 
@@ -43,8 +45,8 @@ namespace DataView.ViewModel
             }
 
         }
+        public List<CustomStationModel> myStationList {  get; set; }
 
-        public List<CustomStationModel> myStationList { get; set; }
 
         public CustomStationModel selectedStation { get; set; }
 
@@ -56,7 +58,59 @@ namespace DataView.ViewModel
             GetDataFromDB();
 
             SelectStationCommand = new RelayCommand<ListView>((p) => { return true; }, (p) => { SelectStationHandler(p); });
-    }
+
+            //Task.Factory.StartNew(async () =>
+            //{
+            //    System.Threading.Thread.Sleep(10);
+            //    await LoadDataAsync();
+            //});
+        }
+
+        //private async Task LoadDataAsync()
+        //{
+        //    while (true)
+        //    {
+        //        try
+        //        {
+        //            List<StationModel> tempStationList = IStationService.GetAll();
+
+        //            if (tempStationList == null)
+        //            {
+        //                return;
+        //            }
+
+        //            myStationList.Clear();
+        //            for (int i = 0; i < tempStationList.Count; i++)
+        //            {
+        //                StationModel tempStation = tempStationList[i];
+
+        //                int numberOfPumpsOn = IPumpService.GetNumberOfPumpsOn(tempStation.Name);
+        //                int numberOfPumpsOff = IPumpService.GetNumberOfPumpsOff(tempStation.Name);
+
+        //                CustomStationModel tempCustomStation = new CustomStationModel()
+        //                {
+        //                    Order = i + 1,
+        //                    Name = tempStation.Name,
+        //                    Address = tempStation.Address,
+        //                    numberOfPumpsOn = numberOfPumpsOn,
+        //                    numberOfPumpsOff = numberOfPumpsOff
+        //                };
+
+        //                myStationList.Add(tempCustomStation);
+
+        //            }
+        //            RaisePropertyChanged("myStationList");
+        //            System.Threading.Thread.Sleep(1000);
+        //        }
+        //        catch (Exception)
+        //        {
+
+        //        }
+
+        //    }
+
+        //}
+
 
         private void GetDataFromDB()
         {
@@ -96,6 +150,8 @@ namespace DataView.ViewModel
                 return;
             }
 
+            myStationList.Clear();
+
             for(int i = 0; i < tempStationList.Count; i++)
             {
                 StationModel tempStation = tempStationList[i];
@@ -129,6 +185,26 @@ namespace DataView.ViewModel
             InternalMessage newMess = new InternalMessage(_code, _message);
             Messenger.Default.Send(newMess);
         }
+
+        #region INotifyPropertyChanged Members
+
+        /// <summary>
+        /// Raises the 'PropertyChanged' event when the value of a property of the view model has changed.
+        /// </summary>
+        private void OnPropertyChanged(string name)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(name));
+            }
+        }
+
+        /// <summary>
+        /// 'PropertyChanged' event that is raised when the value of a property of the view model has changed.
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        #endregion
 
     }
 }

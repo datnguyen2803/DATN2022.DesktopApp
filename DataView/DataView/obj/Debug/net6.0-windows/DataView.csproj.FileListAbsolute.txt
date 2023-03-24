@@ -163,11 +163,12 @@ D:\Personal\DATN2022\DATN2022.DesktopApp\DataView\DataView\obj\Debug\net6.0-wind
 D:\Personal\DATN2022\DATN2022.DesktopApp\DataView\DataView\obj\Debug\net6.0-windows\DataView.pdb
 D:\Personal\DATN2022\DATN2022.DesktopApp\DataView\DataView\obj\Debug\net6.0-windows\DataView.genruntimeconfig.cache
 D:\Personal\DATN2022\DATN2022.DesktopApp\DataView\DataView\obj\Debug\net6.0-windows\ref\DataView.dll
+D:\Personal\DATN2022\DATN2022.DesktopApp\DataView\DataView\obj\Debug\net6.0-windows\View\Sidebar.g.cs
+D:\Personal\DATN2022\DATN2022.DesktopApp\DataView\DataView\obj\Debug\net6.0-windows\View\Sidebar.baml
+D:\1BK\DATN20221\DATN2022.DesktopApp\DataView\DataView\bin\Debug\net6.0-windows\DataView.dll
 D:\1BK\DATN20221\DATN2022.DesktopApp\DataView\DataView\bin\Debug\net6.0-windows\DataView.exe
 D:\1BK\DATN20221\DATN2022.DesktopApp\DataView\DataView\bin\Debug\net6.0-windows\DataView.deps.json
 D:\1BK\DATN20221\DATN2022.DesktopApp\DataView\DataView\bin\Debug\net6.0-windows\DataView.runtimeconfig.json
-D:\1BK\DATN20221\DATN2022.DesktopApp\DataView\DataView\bin\Debug\net6.0-windows\DataView.dll
-D:\1BK\DATN20221\DATN2022.DesktopApp\DataView\DataView\bin\Debug\net6.0-windows\DataView.pdb
 D:\1BK\DATN20221\DATN2022.DesktopApp\DataView\DataView\bin\Debug\net6.0-windows\CommonServiceLocator.dll
 D:\1BK\DATN20221\DATN2022.DesktopApp\DataView\DataView\bin\Debug\net6.0-windows\LiveCharts.dll
 D:\1BK\DATN20221\DATN2022.DesktopApp\DataView\DataView\bin\Debug\net6.0-windows\LiveCharts.Wpf.dll
@@ -244,6 +245,5 @@ D:\1BK\DATN20221\DATN2022.DesktopApp\DataView\DataView\obj\Debug\net6.0-windows\
 D:\1BK\DATN20221\DATN2022.DesktopApp\DataView\DataView\obj\Debug\net6.0-windows\refint\DataView.dll
 D:\1BK\DATN20221\DATN2022.DesktopApp\DataView\DataView\obj\Debug\net6.0-windows\DataView.pdb
 D:\1BK\DATN20221\DATN2022.DesktopApp\DataView\DataView\obj\Debug\net6.0-windows\DataView.genruntimeconfig.cache
+D:\1BK\DATN20221\DATN2022.DesktopApp\DataView\DataView\bin\Debug\net6.0-windows\DataView.pdb
 D:\1BK\DATN20221\DATN2022.DesktopApp\DataView\DataView\obj\Debug\net6.0-windows\ref\DataView.dll
-D:\Personal\DATN2022\DATN2022.DesktopApp\DataView\DataView\obj\Debug\net6.0-windows\View\Sidebar.g.cs
-D:\Personal\DATN2022\DATN2022.DesktopApp\DataView\DataView\obj\Debug\net6.0-windows\View\Sidebar.baml
